@@ -1,6 +1,6 @@
 /* ============================================
    DIPLOMA NOTES - RECENTLY VIEWED COMPONENT
-   Shows recently viewed subjects
+   Shows recently viewed subjects (device-specific limits)
    ============================================ */
 
 const RecentlyViewedComponent = {
@@ -37,6 +37,15 @@ const RecentlyViewedComponent = {
   },
   
   /**
+   * Get max items based on device
+   * @returns {number} Max items to show
+   */
+  getMaxItems() {
+    const isMobile = window.innerWidth < 768;
+    return isMobile ? 2 : 3;
+  },
+  
+  /**
    * Render recently viewed section
    * @param {string} containerId - Container element ID
    * @param {string} sectionId - Section element ID
@@ -45,10 +54,19 @@ const RecentlyViewedComponent = {
     const container = document.getElementById(containerId);
     const section = document.getElementById(sectionId);
     
-    if (!container) return;
+    if (!container) {
+      console.error('Recently viewed container not found:', containerId);
+      return;
+    }
     
     // Get recently viewed items
-    const items = StorageManager.getRecentlyViewed();
+    let items = StorageManager.getRecentlyViewed();
+    
+    // Limit items based on device
+    const maxItems = this.getMaxItems();
+    items = items.slice(0, maxItems);
+    
+    console.log(`Recently viewed: Showing ${items.length} of max ${maxItems} items`);
     
     // Hide section if no items
     if (items.length === 0) {
@@ -67,5 +85,36 @@ const RecentlyViewedComponent = {
       const card = this.create(item);
       container.appendChild(card);
     });
+    
+    // Re-render on window resize (device change)
+    this.setupResizeHandler(containerId, sectionId);
+  },
+  
+  /**
+   * Setup resize handler to re-render on device change
+   * @param {string} containerId - Container element ID
+   * @param {string} sectionId - Section element ID
+   */
+  setupResizeHandler(containerId, sectionId) {
+    // Debounce resize events
+    let resizeTimer;
+    
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        console.log('Window resized, re-rendering recently viewed...');
+        this.render(containerId, sectionId);
+      }, 300);
+    };
+    
+    // Remove old listener if exists
+    window.removeEventListener('resize', this._resizeHandler);
+    
+    // Add new listener
+    this._resizeHandler = handleResize;
+    window.addEventListener('resize', handleResize);
   }
 };
+
+// Debug log
+console.log('RecentlyViewedComponent loaded');
