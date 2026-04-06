@@ -1,0 +1,133 @@
+/* ============================================
+   DIPLOMA NOTES - RESPONSIVE STYLES
+   Mobile-first responsive utilities
+   ============================================ */
+
+/* ===== MOBILE UTILITIES ===== */
+
+/* Hide on mobile */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Show only on mobile */
+.show-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .show-mobile {
+    display: none !important;
+  }
+}
+
+/* ===== TABLET UTILITIES ===== */
+
+/* Hide on tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+/* Show only on tablet */
+.show-tablet {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .show-tablet {
+    display: block !important;
+  }
+}
+
+/* ===== DESKTOP UTILITIES ===== */
+
+/* Hide on desktop */
+@media (min-width: 1024px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Show only on desktop */
+.show-desktop {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .show-desktop {
+    display: block !important;
+  }
+}
+
+/* ===== RESPONSIVE TEXT SIZES ===== */
+
+@media (max-width: 767px) {
+  .text-responsive-xl {
+    font-size: var(--text-lg);
+  }
+  
+  .text-responsive-2xl {
+    font-size: var(--text-xl);
+  }
+  
+  .text-responsive-3xl {
+    font-size: var(--text-2xl);
+  }
+  
+  .text-responsive-4xl {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* ===== RESPONSIVE SPACING ===== */
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+  
+  section {
+    padding: var(--space-8) 0;
+  }
+}
+
+/* ===== RESPONSIVE FLEX ===== */
+
+.flex-mobile-column {
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  .flex-mobile-column {
+    flex-direction: column;
+  }
+}
+
+/* ===== RESPONSIVE GRID ===== */
+
+.grid-responsive {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (max-width: 767px) {
+  .grid-responsive {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "branchId": "electrical",
+  "branchName": "Electrical Engineering",
+  "semesters": [
+    {
+      "number": 1,
+      "subjects": [
+        {
+          "id": "mathematics-1",
+          "code": "MATH101",
+          "name": "Engineering Mathematics - I",
+          "description": "Calculus, differential equations, and mathematical foundations",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "physics",
+          "code": "PHY101",
+          "name": "Engineering Physics",
+          "description": "Mechanics, waves, optics, and modern physics",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "basic-electrical",
+          "code": "EE101",
+          "name": "Basic Electrical Engineering",
+          "description": "DC circuits, AC fundamentals, and electrical measurements",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "engineering-drawing",
+          "code": "ME101",
+          "name": "Engineering Drawing",
+          "description": "Technical drawing, projections, and CAD basics",
+          "units": 5,
+          "credits": 3,
+          "type": "practical"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "subjects": [
+        {
+          "id": "mathematics-2",
+          "code": "MATH102",
+          "name": "Engineering Mathematics - II",
+          "description": "Linear algebra, complex analysis, and Fourier series",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "chemistry",
+          "code": "CHEM101",
+          "name": "Engineering Chemistry",
+          "description": "Chemical bonding, thermodynamics, and electrochemistry",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "electrical-circuits",
+          "code": "EE102",
+          "name": "Electrical Circuits",
+          "description": "Network theorems, AC circuits, and resonance",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "workshop-practice",
+          "code": "ME102",
+          "name": "Workshop Practice",
+          "description": "Fitting, welding, machining, and safety practices",
+          "units": 5,
+          "credits": 3,
+          "type": "practical"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "subjects": [
+        {
+          "id": "power-generation",
+          "code": "EE301",
+          "name": "Basics of Power Generation Systems",
+          "description": "Thermal, hydro, nuclear power plants and renewable energy",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "electric-machine-1",
+          "code": "EE302",
+          "name": "Electric Machine - I",
+          "description": "DC machines, transformers, and their applications",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "electrical-circuits-2",
+          "code": "EE303",
+          "name": "Electrical Circuits - II",
+          "description": "Three-phase circuits, transient analysis, and two-port networks",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "electronics-measurements",
+          "code": "EE304",
+          "name": "Electrical & Electronics Measurements",
+          "description": "Measuring instruments, bridges, and digital meters",
+          "units": 5,
+          "credits": 3,
+          "type": "theory"
+        },
+        {
+          "id": "advance-skill",
+          "code": "EE305",
+          "name": "Advance Skill Certification",
+          "description": "Industry-oriented skill development program",
+          "units": 0,
+          "credits": 2,
+          "type": "open-elective"
+        },
+        {
+          "id": "industry-training",
+          "code": "EE306",
+          "name": "Industry Training",
+          "description": "Mandatory summer training after semester completion",
+          "units": 0,
+          "credits": 2,
+          "type": "mandatory"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "subjects": [
+        {
+          "id": "electric-machine-2",
+          "code": "EE401",
+          "name": "Electric Machine - II",
+          "description": "Induction motors, synchronous machines, and special machines",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "power-systems",
+          "code": "EE402",
+          "name": "Power Systems",
+          "description": "Transmission, distribution, and protection of electrical power",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "control-systems",
+          "code": "EE403",
+          "name": "Control Systems",
+          "description": "Feedback control, stability analysis, and controllers",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "electronics",
+          "code": "EE404",
+          "name": "Electronics Engineering",
+          "description": "Semiconductor devices, amplifiers, and oscillators",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "subjects": [
+        {
+          "id": "microprocessor",
+          "code": "EE501",
+          "name": "Microprocessor & Microcontroller",
+          "description": "8085, 8086 microprocessors and 8051 microcontroller",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "electrical-installation",
+          "code": "EE502",
+          "name": "Electrical Installation & Maintenance",
+          "description": "Wiring, earthing, and electrical safety practices",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "utilization",
+          "code": "EE503",
+          "name": "Utilization of Electrical Energy",
+          "description": "Illumination, heating, welding, and traction",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "power-electronics",
+          "code": "EE504",
+          "name": "Power Electronics",
+          "description": "Converters, inverters, and power control devices",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "subjects": [
+        {
+          "id": "renewable-energy",
+          "code": "EE601",
+          "name": "Renewable Energy Sources",
+          "description": "Solar, wind, and other renewable energy technologies",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "electrical-design",
+          "code": "EE602",
+          "name": "Electrical Design & Drawing",
+          "description": "Circuit design, panel layout, and CAD applications",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "plc-scada",
+          "code": "EE603",
+          "name": "PLC & SCADA",
+          "description": "Programmable logic controllers and supervisory systems",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "project",
+          "code": "EE604",
+          "name": "Major Project",
+          "description": "Final year project with industry application",
+          "units": 0,
+          "credits": 6,
+          "type": "project"
+        }
+      ]
+    }
+  ]
+}

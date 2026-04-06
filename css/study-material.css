@@ -1,0 +1,460 @@
+/* ============================================
+   DIPLOMA NOTES - STUDY MATERIAL PAGE
+   Notes, Practicals, Videos, PYQs (Image 2 & 3)
+   ============================================ */
+
+/* ===== BREADCRUMB ===== */
+
+.breadcrumb {
+  background-color: var(--color-gray-50);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-gray-200);
+  margin-bottom: var(--space-6);
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+}
+
+.breadcrumb-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-link:hover {
+  color: var(--color-primary-dark);
+}
+
+.breadcrumb-separator {
+  color: var(--color-gray-400);
+}
+
+/* ===== STUDY MATERIAL HEADER ===== */
+
+.study-material-header {
+  margin-bottom: var(--space-8);
+}
+
+.study-material-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.study-material-subtitle {
+  font-size: var(--text-base);
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 767px) {
+  .study-material-title {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* ===== STUDY TABS ===== */
+
+.study-tabs {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 2px solid var(--color-gray-200);
+  margin-bottom: var(--space-6);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.study-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.study-tab {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-gray-600);
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+  bottom: -2px;
+}
+
+.study-tab:hover {
+  color: var(--color-primary);
+  background-color: var(--color-gray-50);
+}
+
+.study-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  background-color: transparent;
+}
+
+/* ===== TAB CONTENT ===== */
+
+.study-tab-content {
+  display: none;
+}
+
+.study-tab-content.active {
+  display: block;
+  animation: fadeInUp var(--transition-base);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-description {
+  font-size: var(--text-base);
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background-color: var(--color-gray-50);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+}
+
+/* ===== UNITS LIST ===== */
+
+.units-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Enhanced Unit Item */
+.unit-item-number {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-primary-lighter);
+  color: var(--color-primary-dark);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  margin-right: var(--space-3);
+}
+
+.unit-item-title-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* ===== PRACTICALS LIST ===== */
+
+.practicals-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.practical-item-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-700);
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  margin-right: var(--space-2);
+}
+
+/* Virtual Lab Button */
+.btn-virtual-lab {
+  background-color: var(--color-accent-green);
+  color: var(--color-white);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--border-radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.btn-virtual-lab:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-virtual-lab svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== VIDEO TUTORIALS ===== */
+
+.videos-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .videos-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.video-item {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  display: block;
+}
+
+.video-item:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background-color: var(--color-gray-900);
+  overflow: hidden;
+}
+
+.video-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  background-color: rgba(37, 99, 235, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.video-item:hover .video-play-button {
+  background-color: var(--color-primary);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-play-button svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-white);
+  margin-left: 4px;
+}
+
+.video-duration {
+  position: absolute;
+  bottom: var(--space-2);
+  right: var(--space-2);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--color-white);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+}
+
+.video-info {
+  padding: var(--space-4);
+}
+
+.video-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-normal);
+}
+
+.video-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+}
+
+.video-views,
+.video-date {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* ===== PYQs LIST ===== */
+
+.pyqs-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pyq-item {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-5);
+  transition: all var(--transition-fast);
+}
+
+.pyq-item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light);
+}
+
+.pyq-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.pyq-item-info {
+  flex: 1;
+}
+
+.pyq-item-year {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+
+.pyq-item-exam {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+}
+
+.pyq-item-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.pyq-item-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+}
+
+.pyq-item-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.pyq-item-meta-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== EMPTY STATES ===== */
+
+.content-empty {
+  text-align: center;
+  padding: var(--space-16) var(--space-4);
+}
+
+.content-empty-icon {
+  font-size: 64px;
+  margin-bottom: var(--space-4);
+  opacity: 0.3;
+}
+
+.content-empty-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.content-empty-description {
+  font-size: var(--text-base);
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-6);
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .unit-item-header,
+  .pyq-item-header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .unit-item-actions,
+  .pyq-item-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .unit-item-actions .btn,
+  .pyq-item-actions .btn {
+    flex: 1;
+  }
+  
+  .practical-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .practical-item-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+}

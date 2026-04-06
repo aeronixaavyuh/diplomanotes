@@ -1,0 +1,261 @@
+{
+  "branchId": "chemical",
+  "branchName": "Chemical Engineering",
+  "semesters": [
+    {
+      "number": 1,
+      "subjects": [
+        {
+          "id": "mathematics-1",
+          "code": "MATH101",
+          "name": "Engineering Mathematics - I",
+          "description": "Calculus, differential equations, and mathematical foundations",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "physics",
+          "code": "PHY101",
+          "name": "Engineering Physics",
+          "description": "Mechanics, waves, optics, and modern physics",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "basic-chemistry",
+          "code": "CHEM101",
+          "name": "Basic Chemical Engineering",
+          "description": "Introduction to chemical processes and reactions",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "engineering-drawing",
+          "code": "ME101",
+          "name": "Engineering Drawing",
+          "description": "Technical drawing, projections, and CAD basics",
+          "units": 5,
+          "credits": 3,
+          "type": "practical"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "subjects": [
+        {
+          "id": "mathematics-2",
+          "code": "MATH102",
+          "name": "Engineering Mathematics - II",
+          "description": "Linear algebra, complex analysis, and Fourier series",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "organic-chemistry",
+          "code": "CHEM102",
+          "name": "Organic Chemistry",
+          "description": "Hydrocarbons, functional groups, and organic reactions",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "inorganic-chemistry",
+          "code": "CHEM103",
+          "name": "Inorganic Chemistry",
+          "description": "Periodic table, coordination compounds, and metallurgy",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "workshop-practice",
+          "code": "ME102",
+          "name": "Workshop Practice",
+          "description": "Fitting, welding, machining, and safety practices",
+          "units": 5,
+          "credits": 3,
+          "type": "practical"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "subjects": [
+        {
+          "id": "physical-chemistry",
+          "code": "CHEM301",
+          "name": "Physical Chemistry",
+          "description": "Thermodynamics, kinetics, and electrochemistry",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "chemical-process",
+          "code": "CHEM302",
+          "name": "Chemical Process Calculations",
+          "description": "Material and energy balances in chemical processes",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "fluid-mechanics",
+          "code": "CHEM303",
+          "name": "Fluid Mechanics",
+          "description": "Fluid flow, pressure drop, and flow measurement",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "heat-transfer",
+          "code": "CHEM304",
+          "name": "Heat Transfer",
+          "description": "Conduction, convection, and radiation heat transfer",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "subjects": [
+        {
+          "id": "mass-transfer",
+          "code": "CHEM401",
+          "name": "Mass Transfer Operations",
+          "description": "Distillation, absorption, extraction, and drying",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "chemical-reaction",
+          "code": "CHEM402",
+          "name": "Chemical Reaction Engineering",
+          "description": "Reactor design, kinetics, and catalysis",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "process-equipment",
+          "code": "CHEM403",
+          "name": "Process Equipment Design",
+          "description": "Design of heat exchangers, reactors, and columns",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "analytical-chemistry",
+          "code": "CHEM404",
+          "name": "Analytical Chemistry",
+          "description": "Quantitative and qualitative chemical analysis",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "subjects": [
+        {
+          "id": "industrial-chemistry",
+          "code": "CHEM501",
+          "name": "Industrial Chemistry",
+          "description": "Manufacturing of chemicals, fertilizers, and polymers",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "process-control",
+          "code": "CHEM502",
+          "name": "Process Control & Instrumentation",
+          "description": "Control systems, sensors, and automation",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "petroleum-refining",
+          "code": "CHEM503",
+          "name": "Petroleum Refining",
+          "description": "Crude oil processing and petrochemicals",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "environmental-engg",
+          "code": "CHEM504",
+          "name": "Environmental Engineering",
+          "description": "Pollution control and waste treatment",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "subjects": [
+        {
+          "id": "process-simulation",
+          "code": "CHEM601",
+          "name": "Process Simulation & Optimization",
+          "description": "Computer-aided process design and optimization",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "biochemical-engg",
+          "code": "CHEM602",
+          "name": "Biochemical Engineering",
+          "description": "Fermentation, bioreactors, and bioprocesses",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "plant-design",
+          "code": "CHEM603",
+          "name": "Chemical Plant Design",
+          "description": "Process flowsheet, equipment layout, and economics",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "project",
+          "code": "CHEM604",
+          "name": "Major Project",
+          "description": "Final year project with industry application",
+          "units": 0,
+          "credits": 6,
+          "type": "project"
+        },
+       {
+          "id": "project",
+          "code": "CHEM604",
+          "name": "Main Project",
+          "description": "Final year project with industry application",
+          "units": 0,
+          "credits": 6,
+          "type": "project"
+        }
+      ]
+    }
+  ]
+}

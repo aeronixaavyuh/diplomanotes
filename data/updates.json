@@ -1,0 +1,52 @@
+{
+  "updates": [
+    {
+      "id": "update-001",
+      "type": "exam",
+      "title": "Diploma Semester Exam Form 2025 Released",
+      "description": "Semester examination forms for all branches are now available. Last date: 22 Dec 2025.",
+      "date": "2025-12-22",
+      "url": "#"
+    },
+    {
+      "id": "update-002",
+      "type": "job",
+      "title": "Junior Engineer Recruitment 2026 — Apply Now",
+      "description": "Government department recruiting Junior Engineers for various departments. Apply before deadline.",
+      "date": "2025-12-22",
+      "url": "#"
+    },
+    {
+      "id": "update-003",
+      "type": "result",
+      "title": "Polytechnic Semester Results 2024-25 Declared",
+      "description": "Results for odd semester examinations have been declared. Check your results on official portal.",
+      "date": "2025-12-22",
+      "url": "#"
+    },
+    {
+      "id": "update-004",
+      "type": "exam",
+      "title": "Practical Exam Schedule Announced",
+      "description": "Practical examination schedule for semester 3 and 5 has been released.",
+      "date": "2025-12-20",
+      "url": "#"
+    },
+    {
+      "id": "update-005",
+      "type": "job",
+      "title": "Campus Placement Drive - Tech Companies",
+      "description": "Multiple tech companies visiting campus for placement drives in January 2026.",
+      "date": "2025-12-18",
+      "url": "#"
+    },
+    {
+      "id": "update-006",
+      "type": "result",
+      "title": "Backlog Exam Results Published",
+      "description": "Results for backlog examinations are now available on the student portal.",
+      "date": "2025-12-15",
+      "url": "#"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "contributors": [
+    {
+      "id": "contrib-001",
+      "name": "Rohit Sharma",
+      "branch": "Electrical Engineering",
+      "contribution": "Provided semester 3 Machines notes and Generated 5 PYQs",
+      "avatar": "assets/images/contributors/rohit.jpg",
+      "linkedin": "https://www.linkedin.com/in/rohit-sharma",
+      "github": null,
+      "visible": true
+    },
+    {
+      "id": "contrib-002",
+      "name": "Priya Verma",
+      "branch": "Chemical Engineering",
+      "contribution": "Provided semester 4 PYQs",
+      "avatar": "assets/images/contributors/priya.jpg",
+      "linkedin": "https://www.linkedin.com/in/priya-verma",
+      "github": "https://github.com/priyaverma",
+      "visible": true
+    },
+    {
+      "id": "contrib-003",
+      "name": "Ankit Rawat",
+      "branch": "Mechanical Engineering",
+      "contribution": "Provided Automobile notes and Generated 5 PYQs",
+      "avatar": "assets/images/contributors/ankit.jpg",
+      "linkedin": "https://www.linkedin.com/in/ankit-rawat",
+      "github": null,
+      "visible": true
+    }
+  ]
+}

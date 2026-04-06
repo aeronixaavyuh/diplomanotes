@@ -1,0 +1,211 @@
+{
+  "subjectId": "electric-machine-1",
+  "subjectName": "Electric Machine - I",
+  "subjectCode": "EE302",
+  "branchId": "electrical",
+  "branchName": "Electrical Engineering",
+  "semester": 3,
+  "totalUnits": 5,
+  
+  "notes": [
+    {
+      "id": "unit-1",
+      "unitNumber": 1,
+      "title": "Single Phase A.C Series Circuits",
+      "summary": "Sinusoidal Quantities: Instantaneous, Peak, Average and effective value, Form Factor. R, L, C and R-L series circuit. Draw phasor diagram.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/unit-1.pdf",
+      "pages": 45,
+      "fileSize": "2.3 MB",
+      "uploadDate": "2024-01-15",
+      "downloads": 1245
+    },
+    {
+      "id": "unit-2",
+      "unitNumber": 2,
+      "title": "Single Phase A.C Parallel Circuits",
+      "summary": "R-L and R-L-C parallel combination of A.C circuits. Resonance in series and parallel circuits. Draw phasor diagram.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/unit-2.pdf",
+      "pages": 38,
+      "fileSize": "1.9 MB",
+      "uploadDate": "2024-01-20",
+      "downloads": 1089
+    },
+    {
+      "id": "unit-3",
+      "unitNumber": 3,
+      "title": "Three Phase Circuits",
+      "summary": "Concept of generation of 3-phase alternating voltage. Draw phasor diagram. Advantages of 3-phase system over single phase system. Delta and Star connections.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/unit-3.pdf",
+      "pages": 52,
+      "fileSize": "2.7 MB",
+      "uploadDate": "2024-02-05",
+      "downloads": 1320
+    },
+    {
+      "id": "unit-4",
+      "unitNumber": 4,
+      "title": "Network Reduction and Principles of Circuits Analysis",
+      "summary": "Concept of voltage and current sources. Delta-star and star-delta transformations. Thevenin's theorem, Norton's theorem. Maximum power Transfer theorem.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/unit-4.pdf",
+      "pages": 41,
+      "fileSize": "2.1 MB",
+      "uploadDate": "2024-02-18",
+      "downloads": 987
+    },
+    {
+      "id": "unit-5",
+      "unitNumber": 5,
+      "title": "Network Theorems",
+      "summary": "Superposition theorem, Thevenin's theorem, Norton's theorem. Maximum load resistance to create resonance in given R-L series P arallel or by using variable inductor or variable capacitor.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/unit-5.pdf",
+      "pages": 47,
+      "fileSize": "2.4 MB",
+      "uploadDate": "2024-03-02",
+      "downloads": 1156
+    }
+  ],
+  
+  "practicals": [
+    {
+      "id": "practical-1",
+      "practicalNumber": 1,
+      "title": "Use voltmeter, ammeter, wattmeter to determine active, reactive and apparent power consumed in given R-L series circuit. Draw phasor diagram.",
+      "description": "Hands-on experiment to measure electrical parameters in R-L series circuits and understand power relationships.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/practical-1.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/rl-series-circuit",
+      "duration": "2 hours",
+      "fileSize": "1.2 MB"
+    },
+    {
+      "id": "practical-2",
+      "practicalNumber": 2,
+      "title": "Use voltmeter, ammeter, to determine active, reactive and apparent power consumed in given R-C series circuit. Draw phasor diagram.",
+      "description": "Measurement and analysis of power in R-C circuits with phasor representation.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/practical-2.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/rc-series-circuit",
+      "duration": "2 hours",
+      "fileSize": "1.1 MB"
+    },
+    {
+      "id": "practical-3",
+      "practicalNumber": 3,
+      "title": "Use voltmeter, ammeter, wattmeter to determine active, reactive and apparent power consumed in given R-L-C series circuit. Draw phasor diagram.",
+      "description": "Complete analysis of RLC series circuits including resonance conditions.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/practical-3.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/rlc-series-circuit",
+      "duration": "2 hours",
+      "fileSize": "1.3 MB"
+    },
+    {
+      "id": "practical-4",
+      "practicalNumber": 4,
+      "title": "Use voltmeter, ammeter to determine equivalent circuit parameter in given R-L Parallel circuit. Draw phasor diagram.",
+      "description": "Understanding parallel circuit behavior and parameter calculation.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/practical-4.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/rl-parallel-circuit",
+      "duration": "2 hours",
+      "fileSize": "1.0 MB"
+    },
+    {
+      "id": "practical-5",
+      "practicalNumber": 5,
+      "title": "Use variable frequency supply to create resonance in given series R-L-C circuit or by using variable inductor or variable capacitor.",
+      "description": "Experimental study of resonance phenomenon in RLC circuits.",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/practical-5.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/resonance-circuit",
+      "duration": "2 hours",
+      "fileSize": "1.4 MB"
+    }
+  ],
+  
+  "videos": [
+    {
+      "id": "video-1",
+      "title": "AC Circuit Analysis - Complete Tutorial",
+      "description": "Comprehensive video covering AC circuit fundamentals, phasor diagrams, and power calculations.",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "duration": "45:30",
+      "views": "125K",
+      "uploadDate": "2024-01-10",
+      "channel": "Electrical Engineering Academy"
+    },
+    {
+      "id": "video-2",
+      "title": "Three Phase Circuits Explained",
+      "description": "Detailed explanation of three-phase systems, star-delta connections, and balanced loads.",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "duration": "38:15",
+      "views": "98K",
+      "uploadDate": "2024-01-25",
+      "channel": "EE Tutorials"
+    },
+    {
+      "id": "video-3",
+      "title": "Network Theorems - Thevenin & Norton",
+      "description": "Step-by-step guide to applying Thevenin's and Norton's theorems with solved examples.",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "duration": "52:00",
+      "views": "210K",
+      "uploadDate": "2024-02-08",
+      "channel": "Engineering Simplified"
+    },
+    {
+      "id": "video-4",
+      "title": "Resonance in AC Circuits",
+      "description": "Understanding series and parallel resonance with practical demonstrations.",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "duration": "35:20",
+      "views": "87K",
+      "uploadDate": "2024-02-20",
+      "channel": "Circuit Theory Pro"
+    }
+  ],
+  
+  "pyqs": [
+    {
+      "id": "pyq-2024",
+      "year": 2024,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/pyq-2024.pdf",
+      "pages": 4,
+      "fileSize": "856 KB",
+      "downloads": 2345
+    },
+    {
+      "id": "pyq-2023",
+      "year": 2023,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/pyq-2023.pdf",
+      "pages": 4,
+      "fileSize": "782 KB",
+      "downloads": 1987
+    },
+    {
+      "id": "pyq-2022",
+      "year": 2022,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/pyq-2022.pdf",
+      "pages": 4,
+      "fileSize": "801 KB",
+      "downloads": 1654
+    },
+    {
+      "id": "pyq-2021",
+      "year": 2021,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/pyq-2021.pdf",
+      "pages": 4,
+      "fileSize": "768 KB",
+      "downloads": 1432
+    },
+    {
+      "id": "pyq-2020",
+      "year": 2020,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/sem3/electric-machine-1/pyq-2020.pdf",
+      "pages": 4,
+      "fileSize": "823 KB",
+      "downloads": 1289
+    }
+  ]
+}

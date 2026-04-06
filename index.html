@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Diploma Notes - Engineering notes, PYQs & study resources built by students for polytechnic students">
+  <meta name="keywords" content="diploma notes, polytechnic, engineering, study material, PYQs">
+  <meta name="author" content="Diploma Notes">
+  
+  <title>Diploma Notes - Engineering Notes, PYQs & Study Resources</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/_variables.css">
+  <link rel="stylesheet" href="css/_reset.css">
+  <link rel="stylesheet" href="css/_base.css">
+  <link rel="stylesheet" href="css/_components.css">
+  <link rel="stylesheet" href="css/_layout.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="data/branches.json" as="fetch" crossorigin>
+</head>
+<body>
+  
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <!-- Logo -->
+      <a href="index.html" class="navbar-logo">
+        <span class="navbar-logo-diploma">Diploma</span> Notes
+      </a>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="navbar-toggle" aria-label="Toggle menu" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <!-- Navigation Menu -->
+      <div class="navbar-menu" id="navMenu">
+        <a href="index.html" class="navbar-link active">Home</a>
+        <a href="#branches" class="navbar-link">Branches</a>
+        <a href="#updates" class="navbar-link">Updates</a>
+        <a href="syllabus.html" class="navbar-link">Syllabus</a>
+        <a href="about.html" class="navbar-link">About</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-container">
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Diploma Engineering Notes, PYQs & Study Resources
+          </h1>
+          <p class="hero-description">
+            Notes, PYQs, practicals, free and video tutorials for Electrical, Mechanical and Chemical diploma students in one place.
+          </p>
+          <p class="hero-tagline">
+            Built by students. Reviewed with faculty guidance.
+          </p>
+          <div class="hero-actions">
+            <a href="#branches" class="btn btn-primary btn-lg">Explore Branches</a>
+            <a href="#updates" class="btn btn-outline btn-lg">Latest Updates</a>
+          </div>
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="hero-image">
+          <img src="assets/images/hero/studying-rafiki.png" alt="Student studying illustration" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== INFO SECTION ===== -->
+  <section class="info-section">
+    <div class="container">
+      <div class="info-content">
+        <!-- Image -->
+        <div class="info-image">
+          <img src="assets/images/government_Polytechnic_Jamuniya_Deeh_Harakh_Barabanki.webp" alt="Government Polytechnic Jamuniya Deeh Harakh Barabanki" loading="lazy">
+        </div>
+        
+        <!-- Text Content -->
+        <div class="info-text">
+          <h2><span class="text-highlight">Built by Students</span> for Polytechnic Students</h2>
+          <p>
+            Diploma Notes is developed by students of <strong>Government Polytechnic Jamuniya Deeh Harakh Barabanki.</strong> 
+             Our mission is to simplify access to Notes, PYQs and practical resources 
+            for diploma students across all branches.
+          </p>
+          <p>
+            All study materials are reviewed with faculty guidance to ensure accuracy and alignment with 
+            the official syllabus and examination patterns.
+          </p>
+          <a href="https://www.gpharakh.org" target="_blanks" class="info-link">
+            Visit Official College Websites
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== BRANCHES SECTION ===== -->
+  <section class="branches-section" id="branches">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Select Your <span>Branch</span></h2>
+        <p class="section-subtitle">Access semester-wise resources</p>
+      </div>
+      
+      <!-- Branches Grid (Dynamic) -->
+      <div class="branches-grid" id="branchesGrid">
+        <!-- Branch cards will be loaded dynamically via JavaScript -->
+        <div class="subjects-loading">
+          <div class="subjects-loading-spinner"></div>
+          <p>Loading branches...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== WHY CHOOSE SECTION ===== -->
+  <section class="why-choose-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose <span>Diploma Notes</span></h2>
+        <p class="section-subtitle">We simplify polytechnic learning with quality resources and real guidance.</p>
+      </div>
+      
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-card-icon checkmark-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="feature-card-title">Verified Study Material</h3>
+          <p class="feature-card-description">
+            Reviewed with faculty guidance. Subject-wise notes prepared & reviewed by Polytechnic students.
+          </p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-card-icon checkmark-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3 class="feature-card-title">Exam Ready Content</h3>
+          <p class="feature-card-description">
+            Focused on important topics, PYQs and practical knowledge for exam preparation.
+          </p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-card-icon checkmark-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="feature-card-title">Free for Students</h3>
+          <p class="feature-card-description">
+            No paywall. No ads distraction. Just pure learning without any hidden charges.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== LATEST UPDATES SECTION ===== -->
+  <section class="updates-section" id="updates">
+    <div class="container">
+      <div class="updates-header">
+        <div class="section-header">
+          <h2 class="section-title">Latest <span>Updates</span></h2>
+          <p class="section-subtitle">Important exam updates, job notifications, and results in one place.</p>
+        </div>
+        <a href="updates.html" class="view-all-link">
+          View All Updates
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Updates List (Dynamic) -->
+      <div class="updates-list" id="updatesList">
+        <!-- Updates will be loaded dynamically -->
+        <div class="subjects-loading">
+          <div class="subjects-loading-spinner"></div>
+          <p>Loading updates...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== CONTRIBUTORS SECTION ===== -->
+  <section class="contributors-section" id="contributors">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span>Contributors</span></h2>
+        <p class="section-subtitle">Students who contributed study materials. All contributions are properly credited.</p>
+      </div>
+      
+      <!-- Contributors Grid (Dynamic) -->
+      <div class="contributors-grid" id="contributorsGrid">
+        <!-- Contributors will be loaded dynamically -->
+      </div>
+      
+      <!-- CTA -->
+      <div class="contributors-cta">
+        <p>Want to contribute? Submit your materials →</p>
+        <a href="about.html#contribute" class="btn btn-primary">Contribution Guide</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="footer-logo-diploma">Diploma</span> Notes
+          </div>
+          <p class="footer-tagline">
+            Student-built platform with faculty guidance.
+          </p>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer-section-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="#branches" class="footer-link">Branches</a>
+            <a href="#updates" class="footer-link">Updates</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="about.html#team" class="footer-link">Team</a>
+            <a href="about.html#disclaimer" class="footer-link">Disclaimer</a>
+          </div>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h3 class="footer-section-title">Contact</h3>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Email:</span>
+            <span class="footer-contact-value">support@smartboy638153@gmail.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Phone:</span>
+            <span class="footer-contact-value">+91 6388205387</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Location:</span>
+            <span class="footer-contact-value">Lucknow, India</span>
+          </div>
+        </div>
+        
+        <!-- Help -->
+        <div>
+          <h3 class="footer-section-title">Help</h3>
+          <div class="footer-links">
+            <a href="about.html#help" class="footer-link">Help Center</a>
+            <a href="about.html#contribute" class="footer-link">Contribution Guide</a>
+            <a href="about.html#report" class="footer-link">Report an Issue</a>
+          </div>
+          
+          <!-- Social Links -->
+          <h3 class="footer-section-title" style="margin-top: var(--space-6);">Follow Us</h3>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link" aria-label="Telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2026 Diploma Notes. All Rights Reserved.
+        </p>
+        <div class="footer-legal-links">
+          <a href="about.html#privacy" class="footer-legal-link">Privacy Policy</a>
+          <a href="about.html#terms" class="footer-legal-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JavaScript Files -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/branchCard.js"></script>
+  <script src="js/components/updateCard.js"></script>
+  <script src="js/pages/home.js"></script>
+  <script src="js/main.js"></script>
+  
+</body>
+</html>

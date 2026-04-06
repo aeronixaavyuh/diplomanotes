@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Access notes, practicals, video tutorials and PYQs">
+  <title>Study Material - Diploma Notes</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/_variables.css">
+  <link rel="stylesheet" href="css/_reset.css">
+  <link rel="stylesheet" href="css/_base.css">
+  <link rel="stylesheet" href="css/_components.css">
+  <link rel="stylesheet" href="css/_layout.css">
+  <link rel="stylesheet" href="css/study-material.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <span class="navbar-logo-diploma">Diploma</span> Notes
+      </a>
+      
+      <button class="navbar-toggle" aria-label="Toggle menu" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <div class="navbar-menu" id="navMenu">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="index.html#branches" class="navbar-link">Branches</a>
+        <a href="index.html#updates" class="navbar-link">Updates</a>
+        <a href="syllabus.html" class="navbar-link">Syllabus</a>
+        <a href="about.html" class="navbar-link">About</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- ===== BREADCRUMB ===== -->
+  <nav class="breadcrumb">
+    <div class="container">
+      <ul class="breadcrumb-list" id="breadcrumbList">
+        <!-- Breadcrumb will be generated dynamically -->
+        <li class="breadcrumb-item">
+          <a href="index.html" class="breadcrumb-link">Home</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#" class="breadcrumb-link" id="breadcrumbBranch">Electrical Engineering</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li class="breadcrumb-item">
+          <span id="breadcrumbSubject">Electric Machine - I</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <div class="container">
+      
+      <!-- Back Button -->
+      <a href="#" class="back-button" id="backButton">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back
+      </a>
+      
+      <!-- Study Material Header -->
+      <div class="study-material-header">
+        <h1 class="study-material-title" id="studyMaterialTitle">
+          Electrical Engineering
+        </h1>
+        <p class="study-material-subtitle" id="studyMaterialSubtitle">
+          Access Subject-wise learning material — simple, fast, and organized.
+        </p>
+      </div>
+      
+      <!-- Study Tabs -->
+      <div class="study-tabs" id="studyTabs">
+        <button class="study-tab active" data-tab="notes">Notes</button>
+        <button class="study-tab" data-tab="practicals">Practicals</button>
+        <button class="study-tab" data-tab="videos">Video Tutorial</button>
+        <button class="study-tab" data-tab="pyqs">PYQ</button>
+      </div>
+      
+      <!-- ===== NOTES TAB ===== -->
+      <div class="study-tab-content active" id="notesTab">
+        <div class="tab-description">
+          Well-structured unit-wise notes designed for diploma students, strictly aligned with the official syllabus and examination pattern.
+        </div>
+        
+        <!-- Units List -->
+        <div class="units-list" id="unitsList">
+          <!-- Units will be loaded dynamically -->
+          <div class="subjects-loading">
+            <div class="subjects-loading-spinner"></div>
+            <p>Loading notes...</p>
+          </div>
+        </div>
+        
+        <!-- Empty State -->
+        <div class="content-empty" id="notesEmpty" style="display: none;">
+          <div class="content-empty-icon">📝</div>
+          <h3 class="content-empty-title">No notes available yet</h3>
+          <p class="content-empty-description">
+            Notes for this subject are being prepared. Check back soon or contribute!
+          </p>
+          <a href="about.html#contribute" class="btn btn-primary">Contribute Notes</a>
+        </div>
+      </div>
+      
+      <!-- ===== PRACTICALS TAB ===== -->
+      <div class="study-tab-content" id="practicalsTab">
+        <div class="tab-description">
+          Practicals — Electrical Engineering / Semester 3 / Electric Machine - I / Study Material
+        </div>
+        
+        <!-- Practicals List -->
+        <div class="practicals-list" id="practicalsList">
+          <!-- Practicals will be loaded dynamically -->
+          <div class="subjects-loading">
+            <div class="subjects-loading-spinner"></div>
+            <p>Loading practicals...</p>
+          </div>
+        </div>
+        
+        <!-- Empty State -->
+        <div class="content-empty" id="practicalsEmpty" style="display: none;">
+          <div class="content-empty-icon">🔬</div>
+          <h3 class="content-empty-title">No practicals available yet</h3>
+          <p class="content-empty-description">
+            Practical materials for this subject are being prepared.
+          </p>
+        </div>
+      </div>
+      
+      <!-- ===== VIDEO TUTORIALS TAB ===== -->
+      <div class="study-tab-content" id="videosTab">
+        <div class="tab-description">
+          Curated video tutorials from trusted sources to help you understand concepts better.
+        </div>
+        
+        <!-- Videos List -->
+        <div class="videos-list" id="videosList">
+          <!-- Videos will be loaded dynamically -->
+          <div class="subjects-loading">
+            <div class="subjects-loading-spinner"></div>
+            <p>Loading videos...</p>
+          </div>
+        </div>
+        
+        <!-- Empty State -->
+        <div class="content-empty" id="videosEmpty" style="display: none;">
+          <div class="content-empty-icon">🎥</div>
+          <h3 class="content-empty-title">No video tutorials yet</h3>
+          <p class="content-empty-description">
+            Video tutorials are being curated for this subject.
+          </p>
+        </div>
+      </div>
+      
+      <!-- ===== PYQs TAB ===== -->
+      <div class="study-tab-content" id="pyqsTab">
+        <div class="tab-description">
+          Previous Year Questions (PYQs) to help you prepare for exams and understand question patterns.
+        </div>
+        
+        <!-- PYQs List -->
+        <div class="pyqs-list" id="pyqsList">
+          <!-- PYQs will be loaded dynamically -->
+          <div class="subjects-loading">
+            <div class="subjects-loading-spinner"></div>
+            <p>Loading PYQs...</p>
+          </div>
+        </div>
+        
+        <!-- Empty State -->
+        <div class="content-empty" id="pyqsEmpty" style="display: none;">
+          <div class="content-empty-icon">📄</div>
+          <h3 class="content-empty-title">No PYQs available yet</h3>
+          <p class="content-empty-description">
+            Previous year questions are being collected for this subject.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+  
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="footer-logo-diploma">Diploma</span> Notes
+          </div>
+          <p class="footer-tagline">Student-built platform with faculty guidance.</p>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="index.html#branches" class="footer-link">Branches</a>
+            <a href="index.html#updates" class="footer-link">Updates</a>
+            <a href="about.html" class="footer-link">About</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Contact</h3>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Email:</span>
+            <span class="footer-contact-value">support@avyuhacademy.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Phone:</span>
+            <span class="footer-contact-value">+91 98765 43210</span>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Help</h3>
+          <div class="footer-links">
+            <a href="about.html#help" class="footer-link">Help Center</a>
+            <a href="about.html#contribute" class="footer-link">Contribution Guide</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Diploma Notes. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="about.html#privacy" class="footer-legal-link">Privacy Policy</a>
+          <a href="about.html#terms" class="footer-legal-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JavaScript Files -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/studyTabs.js"></script>
+  <script src="js/pages/studyMaterial.js"></script>
+  <script src="js/main.js"></script>
+  
+</body>
+</html>

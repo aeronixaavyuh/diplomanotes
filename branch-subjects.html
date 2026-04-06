@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse semester-wise subjects and study materials">
+  <title>Branch Subjects - Diploma Notes</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/_variables.css">
+  <link rel="stylesheet" href="css/_reset.css">
+  <link rel="stylesheet" href="css/_base.css">
+  <link rel="stylesheet" href="css/_components.css">
+  <link rel="stylesheet" href="css/_layout.css">
+  <link rel="stylesheet" href="css/branch-subjects.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <span class="navbar-logo-diploma">Diploma</span> Notes
+      </a>
+      
+      <button class="navbar-toggle" aria-label="Toggle menu" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <div class="navbar-menu" id="navMenu">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="index.html#branches" class="navbar-link active">Branches</a>
+        <a href="index.html#updates" class="navbar-link">Updates</a>
+        <a href="syllabus.html" class="navbar-link">Syllabus</a>
+        <a href="about.html" class="navbar-link">About</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <div class="container">
+      <!-- Back Button -->
+      <a href="index.html#branches" class="back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Branches
+      </a>
+      
+      <div class="page-header-content">
+        <h1 class="page-title" id="branchTitle">
+          <!-- Branch name will be inserted dynamically -->
+          Electrical Engineering — Semester-wise Subjects
+        </h1>
+        <p class="page-description" id="branchDescription">
+          Select a semester to view subjects. Open any subject to access notes, practicals, videos, and PYQs.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== RECENTLY VIEWED SECTION ===== -->
+  <section class="recently-viewed-section" id="recentlyViewedSection" style="display: none;">
+    <div class="container">
+      <h2 class="recently-viewed-title">Recently Viewed</h2>
+      <div class="recently-viewed-grid" id="recentlyViewedGrid">
+        <!-- Recently viewed items will be loaded dynamically -->
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== SEMESTER SELECTION SECTION ===== -->
+  <section class="semester-section">
+    <div class="container">
+      
+      <!-- Semester Header -->
+      <div class="semester-header">
+        <h2 class="semester-title">Select Semester</h2>
+        <a href="#" class="download-syllabus" id="downloadSyllabusLink">
+          Download Syllabus
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Semester Tabs -->
+      <div class="semester-tabs" id="semesterTabs">
+        <!-- Tabs will be generated dynamically -->
+        <button class="semester-tab active" data-semester="1">Sem 1</button>
+        <button class="semester-tab" data-semester="2">Sem 2</button>
+        <button class="semester-tab" data-semester="3">Sem 3</button>
+        <button class="semester-tab" data-semester="4">Sem 4</button>
+        <button class="semester-tab" data-semester="5">Sem 5</button>
+        <button class="semester-tab" data-semester="6">Sem 6</button>
+      </div>
+      
+      <p class="semester-description">
+        Subjects for the selected semester are shown below.
+      </p>
+      
+      <!-- Subjects Grid -->
+      <div class="subjects-grid" id="subjectsGrid">
+        <!-- Loading State -->
+        <div class="subjects-loading">
+          <div class="subjects-loading-spinner"></div>
+          <p>Loading subjects...</p>
+        </div>
+      </div>
+      
+      <!-- Empty State (Hidden by default) -->
+      <div class="subjects-empty" id="subjectsEmpty" style="display: none;">
+        <div class="subjects-empty-icon">📚</div>
+        <h3 class="subjects-empty-title">No subjects found</h3>
+        <p class="subjects-empty-description">
+          Subjects for this semester are being prepared. Check back soon!
+        </p>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="footer-logo-diploma">Diploma</span> Notes
+          </div>
+          <p class="footer-tagline">Student-built platform with faculty guidance.</p>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="index.html#branches" class="footer-link">Branches</a>
+            <a href="index.html#updates" class="footer-link">Updates</a>
+            <a href="about.html" class="footer-link">About</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Contact</h3>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Email:</span>
+            <span class="footer-contact-value">support@avyuhacademy.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Phone:</span>
+            <span class="footer-contact-value">+91 98765 43210</span>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Help</h3>
+          <div class="footer-links">
+            <a href="about.html#help" class="footer-link">Help Center</a>
+            <a href="about.html#contribute" class="footer-link">Contribution Guide</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Diploma Notes. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="about.html#privacy" class="footer-legal-link">Privacy Policy</a>
+          <a href="about.html#terms" class="footer-legal-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JavaScript Files -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/subjectCard.js"></script>
+  <script src="js/components/recentlyViewed.js"></script>
+  <script src="js/pages/branchSubjects.js"></script>
+  <script src="js/main.js"></script>
+  
+</body>
+</html>

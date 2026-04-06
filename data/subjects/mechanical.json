@@ -1,0 +1,252 @@
+{
+  "branchId": "mechanical",
+  "branchName": "Mechanical Engineering",
+  "semesters": [
+    {
+      "number": 1,
+      "subjects": [
+        {
+          "id": "mathematics-1",
+          "code": "MATH101",
+          "name": "Engineering Mathematics - I",
+          "description": "Calculus, differential equations, and mathematical foundations",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "physics",
+          "code": "PHY101",
+          "name": "Engineering Physics",
+          "description": "Mechanics, waves, optics, and modern physics",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "basic-mechanical",
+          "code": "ME101",
+          "name": "Basic Mechanical Engineering",
+          "description": "Introduction to machines, materials, and manufacturing",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "engineering-drawing",
+          "code": "ME102",
+          "name": "Engineering Drawing",
+          "description": "Technical drawing, projections, and CAD basics",
+          "units": 5,
+          "credits": 3,
+          "type": "practical"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "subjects": [
+        {
+          "id": "mathematics-2",
+          "code": "MATH102",
+          "name": "Engineering Mathematics - II",
+          "description": "Linear algebra, complex analysis, and Fourier series",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "chemistry",
+          "code": "CHEM101",
+          "name": "Engineering Chemistry",
+          "description": "Chemical bonding, thermodynamics, and electrochemistry",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "mechanics",
+          "code": "ME201",
+          "name": "Engineering Mechanics",
+          "description": "Statics, dynamics, and strength of materials",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "workshop-practice",
+          "code": "ME202",
+          "name": "Workshop Practice",
+          "description": "Fitting, welding, machining, and safety practices",
+          "units": 5,
+          "credits": 3,
+          "type": "practical"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "subjects": [
+        {
+          "id": "thermodynamics",
+          "code": "ME301",
+          "name": "Engineering Thermodynamics",
+          "description": "Laws of thermodynamics, cycles, and heat engines",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "som",
+          "code": "ME302",
+          "name": "Strength of Materials",
+          "description": "Stress, strain, bending, and torsion",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "manufacturing",
+          "code": "ME303",
+          "name": "Manufacturing Processes",
+          "description": "Casting, welding, machining, and forming processes",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "fluid-mechanics",
+          "code": "ME304",
+          "name": "Fluid Mechanics & Hydraulic Machines",
+          "description": "Fluid properties, flow, pumps, and turbines",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "subjects": [
+        {
+          "id": "tom",
+          "code": "ME401",
+          "name": "Theory of Machines",
+          "description": "Mechanisms, kinematics, and dynamics of machines",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "machine-design",
+          "code": "ME402",
+          "name": "Machine Design",
+          "description": "Design of machine elements and components",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "material-science",
+          "code": "ME403",
+          "name": "Material Science & Metallurgy",
+          "description": "Properties, structure, and heat treatment of materials",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "production-tech",
+          "code": "ME404",
+          "name": "Production Technology",
+          "description": "Metal cutting, grinding, and modern machining",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "subjects": [
+        {
+          "id": "ic-engines",
+          "code": "ME501",
+          "name": "Internal Combustion Engines",
+          "description": "Petrol and diesel engines, performance, and emissions",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "refrigeration",
+          "code": "ME502",
+          "name": "Refrigeration & Air Conditioning",
+          "description": "Cooling systems, refrigerants, and psychrometry",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "automobile",
+          "code": "ME503",
+          "name": "Automobile Engineering",
+          "description": "Vehicle systems, transmission, and chassis",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "industrial-engg",
+          "code": "ME504",
+          "name": "Industrial Engineering",
+          "description": "Production planning, inventory control, and quality",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "subjects": [
+        {
+          "id": "cad-cam",
+          "code": "ME601",
+          "name": "CAD/CAM",
+          "description": "Computer-aided design and manufacturing",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "mechatronics",
+          "code": "ME602",
+          "name": "Mechatronics",
+          "description": "Integration of mechanical and electronic systems",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "renewable-energy",
+          "code": "ME603",
+          "name": "Renewable Energy Sources",
+          "description": "Solar, wind, and other renewable technologies",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "project",
+          "code": "ME604",
+          "name": "Major Project",
+          "description": "Final year project with industry application",
+          "units": 0,
+          "credits": 6,
+          "type": "project"
+        }
+      ]
+    }
+  ]
+}
