@@ -35,7 +35,9 @@ const CONFIG = {
   DEFAULTS: {
     semester: 1,
     tab: 'notes',
-    maxRecentlyViewed: 6
+    maxRecentlyViewed: 6, // Maximum in storage
+    maxRecentlyViewedMobile: 2, // Display limit on mobile
+    maxRecentlyViewedDesktop: 3 // Display limit on desktop
   },
   
   // External Links
