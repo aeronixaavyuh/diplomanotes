@@ -81,6 +81,24 @@
           "units": 5,
           "credits": 3,
           "type": "practical"
+        },
+         {
+          "id": "advance-skill",
+          "code": "EE305",
+          "name": "Advance Skill Certification",
+          "description": "Industry-oriented skill development program",
+          "units": 0,
+          "credits": 2,
+          "type": "open-elective"
+        },
+        {
+          "id": "industry-training",
+          "code": "EE306",
+          "name": "Industry Training",
+          "description": "Mandatory summer training after semester completion",
+          "units": 0,
+          "credits": 2,
+          "type": "mandatory"
         }
       ]
     },
@@ -122,24 +140,6 @@
           "units": 5,
           "credits": 3,
           "type": "theory"
-        },
-        {
-          "id": "advance-skill",
-          "code": "EE305",
-          "name": "Advance Skill Certification",
-          "description": "Industry-oriented skill development program",
-          "units": 0,
-          "credits": 2,
-          "type": "open-elective"
-        },
-        {
-          "id": "industry-training",
-          "code": "EE306",
-          "name": "Industry Training",
-          "description": "Mandatory summer training after semester completion",
-          "units": 0,
-          "credits": 2,
-          "type": "mandatory"
         }
       ]
     },

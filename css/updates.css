@@ -1,0 +1,91 @@
+    .updates-page {
+      padding: var(--space-12) 0;
+      min-height: 60vh;
+    }
+    
+    .updates-filters {
+      display: flex;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      padding: var(--space-2) var(--space-4);
+      border: 2px solid var(--color-gray-300);
+      background: var(--color-white);
+      border-radius: var(--border-radius-full);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      color: var(--color-gray-700);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    
+    .filter-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    
+    .filter-btn.active {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-white);
+    }
+    
+    .updates-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    
+    .update-item {
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-left: 4px solid var(--color-primary);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-6);
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+    
+    .update-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    
+    .update-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+    
+    .update-item-title {
+      font-size: var(--text-xl);
+      font-weight: var(--font-semibold);
+      color: var(--color-gray-900);
+      margin-bottom: var(--space-2);
+    }
+    
+    .update-item-description {
+      font-size: var(--text-base);
+      color: var(--color-gray-600);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-3);
+    }
+    
+    .update-item-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--color-gray-500);
+    }
+    
+    @media (max-width: 767px) {
+      .update-item-header {
+        flex-direction: column;
+      }
+    }

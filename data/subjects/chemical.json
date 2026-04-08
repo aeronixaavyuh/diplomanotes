@@ -245,15 +245,6 @@
           "units": 0,
           "credits": 6,
           "type": "project"
-        },
-       {
-          "id": "project",
-          "code": "CHEM604",
-          "name": "Main Project",
-          "description": "Final year project with industry application",
-          "units": 0,
-          "credits": 6,
-          "type": "project"
         }
       ]
     }
