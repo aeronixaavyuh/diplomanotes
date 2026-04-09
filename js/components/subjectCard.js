@@ -27,7 +27,7 @@ const SubjectCardComponent = {
     // Add click handler
     card.addEventListener('click', (e) => {
       e.preventDefault();
-      Router.toStudyMaterial(branchId, semester, subject.id);
+      window.location.href = `study-material.html?branch=${branchId}&semester=${semester}&subject=${subject.id}`;
       
       // Save to recently viewed
       StorageManager.addToRecentlyViewed({
