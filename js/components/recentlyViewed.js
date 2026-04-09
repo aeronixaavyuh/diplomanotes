@@ -18,7 +18,8 @@ const RecentlyViewedComponent = {
     // Add click handler
     card.addEventListener('click', (e) => {
       e.preventDefault();
-      Router.toStudyMaterial(item.branchId, item.semester, item.subjectId);
+      window.location.href = `/diplomanotes/study-material.html?branch=${item.branchId}&semester=${item.semester}&subject=${item.subjectId}`;
+      // Router.toStudyMaterial(item.branchId, item.semester, item.subjectId);
     });
     
     // Format the label
