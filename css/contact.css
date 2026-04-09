@@ -161,6 +161,7 @@
   font-size: var(--text-base);
   color: var(--color-gray-600);
   line-height: var(--leading-relaxed);
+  margin-top:-30px;
   margin-bottom: var(--space-6);
 }
 
