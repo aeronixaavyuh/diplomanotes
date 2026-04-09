@@ -75,9 +75,10 @@ a {
   transition: color var(--transition-fast);
 }
 
-a:hover {
-  color: var(--color-primary-dark);
-}
+/* a:hover {
+  background-color: var(--color-primary-dark);
+
+} */
 
 /* ===== STRONG & EMPHASIS ===== */
 strong, b {

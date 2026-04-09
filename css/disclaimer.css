@@ -1,0 +1,111 @@
+/* ============================================
+   DIPLOMA NOTES - DISCLAIMER PAGE STYLES
+   ============================================ */
+
+/* ===== DISCLAIMER SECTION ===== */
+
+.disclaimer-section {
+  background-color: var(--color-white);
+  padding: var(--space-12) 0;
+}
+
+.disclaimer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== LEGAL BLOCKS ===== */
+
+.legal-block {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  scroll-margin-top: 100px; /* For anchor link scrolling */
+}
+
+.legal-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-3);
+  border-bottom: 3px solid var(--color-primary-lighter);
+}
+
+.legal-updated {
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+  font-style: italic;
+  margin-bottom: var(--space-6);
+}
+
+.legal-block p {
+  font-size: var(--text-base);
+  color: var(--color-gray-700);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.legal-block h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.legal-block ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+}
+
+.legal-block li {
+  font-size: var(--text-base);
+  color: var(--color-gray-700);
+  padding: var(--space-2) 0;
+  padding-left: var(--space-6);
+  position: relative;
+  line-height: var(--leading-relaxed);
+}
+
+.legal-block li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+
+.legal-block strong {
+  color: var(--color-gray-900);
+  font-weight: var(--font-semibold);
+}
+
+.legal-block a {
+  color: var(--color-primary);
+  font-weight: var(--font-medium);
+  text-decoration: underline;
+}
+
+.legal-block a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .legal-title {
+    font-size: var(--text-2xl);
+  }
+  
+  .legal-block {
+    padding: var(--space-6);
+  }
+  
+  .disclaimer-section {
+    padding: var(--space-8) 0;
+  }
+}
