@@ -10,6 +10,25 @@ const BranchSubjectsPage = {
   currentSemester: 1,
   subjectsData: null,
   
+  // Syllabus URLs for different semester groups
+  syllabusUrls: {
+    'electrical': {
+      'sem-1-2': 'https://example.com/electrical-syllabus-sem-1-2.pdf',
+      'sem-3-4': 'https://example.com/electrical-syllabus-sem-3-4.pdf',
+      'sem-5-6': 'https://example.com/electrical-syllabus-sem-5-6.pdf'
+    },
+    'mechanical': {
+      'sem-1-2': 'https://example.com/mechanical-syllabus-sem-1-2.pdf',
+      'sem-3-4': 'https://example.com/mechanical-syllabus-sem-3-4.pdf',
+      'sem-5-6': 'https://example.com/mechanical-syllabus-sem-5-6.pdf'
+    },
+    'chemical': {
+      'sem-1-2': 'https://example.com/chemical-syllabus-sem-1-2.pdf',
+      'sem-3-4': 'https://example.com/chemical-syllabus-sem-3-4.pdf',
+      'sem-5-6': 'https://example.com/chemical-syllabus-sem-5-6.pdf'
+    }
+  },
+  
   /**
    * Initialize branch subjects page
    */
@@ -34,6 +53,7 @@ const BranchSubjectsPage = {
     // Setup UI
     this.updatePageHeader();
     this.setupSemesterTabs();
+    this.updateSyllabusLink(); // Initial setup
     this.renderSubjects();
     this.renderRecentlyViewed();
     
@@ -165,8 +185,40 @@ const BranchSubjectsPage = {
     // Update URL
     Router.updateParams({ semester });
     
+    // Update syllabus link immediately
+    this.updateSyllabusLink();
+    
     // Render subjects
     this.renderSubjects();
+  },
+  
+  /**
+   * Update syllabus download link based on current semester
+   */
+  updateSyllabusLink() {
+    const syllabusLink = document.getElementById('downloadSyllabusLink');
+    if (!syllabusLink) return;
+    
+    // Get branch-specific URLs
+    const branchUrls = this.syllabusUrls[this.currentBranch];
+    if (!branchUrls) {
+      syllabusLink.style.display = 'none';
+      return;
+    }
+    
+    // Determine which URL to use based on current semester
+    let syllabusUrl;
+    if (this.currentSemester === 1 || this.currentSemester === 2) {
+      syllabusUrl = branchUrls['sem-1-2'];
+    } else if (this.currentSemester === 3 || this.currentSemester === 4) {
+      syllabusUrl = branchUrls['sem-3-4'];
+    } else {
+      syllabusUrl = branchUrls['sem-5-6'];
+    }
+    
+    // Update link
+    syllabusLink.href = syllabusUrl;
+    syllabusLink.style.display = 'inline-flex';
   },
   
   /**
