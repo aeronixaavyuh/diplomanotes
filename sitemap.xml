@@ -1,44 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+  
+  <!-- Homepage -->
   <url>
     <loc>https://aeronixaavyuh.github.io/diplomanotes/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
+  
+  <!-- Main Pages -->
   <url>
-    <loc>https://aeronixaavyuh.github.io/diplomanotes/updates.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=electrical</loc>
-    <lastmod>2026-04-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-<url>
-    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=mechanical</loc>
-    <lastmod>2026-04-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-<url>
-    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=chemical</loc>
-    <lastmod>2026-04-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-<url>
     <loc>https://aeronixaavyuh.github.io/diplomanotes/about.html</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://aeronixaavyuh.github.io/diplomanotes/contact.html</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/team.html</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/help.html</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/contributors.html</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/report.html</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/disclaimer.html</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Branch Pages -->
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=electrical</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=mechanical</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=chemical</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Semester Pages - Electrical -->
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=electrical&amp;semester=1</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=electrical&amp;semester=2</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=electrical&amp;semester=3</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=electrical&amp;semester=4</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=electrical&amp;semester=5</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=electrical&amp;semester=6</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Semester Pages - Mechanical -->
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=mechanical&amp;semester=1</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=mechanical&amp;semester=2</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=mechanical&amp;semester=3</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=mechanical&amp;semester=4</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=mechanical&amp;semester=5</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=mechanical&amp;semester=6</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Semester Pages - Chemical -->
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=chemical&amp;semester=1</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=chemical&amp;semester=2</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=chemical&amp;semester=3</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=chemical&amp;semester=4</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=chemical&amp;semester=5</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeronixaavyuh.github.io/diplomanotes/branch-subjects.html?branch=chemical&amp;semester=6</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
 </urlset>
