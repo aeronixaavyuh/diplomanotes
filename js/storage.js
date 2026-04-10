@@ -106,6 +106,8 @@ const StorageManager = {
     });
     
     // Keep only max items
+    const isMobile = window.innerWidth < 768;
+    const maxItems = isMobile ? 2 : 3;
     items = items.slice(0, CONFIG.DEFAULTS.maxRecentlyViewed);
     
     this.set(key, items);
