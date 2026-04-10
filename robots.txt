@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aeronixaavyuh.github.io/diplomanotes/sitemap.xml
