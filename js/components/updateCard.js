@@ -16,22 +16,33 @@ const UpdateCardComponent = {
     card.style.borderLeftColor = this.getColorByType(update.type);
     
     // Add click handler if URL exists
-    if (update.url) {
+    if (update.url && update.url.trim() !== '') {
       card.style.cursor = 'pointer';
       card.addEventListener('click', () => {
-        Router.openExternal(update.url);
+        // Better external handling
+        window.open(update.url, '_blank', 'noopener,noreferrer');
       });
     }
     
-    // Tag color
+    // Tag class
     const tagClass = update.type === 'exam' ? 'tag-exam' : 
                      update.type === 'job' ? 'tag-job' : 'tag-result';
+    
+    // Safe data handling
+    const title = Utils.sanitizeHTML(update.title || '');
+    const description = Utils.sanitizeHTML(update.description || '');
     
     card.innerHTML = `
       <div class="update-card-content">
         <span class="tag ${tagClass}">${update.type}</span>
-        <h3 class="update-card-title">${update.title}</h3>
+        
+        <h3 class="update-card-title">${title}</h3>
+        
+        ${description ? `
+          <p class="update-card-description">${description}</p>
+        ` : ''}
       </div>
+      
       <div class="update-card-date">
         ${Utils.formatDate(update.date)}
       </div>
@@ -68,18 +79,15 @@ const UpdateCardComponent = {
     const container = document.getElementById(containerId);
     if (!container) return;
     
-    // Clear container
     container.innerHTML = '';
     
-    // Limit updates if specified
     const displayUpdates = limit ? updates.slice(0, limit) : updates;
     
-    if (displayUpdates.length === 0) {
+    if (!displayUpdates || displayUpdates.length === 0) {
       this.showEmpty(containerId);
       return;
     }
     
-    // Render cards
     displayUpdates.forEach(update => {
       const card = this.create(update);
       container.appendChild(card);
@@ -88,7 +96,6 @@ const UpdateCardComponent = {
   
   /**
    * Show loading state
-   * @param {string} containerId - Container element ID
    */
   showLoading(containerId) {
     const container = document.getElementById(containerId);
@@ -104,7 +111,6 @@ const UpdateCardComponent = {
   
   /**
    * Show empty state
-   * @param {string} containerId - Container element ID
    */
   showEmpty(containerId) {
     const container = document.getElementById(containerId);

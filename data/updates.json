@@ -2,51 +2,48 @@
   "updates": [
     {
       "id": "update-001",
+      "title": "Winter Session Exams 2026 - Date Sheet Released",
+      "description": "Check your exam schedule for January-February session. Download the complete timetable now.",
       "type": "exam",
-      "title": "Diploma Semester Exam Form 2025 Released",
-      "description": "Semester examination forms for all branches are now available. Last date: 22 Dec 2025.",
-      "date": "2025-12-22",
-      "url": "#"
+      "date": "2026-01-05",
+      "url": "https://example-board.edu.in/exam-datesheet-2026",
+      "external": true
     },
     {
       "id": "update-002",
+      "title": "ONGC Recruitment 2026 - Graduate Trainee Posts",
+      "description": "500+ vacancies for Diploma holders in Electrical, Mechanical branches. Apply before Jan 31.",
       "type": "job",
-      "title": "Junior Engineer Recruitment 2026 — Apply Now",
-      "description": "Government department recruiting Junior Engineers for various departments. Apply before deadline.",
-      "date": "2025-12-22",
-      "url": "#"
+      "date": "2026-01-08",
+      "url": "https://ongcindia.com/careers/recruitment-2026",
+      "external": true
     },
     {
       "id": "update-003",
+      "title": "Semester 5 Results Declared - Check Now",
+      "description": "November 2025 examination results are now available. Check your marks and download marksheet.",
       "type": "result",
-      "title": "Polytechnic Semester Results 2024-25 Declared",
-      "description": "Results for odd semester examinations have been declared. Check your results on official portal.",
-      "date": "2025-12-22",
-      "url": "#"
+      "date": "2026-01-10",
+      "url": "https://results.example-board.edu.in",
+      "external": true
     },
     {
       "id": "update-004",
-      "type": "exam",
-      "title": "Practical Exam Schedule Announced",
-      "description": "Practical examination schedule for semester 3 and 5 has been released.",
-      "date": "2025-12-20",
-      "url": "#"
+      "title": "Campus Placement Drive - Multiple Companies",
+      "description": "20+ companies visiting for diploma placements. Registration deadline: Jan 20, 2026",
+      "type": "job",
+      "date": "2026-01-12",
+      "url": "https://placements.example-college.edu.in",
+      "external": true
     },
     {
       "id": "update-005",
-      "type": "job",
-      "title": "Campus Placement Drive - Tech Companies",
-      "description": "Multiple tech companies visiting campus for placement drives in January 2026.",
-      "date": "2025-12-18",
-      "url": "#"
-    },
-    {
-      "id": "update-006",
-      "type": "result",
-      "title": "Backlog Exam Results Published",
-      "description": "Results for backlog examinations are now available on the student portal.",
-      "date": "2025-12-15",
-      "url": "#"
+      "title": "Practical Exam Schedule - Semester 6",
+      "description": "Final semester practical exams from Feb 1-15. Lab allocation and batch timings announced.",
+      "type": "exam",
+      "date": "2026-01-15",
+      "url": "https://example-board.edu.in/practical-schedule",
+      "external": true
     }
   ]
 }

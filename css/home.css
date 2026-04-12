@@ -296,6 +296,10 @@
   text-align: center;
   transition: all var(--transition-base);
 }
+.contributor-card {
+  min-width: 300px;
+  flex-shrink: 0;
+}
 
 .contributor-card:hover {
   box-shadow: var(--shadow-lg);
@@ -395,5 +399,49 @@
   
   .hero-actions .btn {
     width: 100%;
+  }
+}
+/* Contributors Section - Marquee */
+.contributors-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding: var(--space-4) 0;
+}
+
+.contributors-marquee {
+  display: flex;
+  gap: var(--space-6);
+  animation: marqueeScroll 30s linear infinite;
+}
+
+.contributors-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Duplicate for seamless loop */
+.contributors-marquee-clone {
+  display: flex;
+  gap: var(--space-6);
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Make cards not shrink */
+
+
+@media (max-width: 767px) {
+  .contributor-card {
+    min-width: 280px;
+  }
+  
+  .contributors-marquee {
+    animation: marqueeScroll 20s linear infinite;
   }
 }
