@@ -196,13 +196,9 @@
 }
 
 .step-content a {
-  color: var(--color-primary);
   font-weight: var(--font-medium);
-  text-decoration: underline;
-}
-
-.step-content a:hover {
-  color: var(--color-primary-dark);
+  text-decoration: none;
+  margin-top: var(--space-4);
 }
 
 /* ===== GUIDELINES ===== */
@@ -288,6 +284,7 @@
   content: '✗';
   color: var(--color-accent-red);
 }
+
 
 /* ===== RECOGNITION ===== */
 
