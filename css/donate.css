@@ -1,0 +1,469 @@
+/* ============================================
+   DIPLOMA NOTES - DONATE PAGE STYLES
+   ============================================ */
+
+/* ===== DONATE SECTION ===== */
+
+.donate-section {
+  background-color: var(--color-white);
+  padding: var(--space-12) 0;
+}
+
+/* ===== DONATE INTRO ===== */
+
+.donate-intro {
+  max-width: 800px;
+  margin: 0 auto var(--space-16);
+  text-align: center;
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-10);
+}
+
+.donate-intro h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-4);
+}
+
+.donate-intro p {
+  font-size: var(--text-lg);
+  color: var(--color-gray-700);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-3);
+}
+
+.donate-intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== EXPENSES SECTION ===== */
+
+.expenses-section {
+  margin-bottom: var(--space-16);
+  background-color: var(--color-gray-50);
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-12) var(--space-8);
+}
+
+.section-centered-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.expenses-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .expenses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .expenses-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.expense-card {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.expense-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.expense-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-3);
+}
+
+.expense-card h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.expense-amount {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.expense-card > p:last-child {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+/* ===== DONATION OPTIONS ===== */
+
+.donation-options {
+  max-width: 900px;
+  margin: 0 auto var(--space-16);
+}
+
+.donation-method {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--space-6);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.donation-method:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-md);
+}
+
+.donation-method-header {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.donation-method-header h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin: 0;
+}
+
+.donation-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--color-accent-green);
+  color: var(--color-white);
+  border-radius: var(--border-radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+}
+
+.donation-method-body {
+  padding: var(--space-6);
+}
+
+/* UPI Details */
+.upi-details {
+  text-align: center;
+}
+
+.upi-id-box {
+  background-color: var(--color-gray-50);
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.upi-label {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-700);
+}
+
+.upi-id {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--border-radius-md);
+  font-family: 'Courier New', monospace;
+}
+
+.copy-btn {
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copy-btn:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.05);
+}
+
+.upi-note {
+  font-size: var(--text-base);
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-4);
+}
+
+.qr-code-container {
+  display: inline-block;
+  background-color: var(--color-white);
+  padding: var(--space-6);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.qr-code {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.qr-apps {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+/* Bank Details */
+.bank-details {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bank-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.bank-detail-row:last-child {
+  border-bottom: none;
+}
+
+.bank-label {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-700);
+}
+
+.bank-value {
+  font-size: var(--text-base);
+  color: var(--color-gray-900);
+  font-weight: var(--font-medium);
+}
+
+code.bank-value {
+  background-color: var(--color-gray-100);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--border-radius-sm);
+  font-family: 'Courier New', monospace;
+}
+
+/* ===== IMPACT SECTION ===== */
+
+.impact-section {
+  max-width: 900px;
+  margin: 0 auto var(--space-16);
+  background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-10);
+  text-align: center;
+}
+
+.impact-section h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-8);
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .impact-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.impact-stat {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.impact-number {
+  font-size: 56px;
+  font-weight: var(--font-bold);
+  color: var(--color-accent-green);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.impact-label {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-gray-700);
+}
+
+/* ===== ALTERNATIVE SUPPORT ===== */
+
+.alternative-support {
+  max-width: 900px;
+  margin: 0 auto var(--space-16);
+  text-align: center;
+}
+
+.alternative-support h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-8);
+}
+
+.alternative-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .alternative-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.alternative-card {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-8);
+  transition: all var(--transition-base);
+}
+
+.alternative-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.alternative-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-3);
+}
+
+.alternative-card h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.alternative-card p {
+  font-size: var(--text-base);
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+/* ===== THANK YOU SECTION ===== */
+
+.thank-you-section {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-primary);
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-10);
+  text-align: center;
+}
+
+.thank-you-section h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.thank-you-section p {
+  font-size: var(--text-lg);
+  color: var(--color-gray-700);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.thank-you-section p:last-child {
+  margin-bottom: 0;
+}
+
+.transparency-note {
+  background-color: var(--color-primary-lighter);
+  border-left: 4px solid var(--color-primary);
+  padding: var(--space-4);
+  border-radius: var(--border-radius-md);
+  font-size: var(--text-base) !important;
+  text-align: left;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .donate-intro h2,
+  .section-centered-title,
+  .impact-section h2,
+  .alternative-support h2,
+  .thank-you-section h2 {
+    font-size: var(--text-2xl);
+  }
+  
+  .upi-id-box {
+    flex-direction: column;
+  }
+  
+  .upi-id {
+    font-size: var(--text-base);
+  }
+  
+  .qr-code {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .impact-number {
+    font-size: 42px;
+  }
+  
+  .bank-detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+}

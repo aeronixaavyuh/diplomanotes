@@ -220,26 +220,47 @@
   </section>
   
   <!-- ===== CONTRIBUTORS SECTION ===== -->
-  <section class="contributors-section" id="contributors">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title"><span>Contributors</span></h2>
-        <p class="section-subtitle">Students who contributed study materials. All contributions are properly credited.</p>
-      </div>
-      
-      <!-- Contributors Grid (Dynamic) -->
-      <div class="contributors-grid" id="contributorsGrid">
-        <!-- Contributors will be loaded dynamically -->
-      </div>
-      
-      <!-- CTA -->
-      <div class="contributors-cta">
-        <p>Want to contribute? Submit your materials →</p>
-        <a href="contributors.html" class="btn btn-primary">Contribution Guide</a>
+ <!-- Contributors Section -->
+<section class="contributors-section" id="contributors">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Contributors</h2>
+      <p class="section-description">
+        Students who made this platform possible by sharing their knowledge.
+      </p>
+    </div>
+    
+    <!-- Marquee Wrapper -->
+    <div class="contributors-wrapper">
+      <div class="contributors-marquee" id="contributorsMarquee">
+        <!-- Cards will be loaded here by JavaScript -->
+        <!-- Cards will be duplicated for seamless scrolling -->
       </div>
     </div>
-  </section>
-  
+    
+    <div class="contributors-cta">
+      <p>Want to contribute your notes and help thousands of students?</p>
+      <a href="contributors.html" class="btn btn-primary">Become a Contributor</a>
+    </div>
+  </div>
+</section>
+  <!-- Support Section (Add before footer) -->
+<!-- <section class="support-banner">
+  <div class="container">
+    <div class="support-banner-content">
+      <div class="support-banner-text">
+        <h2>💝 Support Diploma Notes</h2>
+        <p>
+          Help us keep education free and accessible. Every contribution helps 
+          maintain servers, add new features, and create more study materials.
+        </p>
+      </div>
+      <a href="donate.html" class="btn btn-primary btn-lg">
+        ❤️ Support Us
+      </a>
+    </div>
+  </div>
+</section> -->
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
@@ -334,14 +355,17 @@
   </footer>
   
   <!-- JavaScript Files -->
-  <script src="js/config.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/storage.js"></script>
-  <script src="js/components/navbar.js"></script>
-  <script src="js/components/branchCard.js"></script>
-  <script src="js/components/updateCard.js"></script>
-  <script src="js/pages/home.js"></script>
-  <script src="js/main.js"></script>
+<!-- JavaScript Files - EXACT ORDER -->
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/router.js"></script>
+<script src="js/components/navbar.js"></script>
+<script src="js/components/branchCard.js"></script>
+<script src="js/components/updateCard.js"></script>
+<script src="js/components/recentlyViewed.js"></script>
+<script src="js/pages/home.js"></script>
+<script src="js/main.js"></script>
   
 </body>
 </html>

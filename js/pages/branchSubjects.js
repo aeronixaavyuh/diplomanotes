@@ -13,18 +13,18 @@ const BranchSubjectsPage = {
   // Syllabus URLs for different semester groups
   syllabusUrls: {
     'electrical': {
-      'sem-1-2': 'https://example.com/electrical-syllabus-sem-1-2.pdf',
-      'sem-3-4': 'https://example.com/electrical-syllabus-sem-3-4.pdf',
+      'sem-1-2': 'https://bteup.ac.in/Syllabus/folder2526/1st%20Year%20Syllabus%20common%20for%2041%20Branches.pdf',
+      'sem-3-4': 'https://bteup.ac.in/Syllabus/folder2526/328-Electrical%20Engg%203rd%20and%204th%20Sem%20Updated.pdf',
       'sem-5-6': 'https://example.com/electrical-syllabus-sem-5-6.pdf'
     },
     'mechanical': {
-      'sem-1-2': 'https://example.com/mechanical-syllabus-sem-1-2.pdf',
-      'sem-3-4': 'https://example.com/mechanical-syllabus-sem-3-4.pdf',
+      'sem-1-2': 'https://bteup.ac.in/Syllabus/folder2526/1st%20Year%20Syllabus%20common%20for%2041%20Branches.pdf',
+      'sem-3-4': 'https://bteup.ac.in/Syllabus/folder2526/341_Mech%20Engg%20Automobile-2nd%20yr.pdf',
       'sem-5-6': 'https://example.com/mechanical-syllabus-sem-5-6.pdf'
     },
     'chemical': {
-      'sem-1-2': 'https://example.com/chemical-syllabus-sem-1-2.pdf',
-      'sem-3-4': 'https://example.com/chemical-syllabus-sem-3-4.pdf',
+      'sem-1-2': 'https://bteup.ac.in/Syllabus/folder2526/1st%20Year%20Syllabus%20common%20for%2041%20Branches.pdf',
+      'sem-3-4': 'https://bteup.ac.in/Syllabus/folder2526/352%20Chemical%20Engg%203rd%20&%204th%20Sem%20Updated.pdf',
       'sem-5-6': 'https://example.com/chemical-syllabus-sem-5-6.pdf'
     }
   },

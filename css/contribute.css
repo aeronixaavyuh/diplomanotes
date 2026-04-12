@@ -425,3 +425,73 @@
     width: 100%;
   }
 }
+/* Email Template Box */
+.email-template-box {
+  background-color: var(--color-gray-50);
+  border: 2px solid var(--color-primary-light);
+  border-radius: var(--border-radius-lg);
+  margin-top: var(--space-4);
+  overflow: hidden;
+}
+
+.email-template-header {
+  background-color: var(--color-primary-lighter);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.email-template-header strong {
+  color: var(--color-gray-900);
+  font-size: var(--text-base);
+}
+
+.copy-email-btn {
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copy-email-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.email-template-content {
+  padding: var(--space-4);
+  font-family: 'Courier New', monospace;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.email-field {
+  margin-bottom: var(--space-2);
+  color: var(--color-gray-700);
+}
+
+.email-body {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+@media (max-width: 767px) {
+  .email-template-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .copy-email-btn {
+    width: 100%;
+  }
+}

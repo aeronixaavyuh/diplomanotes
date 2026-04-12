@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support Diploma Notes - Help us keep education free">
+  <title>Support Us - Diploma Notes</title>
+  
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/_variables.css">
+  <link rel="stylesheet" href="css/_reset.css">
+  <link rel="stylesheet" href="css/_base.css">
+  <link rel="stylesheet" href="css/_components.css">
+  <link rel="stylesheet" href="css/_layout.css">
+  <link rel="stylesheet" href="css/donate.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <span class="navbar-logo-diploma">Diploma</span> Notes
+      </a>
+      
+      <button class="navbar-toggle" aria-label="Toggle menu" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <div class="navbar-menu" id="navMenu">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="index.html#branches" class="navbar-link">Branches</a>
+        <a href="index.html#updates" class="navbar-link">Updates</a>
+        <a href="contact.html" class="navbar-link">Contact</a>
+        <a href="about.html" class="navbar-link">About</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header-content">
+        <h1 class="page-title">Support Diploma Notes</h1>
+        <p class="page-description">
+          Help us keep education free and accessible for everyone
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- DONATE SECTION -->
+  <section class="donate-section">
+    <div class="container">
+      
+      <!-- Why Support -->
+      <div class="donate-intro">
+        <h2>Why Your Support Matters</h2>
+        <p>
+          Diploma Notes is completely free for students—no ads, no paywalls, no hidden charges. 
+          But maintaining this platform requires real resources: hosting costs, domain fees, 
+          development time, and continuous content updates.
+        </p>
+        <p>
+          Your support helps us keep education accessible and improve the platform for 
+          thousands of polytechnic students across India.
+        </p>
+      </div>
+      
+      <!-- Expenses Breakdown -->
+      <div class="expenses-section">
+        <h2 class="section-centered-title">Where Your Money Goes</h2>
+        <div class="expenses-grid">
+          <div class="expense-card">
+            <div class="expense-icon">🌐</div>
+            <h3>Hosting & Domain</h3>
+            <p class="expense-amount">₹5,000/year</p>
+            <p>Server costs, domain renewal, SSL certificates, CDN for fast delivery</p>
+          </div>
+          <div class="expense-card">
+            <div class="expense-icon">💾</div>
+            <h3>Storage & Bandwidth</h3>
+            <p class="expense-amount">₹3,000/year</p>
+            <p>PDF storage, video hosting, increased traffic handling</p>
+          </div>
+          <div class="expense-card">
+            <div class="expense-icon">🔧</div>
+            <h3>Development & Maintenance</h3>
+            <p class="expense-amount">Time & Effort</p>
+            <p>Bug fixes, new features, content updates, support</p>
+          </div>
+          <div class="expense-card">
+            <div class="expense-icon">📚</div>
+            <h3>Content Creation</h3>
+            <p class="expense-amount">Ongoing</p>
+            <p>Paying contributors, quality review, formatting</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Donation Options -->
+      <div class="donation-options">
+        <h2 class="section-centered-title">Support Options</h2>
+        
+        <!-- UPI Payment -->
+        <div class="donation-method">
+          <div class="donation-method-header">
+            <h3>💳 UPI Payment (Recommended)</h3>
+            <span class="donation-badge">Instant</span>
+          </div>
+          <div class="donation-method-body">
+            <div class="upi-details">
+              <div class="upi-id-box">
+                <span class="upi-label">UPI ID:</span>
+                <code class="upi-id">yourname@paytm</code>
+                <button class="copy-btn" onclick="copyUPI()">Copy</button>
+              </div>
+              <p class="upi-note">Scan QR code or use UPI ID with any payment app</p>
+              <div class="qr-code-container">
+                <img src="assets/images/donate/upi-qr.png" alt="UPI QR Code" class="qr-code">
+                <p class="qr-apps">Works with: Google Pay, PhonePe, Paytm, BHIM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bank Transfer -->
+        <div class="donation-method">
+          <div class="donation-method-header">
+            <h3>🏦 Bank Transfer</h3>
+          </div>
+          <div class="donation-method-body">
+            <div class="bank-details">
+              <div class="bank-detail-row">
+                <span class="bank-label">Account Name:</span>
+                <span class="bank-value">Your Name</span>
+              </div>
+              <div class="bank-detail-row">
+                <span class="bank-label">Account Number:</span>
+                <code class="bank-value">1234567890</code>
+              </div>
+              <div class="bank-detail-row">
+                <span class="bank-label">IFSC Code:</span>
+                <code class="bank-value">SBIN0001234</code>
+              </div>
+              <div class="bank-detail-row">
+                <span class="bank-label">Bank Name:</span>
+                <span class="bank-value">State Bank of India</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- PayPal (International) -->
+        <div class="donation-method">
+          <div class="donation-method-header">
+            <h3>🌍 PayPal (International)</h3>
+          </div>
+          <div class="donation-method-body">
+            <p>For supporters outside India</p>
+            <a href="https://paypal.me/yourhandle" target="_blank" rel="noopener noreferrer" 
+               class="btn btn-primary">
+              Donate via PayPal
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Impact -->
+      <div class="impact-section">
+        <h2>Your Impact</h2>
+        <div class="impact-stats">
+          <div class="impact-stat">
+            <div class="impact-number">500+</div>
+            <div class="impact-label">Students Helped Monthly</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-number">150+</div>
+            <div class="impact-label">Study Materials Available</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-number">100%</div>
+            <div class="impact-label">Free & Ad-Free</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Alternative Ways -->
+      <div class="alternative-support">
+        <h2>Can't Donate? Here's How Else You Can Help</h2>
+        <div class="alternative-grid">
+          <div class="alternative-card">
+            <div class="alternative-icon">📝</div>
+            <h3>Contribute Content</h3>
+            <p>Share your notes, practicals, or study materials</p>
+            <a href="contributors.html" class="btn btn-outline btn-sm">Learn How</a>
+          </div>
+          <div class="alternative-card">
+            <div class="alternative-icon">📢</div>
+            <h3>Spread the Word</h3>
+            <p>Tell your classmates and friends about Diploma Notes</p>
+          </div>
+          <div class="alternative-card">
+            <div class="alternative-icon">🐛</div>
+            <h3>Report Issues</h3>
+            <p>Help us improve by reporting bugs and errors</p>
+            <a href="report.html" class="btn btn-outline btn-sm">Report Issue</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Thank You -->
+      <div class="thank-you-section">
+        <h2>Thank You! 🙏</h2>
+        <p>
+          Every contribution, no matter how small, makes a real difference. 
+          Your support keeps this platform running and helps thousands of students succeed.
+        </p>
+        <p class="transparency-note">
+          💡 <strong>Transparency Promise:</strong> We'll publish quarterly expense reports 
+          showing exactly how donations are used.
+        </p>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="footer-logo-diploma">Diploma</span> Notes
+          </div>
+          <p class="footer-tagline">Student-built platform with faculty guidance.</p>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="index.html#branches" class="footer-link">Branches</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="team.html" class="footer-link">Team</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Contact</h3>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Email:</span>
+            <span class="footer-contact-value">support@avyuhacademy.com</span>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Support</h3>
+          <div class="footer-links">
+            <a href="donate.html" class="footer-link">💰 Donate</a>
+            <a href="contribute.html" class="footer-link">Contribute</a>
+            <a href="help.html" class="footer-link">Help Center</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Diploma Notes. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="disclaimer.html#privacy" class="footer-legal-link">Privacy</a>
+          <a href="disclaimer.html#terms" class="footer-legal-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    function copyUPI() {
+      const upiId = 'yourname@paytm';
+      navigator.clipboard.writeText(upiId).then(() => {
+        alert('UPI ID copied to clipboard!');
+      });
+    }
+  </script>
+  
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/main.js"></script>
+  
+</body>
+</html>
