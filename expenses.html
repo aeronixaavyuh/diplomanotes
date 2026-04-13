@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transparent expense reports for Diploma Notes">
+  <title>Expense Reports - Diploma Notes</title>
+  
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/_variables.css">
+  <link rel="stylesheet" href="css/_reset.css">
+  <link rel="stylesheet" href="css/_base.css">
+  <link rel="stylesheet" href="css/_components.css">
+  <link rel="stylesheet" href="css/_layout.css">
+  <link rel="stylesheet" href="css/expenses.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <span class="navbar-logo-diploma">Diploma</span> Notes
+      </a>
+      
+      <button class="navbar-toggle" aria-label="Toggle menu" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <div class="navbar-menu" id="navMenu">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="index.html#branches" class="navbar-link">Branches</a>
+        <a href="index.html#updates" class="navbar-link">Updates</a>
+        <a href="contact.html" class="navbar-link">Contact</a>
+        <a href="about.html" class="navbar-link">About</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header-content">
+        <h1 class="page-title">Expense Reports</h1>
+        <p class="page-description">
+          Complete transparency on how donations are used
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- EXPENSES SECTION -->
+  <section class="expenses-report-section">
+    <div class="container">
+      
+      <!-- Transparency Statement -->
+      <div class="transparency-statement">
+        <h2>💡 Our Commitment to Transparency</h2>
+        <p>
+          As a student-run initiative, we believe in complete transparency. 
+          Every rupee received is tracked and reported here. We publish detailed 
+          quarterly reports showing all expenses and donations.
+        </p>
+      </div>
+      
+      <!-- Q1 2026 Report -->
+      <div class="expense-report-card">
+        <div class="report-header">
+          <h2>Q1 2026 (January - March)</h2>
+          <span class="report-status">Latest</span>
+        </div>
+        
+        <table class="expense-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-01-15</td>
+              <td>GitHub Pages Custom Domain (diplomanotes.com)</td>
+              <td><span class="category-badge category-hosting">Hosting</span></td>
+              <td>₹800</td>
+            </tr>
+            <tr>
+              <td>2026-02-01</td>
+              <td>Server Hosting - 1 Year (Cloudflare)</td>
+              <td><span class="category-badge category-hosting">Hosting</span></td>
+              <td>₹4,200</td>
+            </tr>
+            <tr>
+              <td>2026-03-10</td>
+              <td>SSL Certificate Renewal</td>
+              <td><span class="category-badge category-security">Security</span></td>
+              <td>₹1,500</td>
+            </tr>
+            <tr>
+              <td>2026-03-20</td>
+              <td>CDN Bandwidth (for faster downloads)</td>
+              <td><span class="category-badge category-performance">Performance</span></td>
+              <td>₹2,000</td>
+            </tr>
+            <tr class="summary-row">
+              <td colspan="3"><strong>Total Expenses</strong></td>
+              <td><strong>₹8,500</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="donations-summary">
+          <div class="summary-item">
+            <span class="summary-label">Donations Received:</span>
+            <span class="summary-value donations-received">₹3,200</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Personal Contribution:</span>
+            <span class="summary-value personal-contribution">₹5,300</span>
+          </div>
+          <div class="summary-item summary-note">
+            <span class="summary-label">Balance Status:</span>
+            <span class="summary-value">All expenses covered ✓</span>
+          </div>
+        </div>
+        
+        <div class="report-note">
+          <p>
+            <strong>Note:</strong> As a student initiative, I personally cover remaining costs. 
+            Your support helps reduce this burden and allows me to dedicate more time to 
+            improving the platform instead of worrying about expenses.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Q4 2025 Report (Example - Past Quarter) -->
+      <div class="expense-report-card">
+        <div class="report-header">
+          <h2>Q4 2025 (October - December)</h2>
+          <span class="report-status report-archived">Archived</span>
+        </div>
+        
+        <table class="expense-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-10-05</td>
+              <td>Initial Domain Registration</td>
+              <td><span class="category-badge category-hosting">Hosting</span></td>
+              <td>₹1,200</td>
+            </tr>
+            <tr>
+              <td>2025-11-12</td>
+              <td>Development Tools & Software</td>
+              <td><span class="category-badge category-development">Development</span></td>
+              <td>₹2,500</td>
+            </tr>
+            <tr>
+              <td>2025-12-01</td>
+              <td>Content Storage (Google Drive Business)</td>
+              <td><span class="category-badge category-storage">Storage</span></td>
+              <td>₹1,800</td>
+            </tr>
+            <tr class="summary-row">
+              <td colspan="3"><strong>Total Expenses</strong></td>
+              <td><strong>₹5,500</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="donations-summary">
+          <div class="summary-item">
+            <span class="summary-label">Donations Received:</span>
+            <span class="summary-value donations-received">₹1,500</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Personal Contribution:</span>
+            <span class="summary-value personal-contribution">₹4,000</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Support CTA -->
+      <div class="expense-cta">
+        <h2>Help Us Keep Going</h2>
+        <p>
+          Your support, no matter how small, makes a real difference. 
+          It helps cover hosting costs and allows us to focus on creating better content.
+        </p>
+        <a href="donate.html" class="btn btn-primary btn-lg">
+          Support This Initiative
+        </a>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="footer-logo-diploma">Diploma</span> Notes
+          </div>
+          <p class="footer-tagline">Student-built platform with faculty guidance.</p>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="team.html" class="footer-link">Team</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Support</h3>
+          <div class="footer-links">
+            <a href="donate.html" class="footer-link">💰 Donate</a>
+            <a href="expenses.html" class="footer-link">📊 Expense Reports</a>
+            <a href="contribute.html" class="footer-link">Contribute</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-section-title">Legal</h3>
+          <div class="footer-links">
+            <a href="disclaimer.html#privacy" class="footer-link">Privacy</a>
+            <a href="disclaimer.html#terms" class="footer-link">Terms</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Diploma Notes. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/main.js"></script>
+  
+</body>
+</html>
