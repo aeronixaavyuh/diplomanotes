@@ -53,7 +53,8 @@ const CONFIG = {
     branches: 'branch-subjects.html',
     studyMaterial: 'study-material.html',
     updates: 'updates.html',
-    about: 'about.html'
+    about: 'about.html',
+    presentations: 'presentations.html'
   },
   
   // Feature Flags

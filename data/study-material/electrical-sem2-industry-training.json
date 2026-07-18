@@ -1,0 +1,31 @@
+{
+  "subjectId": "industry-training",
+  "subjectName": "Industry Training",
+  "subjectCode": "EE306",
+  "branchId": "electrical",
+  "branchName": "Electrical Engineering",
+  "semester": 2,
+
+  "presentations": [
+    {
+      "id": "ee-pres-001",
+      "title": "Overview of Substation Maintenance Practices",
+      "studentName": "Ayush Kumar",
+      "rollNumber": "2213310XX",
+      "uploadDate": "2026-06-15",
+      "fileSize": "3.2 MB",
+      "slides": 18,
+      "fileUrl": "assets/presentations/electrical/sem2/industry-training/substation-maintenance.pptx"
+    },
+    {
+      "id": "ee-pres-002",
+      "title": "Substation Maintenance - Field Study",
+      "studentName": "Riya Verma",
+      "rollNumber": "2213310YY",
+      "uploadDate": "2026-06-10",
+      "fileSize": "2.8 MB",
+      "slides": 15,
+      "fileUrl": "https://docs.google.com/presentation/d/15pbPvUFbG5DdvZr4Bn_Xn9ajw9qBztfS/edit?slide=id.p2#slide=id.p2"
+    }
+  ]
+}

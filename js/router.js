@@ -4,7 +4,7 @@
    ============================================ */
 
 const Router = {
-  
+
   /**
    * Navigate to branch subjects page
    * @param {string} branchId - Branch ID
@@ -18,7 +18,7 @@ const Router = {
     }
     window.location.href = url.toString();
   },
-  
+
   /**
    * Navigate to study material page
    * @param {string} branchId - Branch ID
@@ -36,7 +36,23 @@ const Router = {
     }
     window.location.href = url.toString();
   },
-  
+
+  /**
+   * Navigate to the presentations page (used for subjects like
+   * Industry Training where students upload/browse PPTX files
+   * instead of notes/practicals/videos/pyqs).
+   * @param {string} branchId - Branch ID
+   * @param {number} semester - Semester number
+   * @param {string} subjectId - Subject ID
+   */
+  toPresentations(branchId, semester, subjectId) {
+    const url = new URL(CONFIG.ROUTES.presentations, window.location.origin);
+    url.searchParams.set('branch', branchId);
+    url.searchParams.set('semester', semester);
+    url.searchParams.set('subject', subjectId);
+    window.location.href = url.toString();
+  },
+
   /**
    * Get current route parameters
    * @returns {Object} Route parameters
@@ -49,7 +65,7 @@ const Router = {
       tab: Utils.getUrlParam('tab')
     };
   },
-  
+
   /**
    * Update URL without page reload
    * @param {Object} params - Parameters to update
@@ -57,7 +73,7 @@ const Router = {
   updateParams(params) {
     Utils.setUrlParams(params);
   },
-  
+
   /**
    * Go back to previous page
    */
@@ -68,7 +84,7 @@ const Router = {
       window.location.href = CONFIG.ROUTES.home;
     }
   },
-  
+
   /**
    * Build URL for external links
    * @param {string} type - Link type
@@ -78,14 +94,14 @@ const Router = {
   buildExternalUrl(type, params = {}) {
     const baseUrl = CONFIG.EXTERNAL_LINKS[type];
     if (!baseUrl) return '#';
-    
+
     const url = new URL(baseUrl);
     Object.keys(params).forEach(key => {
       url.searchParams.set(key, params[key]);
     });
     return url.toString();
   },
-  
+
   /**
    * Open external link in new tab
    * @param {string} url - URL to open

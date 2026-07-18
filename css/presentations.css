@@ -1,0 +1,306 @@
+/* ============================================
+   DIPLOMA NOTES - PRESENTATIONS PAGE STYLES
+   Mobile-first. Reuses existing design tokens
+   (falls back to sane defaults if a variable
+   isn't defined in _variables.css)
+   ============================================ */
+
+/* ---------- Toolbar (search + upload CTA) ---------- */
+
+.presentations-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 12px);
+  margin: var(--space-6, 24px) 0;
+}
+
+.presentations-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.presentations-search-icon {
+  position: absolute;
+  left: var(--space-3, 12px);
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-secondary, #6b7280);
+  pointer-events: none;
+}
+
+.presentations-search-input {
+  width: 100%;
+  padding: var(--space-3, 12px) var(--space-3, 12px) var(--space-3, 12px) calc(var(--space-3, 12px) * 2 + 18px);
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-md, 10px);
+  font-size: 0.95rem;
+  background: var(--color-bg, #fff);
+  color: var(--color-text, #111827);
+  transition: border-color 0.15s ease;
+}
+
+.presentations-search-input:focus {
+  outline: none;
+  border-color: var(--color-primary, #3B82F6);
+}
+
+.presentations-upload-cta {
+  align-self: flex-start;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .presentations-toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .presentations-search {
+    max-width: 360px;
+    flex: 1;
+  }
+}
+
+/* ---------- Presentations grid ---------- */
+
+.presentations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4, 16px);
+  margin-bottom: var(--space-8, 32px);
+}
+
+@media (min-width: 768px) {
+  .presentations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .presentations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.presentations-no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-8, 32px) 0;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+/* ---------- Presentation card ---------- */
+
+.presentation-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--color-bg, #fff);
+  padding: var(--space-5, 20px);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.presentation-card:hover {
+  box-shadow: var(--shadow-md, 0 6px 16px rgba(0, 0, 0, 0.08));
+  transform: translateY(-2px);
+}
+
+.presentation-card-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  color: var(--color-accent-orange, #F59E0B);
+  margin-bottom: var(--space-3, 12px);
+}
+
+.presentation-card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.presentation-card-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--color-accent-orange, #B45309);
+}
+
+.presentation-card-body {
+  flex: 1;
+}
+
+.presentation-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text, #111827);
+  margin: 0 0 var(--space-1, 4px);
+  line-height: 1.4;
+}
+
+.presentation-card-student {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #6b7280);
+  margin: 0 0 var(--space-3, 12px);
+}
+
+.presentation-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2, 8px);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary, #9ca3af);
+  margin-bottom: var(--space-4, 16px);
+}
+
+.presentation-card-meta span:not(:last-child)::after {
+  content: '·';
+  margin-left: var(--space-2, 8px);
+}
+
+.presentation-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2, 8px);
+  margin-top: auto;
+}
+
+@media (min-width: 480px) {
+  .presentation-card-actions {
+    flex-direction: row;
+  }
+}
+
+.presentation-card-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 0.875rem;
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+}
+
+/* ---------- Preview modal ---------- */
+
+.presentation-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.presentation-modal.is-open {
+  display: flex;
+}
+
+.presentation-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+}
+
+.presentation-modal-content {
+  position: relative;
+  width: 100%;
+  max-height: 92vh;
+  background: var(--color-bg, #fff);
+  border-radius: var(--radius-lg, 12px) var(--radius-lg, 12px) 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: presentation-modal-slide-up 0.2s ease;
+}
+
+@keyframes presentation-modal-slide-up {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (min-width: 768px) {
+  .presentation-modal {
+    align-items: center;
+  }
+
+  .presentation-modal-content {
+    width: min(900px, 90vw);
+    max-height: 85vh;
+    border-radius: var(--radius-lg, 12px);
+  }
+}
+
+.presentation-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4, 16px) var(--space-5, 20px);
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+}
+
+.presentation-modal-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  padding-right: var(--space-4, 16px);
+}
+
+.presentation-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary, #6b7280);
+  padding: var(--space-1, 4px);
+  flex-shrink: 0;
+}
+
+.presentation-modal-close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.presentation-modal-body {
+  position: relative;
+  flex: 1;
+  min-height: 300px;
+  background: #f3f4f6;
+}
+
+.presentation-modal-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  color: var(--color-text-secondary, #6b7280);
+}
+
+.presentation-modal-frame {
+  display: none;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .presentation-modal-body {
+    min-height: 500px;
+  }
+
+  .presentation-modal-frame {
+    min-height: 500px;
+  }
+}
+
+.presentation-modal-footer {
+  padding: var(--space-4, 16px) var(--space-5, 20px);
+  border-top: 1px solid var(--color-border, #e5e7eb);
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,21 @@
+{
+  "subjectId": "industry-training",
+  "subjectName": "Industry Training",
+  "subjectCode": "ME306",
+  "branchId": "mechanical",
+  "branchName": "Mechanical Engineering",
+  "semester": 2,
+
+  "presentations": [
+    {
+      "id": "me-pres-001",
+      "title": "Workshop Visit - CNC Machining Process",
+      "studentName": "Rahul Singh",
+      "rollNumber": "2213320XX",
+      "uploadDate": "2026-06-12",
+      "fileSize": "3.5 MB",
+      "slides": 20,
+      "fileUrl": "assets/presentations/mechanical/sem2/industry-training/cnc-machining-process.pptx"
+    }
+  ]
+}

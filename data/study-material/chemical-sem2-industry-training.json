@@ -1,0 +1,21 @@
+{
+  "subjectId": "industry-training",
+  "subjectName": "Industry Training",
+  "subjectCode": "CH306",
+  "branchId": "chemical",
+  "branchName": "Chemical Engineering",
+  "semester": 2,
+
+  "presentations": [
+    {
+      "id": "ch-pres-001",
+      "title": "Fertilizer Plant Visit - Process Overview",
+      "studentName": "Priya Sharma",
+      "rollNumber": "2213330XX",
+      "uploadDate": "2026-06-08",
+      "fileSize": "2.9 MB",
+      "slides": 16,
+      "fileUrl": "assets/presentations/chemical/sem2/industry-training/fertilizer-plant-process.pptx"
+    }
+  ]
+}
