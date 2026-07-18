@@ -18,8 +18,18 @@ const RecentlyViewedComponent = {
     // Add click handler
     card.addEventListener('click', (e) => {
       e.preventDefault();
-      window.location.href = `/diplomanotes/study-material.html?branch=${item.branchId}&semester=${item.semester}&subject=${item.subjectId}`;
-      // Router.toStudyMaterial(item.branchId, item.semester, item.subjectId);
+
+      StorageManager.addToRecentlyViewed({
+        branchId: item.branchId,
+        branchName: item.branchName || '',
+        semester: item.semester,
+        subjectId: item.subjectId,
+        subjectName: item.subjectName || 'Subject',
+        subjectCode: item.subjectCode || ''
+      });
+
+      const targetUrl = `study-material.html?branch=${encodeURIComponent(item.branchId)}&semester=${encodeURIComponent(item.semester)}&subject=${encodeURIComponent(item.subjectId)}`;
+      window.location.href = targetUrl;
     });
     
     // Format the label

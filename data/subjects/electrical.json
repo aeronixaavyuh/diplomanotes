@@ -126,7 +126,7 @@
         {
           "id": "electrical-circuits-2",
           "code": "EE303",
-          "name": "Electrical Circuits - II",
+          "name": "Electrical Circuits",
           "description": "Three-phase circuits, transient analysis, and two-port networks",
           "units": 5,
           "credits": 4,
@@ -136,6 +136,24 @@
           "id": "electronics-measurements",
           "code": "EE304",
           "name": "Electrical & Electronics Measurements",
+          "description": "Measuring instruments, bridges, and digital meters",
+          "units": 5,
+          "credits": 3,
+          "type": "theory"
+        },
+        {
+          "id": "electrical-machine-I",
+          "code": "EE305",
+          "name": "Electrical Machine-I (LAB)",
+          "description": "Three-phase circuits, transient analysis, and two-port networks",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "advance-skill",
+          "code": "EE306",
+          "name": "Advance Skill Certification",
           "description": "Measuring instruments, bridges, and digital meters",
           "units": 5,
           "credits": 3,
