@@ -75,12 +75,21 @@
         },
         {
           "id": "workshop-practice",
-          "code": "ME102",
+          "code": "CHEM104",
           "name": "Workshop Practice",
           "description": "Fitting, welding, machining, and safety practices",
           "units": 5,
           "credits": 3,
           "type": "practical"
+        },
+         {
+          "id": "industry-training",
+          "code": "CHEM105",
+          "name": "Industry Training",
+          "description": "Mandatory summer training after semester completion",
+          "units": 2,
+          "credits": 2,
+          "type": "mandatory"
         }
       ]
     },

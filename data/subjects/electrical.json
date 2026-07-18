@@ -75,7 +75,7 @@
         },
         {
           "id": "workshop-practice",
-          "code": "ME102",
+          "code": "EE103",
           "name": "Workshop Practice",
           "description": "Fitting, welding, machining, and safety practices",
           "units": 5,
@@ -84,7 +84,7 @@
         },
          {
           "id": "advance-skill",
-          "code": "EE305",
+          "code": "EE104",
           "name": "Advance Skill Certification",
           "description": "Industry-oriented skill development program",
           "units": 0,
@@ -93,10 +93,10 @@
         },
         {
           "id": "industry-training",
-          "code": "EE306",
+          "code": "EE305",
           "name": "Industry Training",
           "description": "Mandatory summer training after semester completion",
-          "units": 0,
+          "units": 2,
           "credits": 2,
           "type": "mandatory"
         }
@@ -136,24 +136,6 @@
           "id": "electronics-measurements",
           "code": "EE304",
           "name": "Electrical & Electronics Measurements",
-          "description": "Measuring instruments, bridges, and digital meters",
-          "units": 5,
-          "credits": 3,
-          "type": "theory"
-        },
-        {
-          "id": "electrical-machine-I",
-          "code": "EE305",
-          "name": "Electrical Machine-I (LAB)",
-          "description": "Three-phase circuits, transient analysis, and two-port networks",
-          "units": 5,
-          "credits": 4,
-          "type": "theory"
-        },
-        {
-          "id": "advance-skill",
-          "code": "EE306",
-          "name": "Advance Skill Certification",
           "description": "Measuring instruments, bridges, and digital meters",
           "units": 5,
           "credits": 3,

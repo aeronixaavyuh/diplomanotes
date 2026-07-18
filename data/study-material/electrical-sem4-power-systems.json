@@ -1,0 +1,207 @@
+{
+  "subjectId": "power-systems",
+  "subjectName": "Power Systems",
+  "subjectCode": "EE402",
+  "branchId": "electrical",
+  "branchName": "Electrical Engineering",
+  "semester": 4,
+  "totalUnits": 5,
+  "notes": [ 
+    {
+      "id": "unit-1",
+      "unitNumber": 1,
+      "title": "Unit 1 Title Yahan",
+      "summary": "Unit 1 ka summary/topics yahan likhein.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/unit-1.pdf",
+      "pages": 0,
+      "fileSize": "0 MB",
+      "uploadDate": "YYYY-MM-DD",
+      "downloads": 0
+    },
+    {
+      "id": "unit-2",
+      "unitNumber": 2,
+      "title": "Unit 2 Title Yahan",
+      "summary": "Unit 2 ka summary/topics yahan likhein.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/unit-2.pdf",
+      "pages": 0,
+      "fileSize": "0 MB",
+      "uploadDate": "YYYY-MM-DD",
+      "downloads": 0
+    },
+    {
+      "id": "unit-3",
+      "unitNumber": 3,
+      "title": "Unit 3 Title Yahan",
+      "summary": "Unit 3 ka summary/topics yahan likhein.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/unit-3.pdf",
+      "pages": 0,
+      "fileSize": "0 MB",
+      "uploadDate": "YYYY-MM-DD",
+      "downloads": 0
+    },
+    {
+      "id": "unit-4",
+      "unitNumber": 4,
+      "title": "Unit 4 Title Yahan",
+      "summary": "Unit 4 ka summary/topics yahan likhein.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/unit-4.pdf",
+      "pages": 0,
+      "fileSize": "0 MB",
+      "uploadDate": "YYYY-MM-DD",
+      "downloads": 0
+    },
+    {
+      "id": "unit-5",
+      "unitNumber": 5,
+      "title": "Unit 5 Title Yahan",
+      "summary": "Unit 5 ka summary/topics yahan likhein.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/unit-5.pdf",
+      "pages": 0,
+      "fileSize": "0 MB",
+      "uploadDate": "YYYY-MM-DD",
+      "downloads": 0
+    }
+   ],
+  "practicals": [ 
+     {
+      "id": "practical-1",
+      "practicalNumber": 1,
+      "title": "Practical 1 ka title yahan",
+      "description": "Practical 1 ka detail description yahan.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/practical-1.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/practical-1",
+      "duration": "2 hours",
+      "fileSize": "0 MB"
+    },
+    {
+      "id": "practical-2",
+      "practicalNumber": 2,
+      "title": "Practical 2 ka title yahan",
+      "description": "Practical 2 ka detail description yahan.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/practical-2.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/practical-2",
+      "duration": "2 hours",
+      "fileSize": "0 MB"
+    },
+    {
+      "id": "practical-3",
+      "practicalNumber": 3,
+      "title": "Practical 3 ka title yahan",
+      "description": "Practical 3 ka detail description yahan.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/practical-3.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/practical-3",
+      "duration": "2 hours",
+      "fileSize": "0 MB"
+    },
+    {
+      "id": "practical-4",
+      "practicalNumber": 4,
+      "title": "Practical 4 ka title yahan",
+      "description": "Practical 4 ka detail description yahan.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/practical-4.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/practical-4",
+      "duration": "2 hours",
+      "fileSize": "0 MB"
+    },
+    {
+      "id": "practical-5",
+      "practicalNumber": 5,
+      "title": "Practical 5 ka title yahan",
+      "description": "Practical 5 ka detail description yahan.",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/practical-5.pdf",
+      "virtualLabUrl": "https://vlab.co.in/electrical/practical-5",
+      "duration": "2 hours",
+      "fileSize": "0 MB"
+    }
+   ],
+  "videos": [
+    {
+      "id": "video-1",
+      "title": "Video 1 Title Yahan",
+      "description": "Video 1 ka short description yahan.",
+      "url": "https://www.youtube.com/watch?v=XXXXXXXXXXX",
+      "duration": "00:00",
+      "views": "0K",
+      "uploadDate": "YYYY-MM-DD",
+      "channel": "Channel Name Yahan"
+    },
+    {
+      "id": "video-2",
+      "title": "Video 2 Title Yahan",
+      "description": "Video 2 ka short description yahan.",
+      "url": "https://www.youtube.com/watch?v=XXXXXXXXXXX",
+      "duration": "00:00",
+      "views": "0K",
+      "uploadDate": "YYYY-MM-DD",
+      "channel": "Channel Name Yahan"
+    },
+    {
+      "id": "video-3",
+      "title": "Video 3 Title Yahan",
+      "description": "Video 3 ka short description yahan.",
+      "url": "https://www.youtube.com/watch?v=XXXXXXXXXXX",
+      "duration": "00:00",
+      "views": "0K",
+      "uploadDate": "YYYY-MM-DD",
+      "channel": "Channel Name Yahan"
+    },
+    {
+      "id": "video-4",
+      "title": "Video 4 Title Yahan",
+      "description": "Video 4 ka short description yahan.",
+      "url": "https://www.youtube.com/watch?v=XXXXXXXXXXX",
+      "duration": "00:00",
+      "views": "0K",
+      "uploadDate": "YYYY-MM-DD",
+      "channel": "Channel Name Yahan"
+    }
+  ],
+  "pyqs": [ 
+    {
+      "id": "pyq-2024",
+      "year": 2024,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/pyq-2024.pdf",
+      "pages": 0,
+      "fileSize": "0 KB",
+      "downloads": 0
+    },
+    {
+      "id": "pyq-2023",
+      "year": 2023,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/pyq-2023.pdf",
+      "pages": 0,
+      "fileSize": "0 KB",
+      "downloads": 0
+    },
+    {
+      "id": "pyq-2022",
+      "year": 2022,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/pyq-2022.pdf",
+      "pages": 0,
+      "fileSize": "0 KB",
+      "downloads": 0
+    },
+    {
+      "id": "pyq-2021",
+      "year": 2021,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/pyq-2021.pdf",
+      "pages": 0,
+      "fileSize": "0 KB",
+      "downloads": 0
+    },
+    {
+      "id": "pyq-2020",
+      "year": 2020,
+      "examType": "Semester Exam",
+      "pdfUrl": "assets/pdfs/electrical/semX/subject-id/pyq-2020.pdf",
+      "pages": 0,
+      "fileSize": "0 KB",
+      "downloads": 0
+    }
+   ]
+}

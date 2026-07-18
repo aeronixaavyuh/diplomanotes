@@ -38,24 +38,35 @@ const PresentationsPage = {
   },
 
   /**
-   * Detects whether a fileUrl points to Google Drive.
-   * Works with any of the common share-link formats:
-   *   https://drive.google.com/file/d/FILE_ID/view?usp=sharing
-   *   https://drive.google.com/open?id=FILE_ID
-   *   https://drive.google.com/uc?id=FILE_ID
+   * Detects whether a fileUrl is a Google SLIDES presentation
+   * (created/edited directly in Google Slides), as opposed to a
+   * pptx FILE uploaded to Drive. These need different URLs:
+   *   Slides:      https://docs.google.com/presentation/d/ID/edit
+   *   Drive file:  https://drive.google.com/file/d/ID/view
    */
-  isGoogleDriveUrl(url) {
+  isGoogleSlidesUrl(url) {
+    return typeof url === 'string' && url.includes('docs.google.com/presentation');
+  },
+
+  /**
+   * Detects whether a fileUrl points to a file uploaded to
+   * Google Drive (a real .pptx sitting in Drive, not a native
+   * Google Slides document).
+   */
+  isGoogleDriveFileUrl(url) {
     return typeof url === 'string' && url.includes('drive.google.com');
   },
 
   /**
-   * Pulls the FILE_ID out of any common Google Drive URL shape.
-   * Returns null if no id could be found.
+   * Pulls the ID out of a Google URL. Works for both shapes since
+   * they share the same /d/ID/ segment:
+   *   docs.google.com/presentation/d/ID/edit
+   *   drive.google.com/file/d/ID/view
    */
   extractDriveFileId(url) {
     const patterns = [
-      /\/file\/d\/([a-zA-Z0-9_-]+)/,   // /file/d/FILE_ID/view
-      /[?&]id=([a-zA-Z0-9_-]+)/        // ?id=FILE_ID or &id=FILE_ID
+      /\/d\/([a-zA-Z0-9_-]+)/,   // /presentation/d/ID or /file/d/ID
+      /[?&]id=([a-zA-Z0-9_-]+)/ // ?id=ID or &id=ID
     ];
     for (const pattern of patterns) {
       const match = url.match(pattern);
@@ -65,36 +76,48 @@ const PresentationsPage = {
   },
 
   /**
-   * Given a presentation's stored fileUrl (repo path OR a Google
-   * Drive share link), returns the correct { previewUrl, downloadUrl }
-   * pair to actually use in the UI.
+   * Given a presentation's stored fileUrl, returns the correct
+   * { previewUrl, downloadUrl } pair. Handles three cases:
+   *   1. Google Slides document (docs.google.com/presentation/...)
+   *   2. A pptx file uploaded to Google Drive (drive.google.com/file/...)
+   *   3. A regular repo-hosted pptx (opened via Office Online)
+   * Both links always open in a new tab - no iframe embedding.
    */
   resolveFileLinks(fileUrl) {
-    if (this.isGoogleDriveUrl(fileUrl)) {
-      const fileId = this.extractDriveFileId(fileUrl);
-
-      if (!fileId) {
-        // Couldn't parse an id - fall back to the raw link
-        return { previewUrl: fileUrl, downloadUrl: fileUrl, isDrive: true };
-      }
+    // Case 1: native Google Slides document
+    if (this.isGoogleSlidesUrl(fileUrl)) {
+      const id = this.extractDriveFileId(fileUrl);
+      if (!id) return { previewUrl: fileUrl, downloadUrl: fileUrl };
 
       return {
-        // Drive's own embeddable preview - works even while your
-        // site is running on localhost, since Drive is already public.
-        previewUrl: `https://drive.google.com/file/d/${fileId}/preview`,
-        // Direct download (large files may show Drive's virus-scan
-        // interstitial first - that's a Drive limitation, not a bug here).
-        downloadUrl: `https://drive.google.com/uc?export=download&id=${fileId}`,
-        isDrive: true
+        // View-only editor page - this is the correct "preview" for Slides
+        previewUrl: `https://docs.google.com/presentation/d/${id}/edit?usp=sharing`,
+        // Ask Google to export the Slides doc as a real .pptx file
+        downloadUrl: `https://docs.google.com/presentation/d/${id}/export/pptx`
       };
     }
 
-    // Regular repo-hosted pptx - use Office Online's viewer
+    // Case 2: an actual .pptx file uploaded to Drive
+    if (this.isGoogleDriveFileUrl(fileUrl)) {
+      const id = this.extractDriveFileId(fileUrl);
+      if (!id) return { previewUrl: fileUrl, downloadUrl: fileUrl };
+
+      return {
+        previewUrl: `https://drive.google.com/file/d/${id}/view`,
+        // Large files may show Drive's virus-scan interstitial first -
+        // that's a Drive limitation, not a bug here.
+        downloadUrl: `https://drive.google.com/uc?export=download&id=${id}`
+      };
+    }
+
+    // Case 3: regular repo-hosted pptx - use Office Online's viewer page.
+    // NOTE: this only works once the file is on a public https URL
+    // (e.g. after deploying to GitHub Pages) - it cannot reach
+    // localhost, so preview will always fail during local testing.
     const absoluteUrl = this.getAbsoluteFileUrl(fileUrl);
     return {
-      previewUrl: `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}`,
-      downloadUrl: fileUrl,
-      isDrive: false
+      previewUrl: `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(absoluteUrl)}`,
+      downloadUrl: fileUrl
     };
   },
 
@@ -107,7 +130,6 @@ const PresentationsPage = {
     this.setupBackButton();
     this.setupBreadcrumb();
     this.setupSearch();
-    this.setupModal();
 
     await this.loadPresentations();
   },
@@ -161,7 +183,6 @@ const PresentationsPage = {
       const data = await response.json();
       this.state.allPresentations = data.presentations || [];
 
-      // Update header text if the JSON provides a title/branch name
       if (data.subjectName) {
         document.getElementById('presentationsTitle').textContent = `${data.subjectName} Presentations`;
       }
@@ -199,15 +220,6 @@ const PresentationsPage = {
     }
 
     grid.innerHTML = presentations.map(p => this.renderCard(p)).join('');
-
-    // Wire up buttons after render
-    grid.querySelectorAll('[data-preview-id]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-preview-id');
-        const presentation = presentations.find(p => p.id === id);
-        if (presentation) this.openPreview(presentation);
-      });
-    });
   },
 
   renderCard(p) {
@@ -215,7 +227,7 @@ const PresentationsPage = {
       ? new Date(p.uploadDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
       : '';
 
-    const { downloadUrl } = this.resolveFileLinks(p.fileUrl);
+    const { previewUrl, downloadUrl } = this.resolveFileLinks(p.fileUrl);
 
     return `
       <div class="presentation-card">
@@ -239,63 +251,15 @@ const PresentationsPage = {
         </div>
 
         <div class="presentation-card-actions">
-          <button class="btn btn-outline presentation-card-btn" data-preview-id="${p.id}">
+          <a href="${previewUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline presentation-card-btn">
             Preview
-          </button>
-          <a href="${downloadUrl}" class="btn btn-primary presentation-card-btn" download>
+          </a>
+          <a href="${downloadUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary presentation-card-btn">
             Download
           </a>
         </div>
       </div>
     `;
-  },
-
-  setupModal() {
-    const modal = document.getElementById('presentationModal');
-    const backdrop = document.getElementById('presentationModalBackdrop');
-    const closeBtn = document.getElementById('presentationModalClose');
-
-    const close = () => this.closePreview();
-
-    backdrop.addEventListener('click', close);
-    closeBtn.addEventListener('click', close);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
-    });
-  },
-
-  openPreview(presentation) {
-    const modal = document.getElementById('presentationModal');
-    const title = document.getElementById('presentationModalTitle');
-    const frame = document.getElementById('presentationModalFrame');
-    const loading = document.getElementById('presentationModalLoading');
-    const downloadLink = document.getElementById('presentationModalDownload');
-
-    const { previewUrl, downloadUrl } = this.resolveFileLinks(presentation.fileUrl);
-
-    title.textContent = presentation.title;
-    downloadLink.href = downloadUrl;
-
-    loading.style.display = 'flex';
-    frame.style.display = 'none';
-
-    frame.onload = () => {
-      loading.style.display = 'none';
-      frame.style.display = 'block';
-    };
-    frame.src = previewUrl;
-
-    modal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  },
-
-  closePreview() {
-    const modal = document.getElementById('presentationModal');
-    const frame = document.getElementById('presentationModalFrame');
-
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-    frame.src = 'about:blank';
   }
 };
 
