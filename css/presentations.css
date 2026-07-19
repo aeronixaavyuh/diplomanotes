@@ -1,8 +1,9 @@
 /* ============================================
    DIPLOMA NOTES - PRESENTATIONS PAGE STYLES
-   Mobile-first. Reuses existing design tokens
-   (falls back to sane defaults if a variable
-   isn't defined in _variables.css)
+   Mobile-first master-detail viewer.
+   Reuses existing design tokens (falls back to
+   sane defaults if a variable isn't defined in
+   _variables.css)
    ============================================ */
 
 /* ---------- Toolbar (search + upload CTA) ---------- */
@@ -63,122 +64,271 @@
   }
 }
 
-/* ---------- Presentations grid ---------- */
+/* ---------- Split-view layout (list + viewer) ---------- */
 
-.presentations-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4, 16px);
+.presentations-layout {
+  position: relative;
+  display: block;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
   margin-bottom: var(--space-8, 32px);
-}
-
-@media (min-width: 768px) {
-  .presentations-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1100px) {
-  .presentations-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  background: var(--color-bg, #fff);
 }
 
 .presentations-no-results {
-  grid-column: 1 / -1;
   text-align: center;
-  padding: var(--space-8, 32px) 0;
+  padding: var(--space-6, 24px);
   color: var(--color-text-secondary, #6b7280);
 }
 
-/* ---------- Presentation card ---------- */
+/* --- List pane --- */
 
-.presentation-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--color-border, #e5e7eb);
-  border-radius: var(--radius-lg, 12px);
-  background: var(--color-bg, #fff);
-  padding: var(--space-5, 20px);
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
+.presentations-list-pane {
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
-.presentation-card:hover {
-  box-shadow: var(--shadow-md, 0 6px 16px rgba(0, 0, 0, 0.08));
-  transform: translateY(-2px);
-}
-
-.presentation-card-icon {
+.presentation-list-item {
   display: flex;
   align-items: center;
-  gap: var(--space-2, 8px);
-  color: var(--color-accent-orange, #F59E0B);
-  margin-bottom: var(--space-3, 12px);
+  gap: var(--space-3, 12px);
+  padding: var(--space-3, 12px) var(--space-4, 16px);
+  border-bottom: 1px solid var(--color-border, #f0f1f3);
+  cursor: pointer;
+  transition: background-color 0.12s ease;
 }
 
-.presentation-card-icon svg {
+.presentation-list-item:last-child {
+  border-bottom: none;
+}
+
+.presentation-list-item:hover {
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.presentation-list-item.is-active {
+  background: rgba(59, 130, 246, 0.08);
+  border-left: 3px solid var(--color-primary, #3B82F6);
+  padding-left: calc(var(--space-4, 16px) - 3px);
+}
+
+.presentation-list-item-icon {
+  flex-shrink: 0;
   width: 32px;
   height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-orange, #F59E0B);
 }
 
-.presentation-card-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: rgba(245, 158, 11, 0.12);
-  color: var(--color-accent-orange, #B45309);
+.presentation-list-item-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
-.presentation-card-body {
+.presentation-list-item-body {
   flex: 1;
+  min-width: 0;
 }
 
-.presentation-card-title {
-  font-size: 1rem;
+.presentation-list-item-title {
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-text, #111827);
-  margin: 0 0 var(--space-1, 4px);
-  line-height: 1.4;
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.presentation-card-student {
-  font-size: 0.875rem;
+.presentation-list-item-meta {
+  font-size: 0.78rem;
   color: var(--color-text-secondary, #6b7280);
-  margin: 0 0 var(--space-3, 12px);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.presentation-card-meta {
+.presentation-list-item-download {
+  flex-shrink: 0;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md, 8px);
+  color: var(--color-text-secondary, #6b7280);
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.presentation-list-item-download:hover {
+  background: var(--color-primary, #3B82F6);
+  color: #fff;
+}
+
+.presentation-list-item-download svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* --- Viewer pane --- */
+
+.presentations-viewer-pane {
+  position: relative;
+  min-height: 320px;
+  padding: var(--space-4, 16px);
+}
+
+.viewer-back-button {
+  display: none;
+  align-items: center;
   gap: var(--space-2, 8px);
-  font-size: 0.8rem;
-  color: var(--color-text-secondary, #9ca3af);
+  background: none;
+  border: none;
+  color: var(--color-primary, #3B82F6);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0 0 var(--space-3, 12px);
+  cursor: pointer;
+}
+
+.viewer-back-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.viewer-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  min-height: 260px;
+  text-align: center;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+.viewer-placeholder-icon {
+  font-size: 2.5rem;
+}
+
+.viewer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3, 12px);
   margin-bottom: var(--space-4, 16px);
 }
 
-.presentation-card-meta span:not(:last-child)::after {
-  content: '·';
-  margin-left: var(--space-2, 8px);
+.viewer-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text, #111827);
+  margin: 0 0 2px;
 }
 
-.presentation-card-actions {
+.viewer-subtitle {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary, #6b7280);
+  margin: 0;
+}
+
+.viewer-download-btn {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* --- In-app iframe embed --- */
+
+.viewer-embed {
+  position: relative;
+  background: #111827;
+  border-radius: var(--radius-md, 10px);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.viewer-embed-loading {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-2, 8px);
-  margin-top: auto;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
 }
 
-@media (min-width: 480px) {
-  .presentation-card-actions {
-    flex-direction: row;
-  }
+.viewer-embed-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
 }
 
-.presentation-card-btn {
-  flex: 1;
+.viewer-embed-note {
+  margin-top: var(--space-3, 12px);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary, #6b7280);
   text-align: center;
-  font-size: 0.875rem;
-  padding: var(--space-2, 8px) var(--space-3, 12px);
+}
+
+.viewer-embed-note a {
+  color: var(--color-primary, #3B82F6);
+  font-weight: 600;
+}
+
+/* ---------- Mobile behaviour: list <-> full-screen viewer ---------- */
+
+.presentations-viewer-pane {
+  display: none;
+}
+
+.presentations-layout.is-viewing .presentations-list-pane {
+  display: none;
+}
+
+.presentations-layout.is-viewing .presentations-viewer-pane {
+  display: block;
+}
+
+.presentations-layout.is-viewing .viewer-back-button {
+  display: inline-flex;
+}
+
+/* ---------- Desktop: side-by-side, both always visible ---------- */
+
+@media (min-width: 900px) {
+  .presentations-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    max-height: 75vh;
+  }
+
+  .presentations-list-pane {
+    max-height: 75vh;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border, #e5e7eb);
+  }
+
+  .presentations-viewer-pane {
+    display: block !important;
+    overflow-y: auto;
+  }
+
+  .viewer-back-button {
+    display: none !important;
+  }
+
+  .viewer-embed {
+    aspect-ratio: 16 / 9;
+  }
 }
