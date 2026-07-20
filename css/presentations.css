@@ -1,9 +1,18 @@
 /* ============================================
    DIPLOMA NOTES - PRESENTATIONS PAGE STYLES
-   Mobile-first master-detail viewer.
-   Reuses existing design tokens (falls back to
-   sane defaults if a variable isn't defined in
-   _variables.css)
+   Two completely different layouts by device:
+
+   MOBILE (<900px): a single stacked list of cards,
+   each with its OWN inline preview embed - no
+   click-through navigation, no "back" button,
+   students just scroll and see every preview.
+   Iframes are lazy-loaded (only when scrolled
+   into view) so a long list doesn't tank
+   performance/data usage.
+
+   DESKTOP (>=900px): master-detail split view -
+   compact list on the left, one big preview panel
+   on the right, updates on click.
    ============================================ */
 
 /* ---------- Toolbar (search + upload CTA) ---------- */
@@ -64,22 +73,117 @@
   }
 }
 
-/* ---------- Split-view layout (list + viewer) ---------- */
-
-.presentations-layout {
-  position: relative;
-  display: block;
-  border: 1px solid var(--color-border, #e5e7eb);
-  border-radius: var(--radius-lg, 12px);
-  overflow: hidden;
-  margin-bottom: var(--space-8, 32px);
-  background: var(--color-bg, #fff);
-}
-
 .presentations-no-results {
   text-align: center;
   padding: var(--space-6, 24px);
   color: var(--color-text-secondary, #6b7280);
+}
+
+/* =========================================================
+   MOBILE: stacked cards, each with its own inline preview
+   ========================================================= */
+
+.presentations-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 16px);
+  margin-bottom: var(--space-8, 32px);
+}
+
+.mobile-presentation-card {
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--color-bg, #fff);
+  overflow: hidden;
+}
+
+.mobile-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3, 12px);
+  padding: var(--space-4, 16px) var(--space-4, 16px) var(--space-2, 8px);
+}
+
+.mobile-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text, #111827);
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.mobile-card-meta {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary, #6b7280);
+  margin: 0 var(--space-4, 16px) var(--space-3, 12px);
+}
+
+.mobile-card-download {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.mobile-card-embed {
+  position: relative;
+  margin: 0 var(--space-4, 16px) var(--space-3, 12px);
+  background: #111827;
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  /* min-height: 220px; */
+}
+
+.mobile-card-embed.is-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.mobile-card-embed-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+}
+
+.mobile-card-embed-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-card-embed-frame.is-loaded {
+  opacity: 1;
+}
+
+.mobile-card-note {
+  margin: 0 var(--space-4, 16px) var(--space-4, 16px);
+  font-size: 0.78rem;
+  color: var(--color-text-secondary, #6b7280);
+  text-align: center;
+}
+
+.mobile-card-note a {
+  color: var(--color-primary, #3B82F6);
+  font-weight: 600;
+}
+
+/* =========================================================
+   DESKTOP: master-detail split view (list + big panel)
+   ========================================================= */
+
+.presentations-layout {
+  display: none; /* hidden on mobile - the stacked card list is used instead */
 }
 
 /* --- List pane --- */
@@ -183,24 +287,6 @@
   padding: var(--space-4, 16px);
 }
 
-.viewer-back-button {
-  display: none;
-  align-items: center;
-  gap: var(--space-2, 8px);
-  background: none;
-  border: none;
-  color: var(--color-primary, #3B82F6);
-  font-weight: 600;
-  font-size: 0.875rem;
-  padding: 0 0 var(--space-3, 12px);
-  cursor: pointer;
-}
-
-.viewer-back-button svg {
-  width: 18px;
-  height: 18px;
-}
-
 .viewer-placeholder {
   display: flex;
   flex-direction: column;
@@ -243,14 +329,17 @@
   white-space: nowrap;
 }
 
-/* --- In-app iframe embed --- */
-
 .viewer-embed {
   position: relative;
   background: #111827;
   border-radius: var(--radius-md, 10px);
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9; /* default - most modern PPT/Slides decks */
+  min-height: 280px; /* safety floor so Google's own "..." dropdown always has room and never gets clipped */
+}
+
+.viewer-embed.is-4-3 {
+  aspect-ratio: 4 / 3;
 }
 
 .viewer-embed-loading {
@@ -286,31 +375,20 @@
   font-weight: 600;
 }
 
-/* ---------- Mobile behaviour: list <-> full-screen viewer ---------- */
-
-.presentations-viewer-pane {
-  display: none;
-}
-
-.presentations-layout.is-viewing .presentations-list-pane {
-  display: none;
-}
-
-.presentations-layout.is-viewing .presentations-viewer-pane {
-  display: block;
-}
-
-.presentations-layout.is-viewing .viewer-back-button {
-  display: inline-flex;
-}
-
-/* ---------- Desktop: side-by-side, both always visible ---------- */
-
 @media (min-width: 900px) {
+  .presentations-mobile-list {
+    display: none;
+  }
+
   .presentations-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
     max-height: 75vh;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    margin-bottom: var(--space-8, 32px);
+    background: var(--color-bg, #fff);
   }
 
   .presentations-list-pane {
@@ -320,15 +398,6 @@
   }
 
   .presentations-viewer-pane {
-    display: block !important;
     overflow-y: auto;
-  }
-
-  .viewer-back-button {
-    display: none !important;
-  }
-
-  .viewer-embed {
-    aspect-ratio: 16 / 9;
   }
 }

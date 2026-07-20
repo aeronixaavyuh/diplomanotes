@@ -120,7 +120,15 @@
         </a>
       </div>
 
-      <!-- ===== SPLIT VIEW: list (left) + viewer (right) ===== -->
+      <!-- ===== MOBILE: stacked cards, each with its own inline preview ===== -->
+      <div class="presentations-mobile-list" id="presentationsMobileList">
+        <div class="subjects-loading">
+          <div class="subjects-loading-spinner"></div>
+          <p>Loading presentations...</p>
+        </div>
+      </div>
+
+      <!-- ===== DESKTOP: split view - compact list (left) + big preview (right) ===== -->
       <div class="presentations-layout" id="presentationsLayout">
 
         <!-- List pane -->
@@ -136,21 +144,11 @@
         <!-- Viewer pane -->
         <section class="presentations-viewer-pane" id="presentationsViewerPane">
 
-          <!-- Shown on mobile only, to go back to the list -->
-          <button class="viewer-back-button" id="viewerBackButton">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            All Presentations
-          </button>
-
-          <!-- Nothing selected yet -->
           <div class="viewer-placeholder" id="viewerPlaceholder">
             <div class="viewer-placeholder-icon">📊</div>
-            <p>Select a presentation from the list to preview it here.</p>
+            <p>Select a presentation to preview it here.</p>
           </div>
 
-          <!-- Selected presentation -->
           <div class="viewer-content" id="viewerContent" style="display: none;">
             <div class="viewer-header">
               <div>
@@ -183,6 +181,7 @@
           </div>
 
         </section>
+
       </div>
 
       <!-- Empty State -->
