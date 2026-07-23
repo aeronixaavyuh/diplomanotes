@@ -1,14 +1,3 @@
-/* ============================================
-   DIPLOMA NOTES - PRESENTATIONS PAGE STYLES
-   ONE responsive grid of cards used on every
-   device - no click-through navigation anywhere.
-   Mobile: 1 column. Tablet: 2. Laptop: 3.
-   Wide desktop: 4. Every card previews inline;
-   iframes are lazy-loaded (only when scrolled
-   into view) so a long list doesn't tank
-   performance/data usage.
-   ============================================ */
-
 /* ---------- Toolbar (search + upload CTA) ---------- */
 
 .presentations-toolbar {
@@ -98,7 +87,7 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: var(--space-6, 24px);
-  color: var(--color-text-secondary, #6b7280);
+  color: var(--color-gray-500, #6b7280);
 }
 
 /* ---------- Individual card ---------- */

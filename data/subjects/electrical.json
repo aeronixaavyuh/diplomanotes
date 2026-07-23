@@ -188,40 +188,85 @@
       "number": 5,
       "subjects": [
         {
-          "id": "microprocessor",
+          "id": "switchgear",
           "code": "EE501",
-          "name": "Microprocessor & Microcontroller",
+          "name": "SWITCH GEAR AND PROTECTION (Theory)",
           "description": "8085, 8086 microprocessors and 8051 microcontroller",
-          "units": 5,
+          "units": 6,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "electrical-installation",
+          "id": "energyconservation",
           "code": "EE502",
-          "name": "Electrical Installation & Maintenance",
+          "name": "ENERGY CONSERVATION AND AUDIT (Practicum)",
           "description": "Wiring, earthing, and electrical safety practices",
           "units": 5,
           "credits": 4,
-          "type": "theory"
+          "type": "practicum"
         },
         {
-          "id": "utilization",
+          "id": "electricalestimation",
           "code": "EE503",
-          "name": "Utilization of Electrical Energy",
+          "name": "ELECTRICAL ESTIMATION AND CONTRACTING (Practicum)",
           "description": "Illumination, heating, welding, and traction",
           "units": 5,
           "credits": 4,
-          "type": "theory"
+          "type": "practicum"
         },
         {
-          "id": "power-electronics",
+          "id": "qindianconstitution",
           "code": "EE504",
-          "name": "Power Electronics",
+          "name": "INDIAN CONSTITUTION (Audit Course)",
           "description": "Converters, inverters, and power control devices",
           "units": 5,
           "credits": 4,
-          "type": "theory"
+          "type": "audit course"
+        },
+        {
+          "id": "solarpower",
+          "code": "EE505",
+          "name": "1. SOLAR POWER TECHNOLOGIES (PE-3) (Theory)",
+          "description": "Converters, inverters, and power control devices",
+          "units": 5,
+          "credits": 4,
+          "type": "audit course"
+        },
+        {
+          "id": "electrictraction",
+          "code": "EE506",
+          "name": "2. ELECTRIC TRACTION (PE-3) (Theory)",
+          "description": "Converters, inverters, and power control devices",
+          "units": 5,
+          "credits": 4,
+          "type": "audit course"
+        },
+        {
+          "id": "electrictesting",
+          "code": "EE507",
+          "name": "1. ELECTRICAL TESTING AND COMMISSIONING (PE-3) (Practicum)",
+          "description": "Converters, inverters, and power control devices",
+          "units": 5,
+          "credits": 4,
+          "type": "audit course"
+        },
+        {
+          "id": "illumination",
+          "code": "EE508",
+          "name": "2. ILLUMINATION PRACTICES (PE-4) (Practicum)",
+          "description": "Converters, inverters, and power control devices",
+          "units": 5,
+          "credits": 4,
+          "type": "audit course"
+        },
+        {
+          "id": "industry-training",
+          "code": "EE509",
+          "name": "Industry Training",
+          "description": "Mandatory summer training after semester completion",
+          "units": 2,
+          "credits": 2,
+          "type": "mandatory"
         }
       ]
     },
