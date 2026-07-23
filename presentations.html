@@ -120,68 +120,14 @@
         </a>
       </div>
 
-      <!-- ===== MOBILE: stacked cards, each with its own inline preview ===== -->
-      <div class="presentations-mobile-list" id="presentationsMobileList">
+      <!-- ===== PRESENTATIONS GRID - same design on every device,
+           1 column on mobile, 3-4 columns on laptop/desktop.
+           No click-through anywhere - every card previews inline. ===== -->
+      <div class="presentations-grid" id="presentationsGrid">
         <div class="subjects-loading">
           <div class="subjects-loading-spinner"></div>
           <p>Loading presentations...</p>
         </div>
-      </div>
-
-      <!-- ===== DESKTOP: split view - compact list (left) + big preview (right) ===== -->
-      <div class="presentations-layout" id="presentationsLayout">
-
-        <!-- List pane -->
-        <aside class="presentations-list-pane" id="presentationsListPane">
-          <div class="presentations-list" id="presentationsList">
-            <div class="subjects-loading">
-              <div class="subjects-loading-spinner"></div>
-              <p>Loading presentations...</p>
-            </div>
-          </div>
-        </aside>
-
-        <!-- Viewer pane -->
-        <section class="presentations-viewer-pane" id="presentationsViewerPane">
-
-          <div class="viewer-placeholder" id="viewerPlaceholder">
-            <div class="viewer-placeholder-icon">📊</div>
-            <p>Select a presentation to preview it here.</p>
-          </div>
-
-          <div class="viewer-content" id="viewerContent" style="display: none;">
-            <div class="viewer-header">
-              <div>
-                <h2 class="viewer-title" id="viewerTitle"></h2>
-                <p class="viewer-subtitle" id="viewerSubtitle"></p>
-              </div>
-              <a href="#" class="btn btn-primary viewer-download-btn" id="viewerDownloadBtn" target="_blank" rel="noopener noreferrer">
-                Download
-              </a>
-            </div>
-
-            <!-- In-app iframe embed (Drive / Slides / Office Online) -->
-            <div class="viewer-embed" id="viewerEmbed">
-              <div class="viewer-embed-loading" id="viewerEmbedLoading">
-                <div class="subjects-loading-spinner"></div>
-                <p>Loading preview...</p>
-              </div>
-              <iframe
-                id="viewerEmbedFrame"
-                class="viewer-embed-frame"
-                title="Presentation preview"
-                allowfullscreen
-              ></iframe>
-            </div>
-
-            <p class="viewer-embed-note">
-              Preview not loading?
-              <a href="#" id="viewerExternalLink" target="_blank" rel="noopener noreferrer">Open it directly instead</a>
-            </p>
-          </div>
-
-        </section>
-
       </div>
 
       <!-- Empty State -->

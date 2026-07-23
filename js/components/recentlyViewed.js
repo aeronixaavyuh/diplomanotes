@@ -4,7 +4,27 @@
    ============================================ */
 
 const RecentlyViewedComponent = {
-  
+
+  /**
+   * Subject IDs that should open the Presentations page
+   * instead of the regular Study Material page.
+   * Kept in sync with SubjectCardComponent.PRESENTATION_SUBJECT_IDS -
+   * duplicated here (rather than referenced) because this component
+   * also loads on pages like index.html where subjectCard.js isn't
+   * included. Add new IDs to BOTH lists if this ever grows.
+   */
+  PRESENTATION_SUBJECT_IDS: ['industry-training'],
+
+  /**
+   * Checks whether a subject should route to the
+   * presentations page instead of study-material page.
+   * @param {string} subjectId
+   * @returns {boolean}
+   */
+  isPresentationSubject(subjectId) {
+    return this.PRESENTATION_SUBJECT_IDS.includes(subjectId);
+  },
+
   /**
    * Create a recently viewed card
    * @param {Object} item - Recently viewed item
@@ -14,7 +34,7 @@ const RecentlyViewedComponent = {
     const card = document.createElement('a');
     card.href = '#';
     card.className = 'recently-viewed-card';
-    
+
     // Add click handler
     card.addEventListener('click', (e) => {
       e.preventDefault();
@@ -28,13 +48,14 @@ const RecentlyViewedComponent = {
         subjectCode: item.subjectCode || ''
       });
 
-      const targetUrl = `study-material.html?branch=${encodeURIComponent(item.branchId)}&semester=${encodeURIComponent(item.semester)}&subject=${encodeURIComponent(item.subjectId)}`;
+      const page = this.isPresentationSubject(item.subjectId) ? 'presentations.html' : 'study-material.html';
+      const targetUrl = `${page}?branch=${encodeURIComponent(item.branchId)}&semester=${encodeURIComponent(item.semester)}&subject=${encodeURIComponent(item.subjectId)}`;
       window.location.href = targetUrl;
     });
-    
+
     // Format the label
     const label = `${item.branchName || 'Branch'} - Sem ${item.semester}`;
-    
+
     card.innerHTML = `
       <h3 class="recently-viewed-card-title">${item.subjectName}</h3>
       <p class="recently-viewed-card-meta">
@@ -43,10 +64,10 @@ const RecentlyViewedComponent = {
         <small style="color: var(--color-gray-400);">Last opened</small>
       </p>
     `;
-    
+
     return card;
   },
-  
+
   /**
    * Get max items based on device
    * @returns {number} Max items to show
@@ -55,7 +76,7 @@ const RecentlyViewedComponent = {
     const isMobile = window.innerWidth < 768;
     return isMobile ? 2 : 3;
   },
-  
+
   /**
    * Render recently viewed section
    * @param {string} containerId - Container element ID
@@ -64,43 +85,43 @@ const RecentlyViewedComponent = {
   render(containerId, sectionId = 'recentlyViewedSection') {
     const container = document.getElementById(containerId);
     const section = document.getElementById(sectionId);
-    
+
     if (!container) {
       console.error('Recently viewed container not found:', containerId);
       return;
     }
-    
+
     // Get recently viewed items
     let items = StorageManager.getRecentlyViewed();
-    
+
     // Limit items based on device
     const maxItems = this.getMaxItems();
     items = items.slice(0, maxItems);
-    
+
     console.log(`Recently viewed: Showing ${items.length} of max ${maxItems} items`);
-    
+
     // Hide section if no items
     if (items.length === 0) {
       if (section) section.style.display = 'none';
       return;
     }
-    
+
     // Show section
     if (section) section.style.display = 'block';
-    
+
     // Clear container
     container.innerHTML = '';
-    
+
     // Render cards
     items.forEach(item => {
       const card = this.create(item);
       container.appendChild(card);
     });
-    
+
     // Re-render on window resize (device change)
     this.setupResizeHandler(containerId, sectionId);
   },
-  
+
   /**
    * Setup resize handler to re-render on device change
    * @param {string} containerId - Container element ID
@@ -109,7 +130,7 @@ const RecentlyViewedComponent = {
   setupResizeHandler(containerId, sectionId) {
     // Debounce resize events
     let resizeTimer;
-    
+
     const handleResize = () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
@@ -117,10 +138,10 @@ const RecentlyViewedComponent = {
         this.render(containerId, sectionId);
       }, 300);
     };
-    
+
     // Remove old listener if exists
     window.removeEventListener('resize', this._resizeHandler);
-    
+
     // Add new listener
     this._resizeHandler = handleResize;
     window.addEventListener('resize', handleResize);

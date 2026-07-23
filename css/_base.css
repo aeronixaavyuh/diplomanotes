@@ -66,7 +66,7 @@ p {
 }
 
 p:last-child {
-  margin-bottom: 0;
+  margin-bottom: var(--space-3);
 }
 
 /* ===== LINKS ===== */
@@ -76,13 +76,8 @@ a {
 }
 
 /* a:hover {
-<<<<<<< HEAD
   color: var(--color-primary-dark);
   
-=======
-  background-color: var(--color-primary-dark);
-
->>>>>>> fix-work
 } */
 
 /* ===== STRONG & EMPHASIS ===== */

@@ -1,18 +1,12 @@
 /* ============================================
    DIPLOMA NOTES - PRESENTATIONS PAGE STYLES
-   Two completely different layouts by device:
-
-   MOBILE (<900px): a single stacked list of cards,
-   each with its OWN inline preview embed - no
-   click-through navigation, no "back" button,
-   students just scroll and see every preview.
-   Iframes are lazy-loaded (only when scrolled
+   ONE responsive grid of cards used on every
+   device - no click-through navigation anywhere.
+   Mobile: 1 column. Tablet: 2. Laptop: 3.
+   Wide desktop: 4. Every card previews inline;
+   iframes are lazy-loaded (only when scrolled
    into view) so a long list doesn't tank
    performance/data usage.
-
-   DESKTOP (>=900px): master-detail split view -
-   compact list on the left, one big preview panel
-   on the right, updates on click.
    ============================================ */
 
 /* ---------- Toolbar (search + upload CTA) ---------- */
@@ -73,31 +67,67 @@
   }
 }
 
+/* ---------- Grid ---------- */
+
+.presentations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5, 20px);
+  margin-bottom: var(--space-8, 32px);
+}
+
+@media (min-width: 640px) {
+  .presentations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .presentations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .presentations-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .presentations-no-results {
+  grid-column: 1 / -1;
   text-align: center;
   padding: var(--space-6, 24px);
   color: var(--color-text-secondary, #6b7280);
 }
 
-/* =========================================================
-   MOBILE: stacked cards, each with its own inline preview
-   ========================================================= */
+/* ---------- Individual card ---------- */
 
-.presentations-mobile-list {
+.presentation-card {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4, 16px);
-  margin-bottom: var(--space-8, 32px);
-}
-
-.mobile-presentation-card {
   border: 1px solid var(--color-border, #e5e7eb);
   border-radius: var(--radius-lg, 12px);
   background: var(--color-bg, #fff);
   overflow: hidden;
+  transition: box-shadow 0.15s ease;
 }
 
-.mobile-card-header {
+/* Google's own embed sometimes opens a "..." dropdown that needs
+   more room than the box itself. Since that content lives inside
+   a cross-origin iframe we can't resize it directly, but raising
+   this card above its neighbours on hover/focus means any part of
+   the menu that does spill out renders on top of the next card
+   instead of being hidden behind it. */
+.presentation-card:hover,
+.presentation-card:focus-within {
+  box-shadow: var(--shadow-md, 0 8px 20px rgba(0, 0, 0, 0.1));
+  z-index: 30;
+}
+
+.presentation-card-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -105,41 +135,46 @@
   padding: var(--space-4, 16px) var(--space-4, 16px) var(--space-2, 8px);
 }
 
-.mobile-card-title {
+.presentation-card-title {
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-text, #111827);
-  margin: 0 0 2px;
+  margin: 0;
   line-height: 1.3;
 }
 
-.mobile-card-meta {
+.presentation-card-meta {
   font-size: 0.8rem;
   color: var(--color-text-secondary, #6b7280);
   margin: 0 var(--space-4, 16px) var(--space-3, 12px);
 }
 
-.mobile-card-download {
+.presentation-card-download {
   flex-shrink: 0;
   font-size: 0.8rem;
   white-space: nowrap;
 }
 
-.mobile-card-embed {
+/* --- Inline embed box --- */
+
+.presentation-card-embed {
   position: relative;
   margin: 0 var(--space-4, 16px) var(--space-3, 12px);
   background: #111827;
   border-radius: var(--radius-md, 8px);
   overflow: hidden;
-  aspect-ratio: 16 / 9;
-  /* min-height: 220px; */
+  aspect-ratio: 16 / 9; /* default - most modern PPT/Slides decks */
+  min-height: 200px;
 }
 
-.mobile-card-embed.is-4-3 {
+/* Older-style presentations are usually 4:3 - set
+   "aspectRatio": "4:3" on that presentation's JSON entry
+   to avoid black letterboxing bars on the sides. */
+.presentation-card-embed.is-4-3 {
   aspect-ratio: 4 / 3;
 }
 
-.mobile-card-embed-loading {
+.presentation-card-embed-loading {
   position: absolute;
   inset: 0;
   display: flex;
@@ -151,7 +186,7 @@
   font-size: 0.8rem;
 }
 
-.mobile-card-embed-frame {
+.presentation-card-embed-frame {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -162,242 +197,20 @@
   transition: opacity 0.2s ease;
 }
 
-.mobile-card-embed-frame.is-loaded {
+.presentation-card-embed-frame.is-loaded {
   opacity: 1;
 }
 
-.mobile-card-note {
+/* --- "Open it directly instead" fallback note --- */
+
+.presentation-card-note {
   margin: 0 var(--space-4, 16px) var(--space-4, 16px);
   font-size: 0.78rem;
   color: var(--color-text-secondary, #6b7280);
   text-align: center;
 }
 
-.mobile-card-note a {
+.presentation-card-note a {
   color: var(--color-primary, #3B82F6);
   font-weight: 600;
-}
-
-/* =========================================================
-   DESKTOP: master-detail split view (list + big panel)
-   ========================================================= */
-
-.presentations-layout {
-  display: none; /* hidden on mobile - the stacked card list is used instead */
-}
-
-/* --- List pane --- */
-
-.presentations-list-pane {
-  border-bottom: 1px solid var(--color-border, #e5e7eb);
-  max-height: 60vh;
-  overflow-y: auto;
-}
-
-.presentation-list-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3, 12px);
-  padding: var(--space-3, 12px) var(--space-4, 16px);
-  border-bottom: 1px solid var(--color-border, #f0f1f3);
-  cursor: pointer;
-  transition: background-color 0.12s ease;
-}
-
-.presentation-list-item:last-child {
-  border-bottom: none;
-}
-
-.presentation-list-item:hover {
-  background: rgba(59, 130, 246, 0.04);
-}
-
-.presentation-list-item.is-active {
-  background: rgba(59, 130, 246, 0.08);
-  border-left: 3px solid var(--color-primary, #3B82F6);
-  padding-left: calc(var(--space-4, 16px) - 3px);
-}
-
-.presentation-list-item-icon {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-accent-orange, #F59E0B);
-}
-
-.presentation-list-item-icon svg {
-  width: 22px;
-  height: 22px;
-}
-
-.presentation-list-item-body {
-  flex: 1;
-  min-width: 0;
-}
-
-.presentation-list-item-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text, #111827);
-  margin: 0 0 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.presentation-list-item-meta {
-  font-size: 0.78rem;
-  color: var(--color-text-secondary, #6b7280);
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.presentation-list-item-download {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-md, 8px);
-  color: var(--color-text-secondary, #6b7280);
-  transition: background-color 0.12s ease, color 0.12s ease;
-}
-
-.presentation-list-item-download:hover {
-  background: var(--color-primary, #3B82F6);
-  color: #fff;
-}
-
-.presentation-list-item-download svg {
-  width: 18px;
-  height: 18px;
-}
-
-/* --- Viewer pane --- */
-
-.presentations-viewer-pane {
-  position: relative;
-  min-height: 320px;
-  padding: var(--space-4, 16px);
-}
-
-.viewer-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2, 8px);
-  min-height: 260px;
-  text-align: center;
-  color: var(--color-text-secondary, #6b7280);
-}
-
-.viewer-placeholder-icon {
-  font-size: 2.5rem;
-}
-
-.viewer-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-3, 12px);
-  margin-bottom: var(--space-4, 16px);
-}
-
-.viewer-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-text, #111827);
-  margin: 0 0 2px;
-}
-
-.viewer-subtitle {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary, #6b7280);
-  margin: 0;
-}
-
-.viewer-download-btn {
-  flex-shrink: 0;
-  font-size: 0.85rem;
-  white-space: nowrap;
-}
-
-.viewer-embed {
-  position: relative;
-  background: #111827;
-  border-radius: var(--radius-md, 10px);
-  overflow: hidden;
-  aspect-ratio: 16 / 9; /* default - most modern PPT/Slides decks */
-  min-height: 280px; /* safety floor so Google's own "..." dropdown always has room and never gets clipped */
-}
-
-.viewer-embed.is-4-3 {
-  aspect-ratio: 4 / 3;
-}
-
-.viewer-embed-loading {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2, 8px);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
-}
-
-.viewer-embed-frame {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: #fff;
-}
-
-.viewer-embed-note {
-  margin-top: var(--space-3, 12px);
-  font-size: 0.8rem;
-  color: var(--color-text-secondary, #6b7280);
-  text-align: center;
-}
-
-.viewer-embed-note a {
-  color: var(--color-primary, #3B82F6);
-  font-weight: 600;
-}
-
-@media (min-width: 900px) {
-  .presentations-mobile-list {
-    display: none;
-  }
-
-  .presentations-layout {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    max-height: 75vh;
-    border: 1px solid var(--color-border, #e5e7eb);
-    border-radius: var(--radius-lg, 12px);
-    overflow: hidden;
-    margin-bottom: var(--space-8, 32px);
-    background: var(--color-bg, #fff);
-  }
-
-  .presentations-list-pane {
-    max-height: 75vh;
-    border-bottom: none;
-    border-right: 1px solid var(--color-border, #e5e7eb);
-  }
-
-  .presentations-viewer-pane {
-    overflow-y: auto;
-  }
 }
