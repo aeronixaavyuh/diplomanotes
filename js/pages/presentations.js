@@ -44,6 +44,17 @@ const PresentationsPage = {
     return typeof url === 'string' && url.includes('drive.google.com');
   },
 
+  /**
+   * Google's own embed (Slides or Drive) shows a small branding
+   * link ("Google Slides" / file icon) in the bottom-right corner
+   * that always leads to Google's generic homepage, not this
+   * specific file. Office Online's embed doesn't have this, so
+   * the click-blocking overlay is only needed for Google sources.
+   */
+  usesGoogleBranding(fileUrl) {
+    return this.isGoogleSlidesUrl(fileUrl) || this.isGoogleDriveFileUrl(fileUrl);
+  },
+
   extractDriveFileId(url) {
     const patterns = [
       /\/d\/([a-zA-Z0-9_-]+)/,
@@ -271,6 +282,15 @@ const PresentationsPage = {
             title="${p.title} preview"
             allowfullscreen
           ></iframe>
+          ${this.usesGoogleBranding(p.fileUrl) ? `
+          <a
+            href="${externalUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="embed-brand-overlay"
+            title="Open this presentation"
+            aria-label="Open this presentation"
+          ></a>` : ''}
         </div>
 
         <p class="presentation-card-note">

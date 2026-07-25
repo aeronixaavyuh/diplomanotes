@@ -1,3 +1,14 @@
+/* ============================================
+   DIPLOMA NOTES - PRESENTATIONS PAGE STYLES
+   ONE responsive grid of cards used on every
+   device - no click-through navigation anywhere.
+   Mobile: 1 column. Tablet: 2. Laptop: 3.
+   Wide desktop: 4. Every card previews inline;
+   iframes are lazy-loaded (only when scrolled
+   into view) so a long list doesn't tank
+   performance/data usage.
+   ============================================ */
+
 /* ---------- Toolbar (search + upload CTA) ---------- */
 
 .presentations-toolbar {
@@ -87,7 +98,7 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: var(--space-6, 24px);
-  color: var(--color-gray-500, #6b7280);
+  color: var(--color-text-secondary, #6b7280);
 }
 
 /* ---------- Individual card ---------- */
@@ -188,6 +199,39 @@
 
 .presentation-card-embed-frame.is-loaded {
   opacity: 1;
+}
+
+/* Sits invisibly on top of Google's own "Google Slides" / Drive
+   branding link that always appears bottom-right of their embed.
+   Intercepts the click before it reaches the iframe (which would
+   otherwise send the student to Google's generic homepage) and
+   opens this exact presentation instead. Deliberately narrow/short
+   so it doesn't cover the prev/next/menu controls to its left. */
+.embed-brand-overlay {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  max-width: 160px;
+  height: 38px;
+  cursor: pointer;
+}
+
+/* Google's own "Google Slides"/"Drive" branding link (bottom-right
+   of their embed) always opens Google's generic homepage, not this
+   specific file - that's their cross-origin iframe content, which
+   we cannot modify or intercept directly. Instead we place our own
+   invisible clickable layer exactly over that corner, on top of the
+   iframe, so a tap there opens the CORRECT presentation (same link
+   as "Open it directly instead") rather than Google's homepage. */
+.presentation-card-embed-openlink {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+  height: 40px;
 }
 
 /* --- "Open it directly instead" fallback note --- */

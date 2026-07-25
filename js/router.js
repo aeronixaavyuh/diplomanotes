@@ -11,7 +11,11 @@ const Router = {
    * @param {number} semester - Semester number (optional)
    */
   toBranchSubjects(branchId, semester = null) {
-    const url = new URL(CONFIG.ROUTES.branches, window.location.origin);
+    // Use current page URL (not just origin) as the base, so this
+    // still resolves correctly when the site lives in a GitHub
+    // Pages subfolder like https://username.github.io/reponame/ -
+    // origin alone would drop that "/reponame/" part and 404.
+    const url = new URL(CONFIG.ROUTES.branches, window.location.href);
     url.searchParams.set('branch', branchId);
     if (semester) {
       url.searchParams.set('semester', semester);
@@ -27,7 +31,7 @@ const Router = {
    * @param {string} tab - Tab name (optional)
    */
   toStudyMaterial(branchId, semester, subjectId, tab = null) {
-    const url = new URL(CONFIG.ROUTES.studyMaterial, window.location.origin);
+    const url = new URL(CONFIG.ROUTES.studyMaterial, window.location.href);
     url.searchParams.set('branch', branchId);
     url.searchParams.set('semester', semester);
     url.searchParams.set('subject', subjectId);
@@ -46,7 +50,7 @@ const Router = {
    * @param {string} subjectId - Subject ID
    */
   toPresentations(branchId, semester, subjectId) {
-    const url = new URL(CONFIG.ROUTES.presentations, window.location.origin);
+    const url = new URL(CONFIG.ROUTES.presentations, window.location.href);
     url.searchParams.set('branch', branchId);
     url.searchParams.set('semester', semester);
     url.searchParams.set('subject', subjectId);
