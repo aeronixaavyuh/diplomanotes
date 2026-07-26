@@ -437,10 +437,13 @@
     gap: var(--space-3);
   }
   
-  .unit-item-actions,
+  .unit-item-actions,.practical-item-actions,
   .pyq-item-actions {
+    justify-content: stretch; 
+    display: flex;
     width: 100%;
-    justify-content: stretch;
+    gap: var(--space-2);
+    align-items: stretch;
   }
   
   .unit-item-actions .btn,
@@ -453,8 +456,7 @@
     align-items: stretch;
   }
   
-  .practical-item-actions {
-    width: 100%;
-    justify-content: stretch;
+  .practical-item-actions .btn {
+    flex: 1;
   }
 }
