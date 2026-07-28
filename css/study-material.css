@@ -228,10 +228,16 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: var(--space-4);
+  margin-bottom: var(--space-3);
   background-color: var(--color-white);
   border: 1px solid var(--color-gray-200);
   border-radius: var(--border-radius-lg);
   padding: var(--space-5);
+  transition: all var(--transition-fast);
+}
+
+.practical-item:hover {
+  background-color: var(--color-gray-50);
 }
 
 .practical-item-content {
@@ -313,6 +319,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 @media (min-width: 768px) {
@@ -407,6 +414,14 @@
   line-height: var(--leading-normal);
 }
 
+/* Title + badge sit on the same row above the meta line */
+.video-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
 .video-meta {
   display: flex;
   align-items: center;
@@ -429,6 +444,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .pyq-item {
@@ -436,6 +452,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: var(--space-4);
+  margin-bottom: var(--space-3);       
   background-color: var(--color-white);
   border: 1px solid var(--color-gray-200);
   border-radius: var(--border-radius-lg);
@@ -457,6 +474,14 @@
   font-weight: var(--font-bold);
   color: var(--color-primary);
   margin-bottom: var(--space-1);
+}
+
+/* Year + badge sit on the same row above the exam-type line */
+.pyq-item-year-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
 }
 
 .pyq-item-exam {
