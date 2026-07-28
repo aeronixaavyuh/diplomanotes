@@ -124,6 +124,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -141,7 +142,18 @@
   border-radius: var(--border-radius-md);
 }
 
-/* ===== UNITS LIST ===== */
+/* =========================================================
+   SHARED CARD LAYOUT
+   Notes, Practicals, and PYQs all use the exact same pattern:
+     - a "content" block (number/year + title + description)
+       on the left
+     - an "actions" block (Open/Download buttons) on the right
+   On mobile these stack vertically IN DOM ORDER, so the
+   description/meta text always appears above the buttons -
+   never between the title and the description.
+   ========================================================= */
+
+/* ===== UNITS LIST (Notes) ===== */
 
 .units-list {
   display: flex;
@@ -149,25 +161,58 @@
   gap: var(--space-4);
 }
 
-/* Enhanced Unit Item */
+.unit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-5);
+}
+
+.unit-item-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  flex: 1;
+}
+
 .unit-item-number {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   width: 32px;
   height: 32px;
   background-color: var(--color-primary-lighter);
   color: var(--color-primary-dark);
   border-radius: 50%;
-  text-align: center;
-  line-height: 32px;
   font-weight: var(--font-bold);
   font-size: var(--text-sm);
-  margin-right: var(--space-3);
+  margin-top: 2px;
 }
 
-.unit-item-title-wrapper {
+.unit-item-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.unit-item-summary {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+.unit-item-actions {
   display: flex;
   align-items: center;
-  flex: 1;
+  gap: var(--space-2);
+  flex-shrink: 0;
 }
 
 /* ===== PRACTICALS LIST ===== */
@@ -178,10 +223,30 @@
   gap: var(--space-3);
 }
 
+.practical-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-5);
+}
+
+.practical-item-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  flex: 1;
+  cursor: pointer;
+}
+
 .practical-item-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   min-width: 28px;
   height: 28px;
   background-color: var(--color-gray-100);
@@ -189,7 +254,28 @@
   border-radius: var(--border-radius-sm);
   font-weight: var(--font-semibold);
   font-size: var(--text-sm);
-  margin-right: var(--space-2);
+  margin-top: 2px;
+}
+
+.practical-item-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.practical-item-description {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+.practical-item-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
 }
 
 /* Virtual Lab Button */
@@ -219,6 +305,9 @@
 }
 
 /* ===== VIDEO TUTORIALS ===== */
+/* Videos keep their own thumbnail-card design - not part of the
+   shared content/actions layout above, since there's no
+   Open/Download action row for these. */
 
 .videos-list {
   display: grid;
@@ -252,7 +341,8 @@
 .video-thumbnail {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio */
   background-color: var(--color-gray-900);
   overflow: hidden;
 }
@@ -333,6 +423,7 @@
 }
 
 /* ===== PYQs LIST ===== */
+/* Same content/actions layout as Notes and Practicals above. */
 
 .pyqs-list {
   display: flex;
@@ -341,6 +432,10 @@
 }
 
 .pyq-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
   background-color: var(--color-white);
   border: 1px solid var(--color-gray-200);
   border-radius: var(--border-radius-lg);
@@ -353,15 +448,7 @@
   border-color: var(--color-primary-light);
 }
 
-.pyq-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--space-4);
-  margin-bottom: var(--space-3);
-}
-
-.pyq-item-info {
+.pyq-item-content {
   flex: 1;
 }
 
@@ -375,10 +462,12 @@
 .pyq-item-exam {
   font-size: var(--text-sm);
   color: var(--color-gray-600);
+  margin-bottom: var(--space-3);
 }
 
 .pyq-item-actions {
   display: flex;
+  align-items: center;
   gap: var(--space-2);
   flex-shrink: 0;
 }
@@ -429,34 +518,35 @@
   margin-bottom: var(--space-6);
 }
 
-/* Mobile Responsive */
+/* =========================================================
+   MOBILE RESPONSIVE
+   Notes, Practicals, and PYQ all get identical treatment:
+   stack content above actions, actions become full-width,
+   and the two buttons split the width 50/50.
+   ========================================================= */
+
 @media (max-width: 767px) {
-  .unit-item-header,
-  .pyq-item-header {
+
+  .unit-item,
+  .practical-item,
+  .pyq-item {
     flex-direction: column;
+    align-items: stretch;
     gap: var(--space-3);
   }
-  
-  .unit-item-actions,.practical-item-actions,
+
+  .unit-item-actions,
+  .practical-item-actions,
   .pyq-item-actions {
-    justify-content: stretch; 
     display: flex;
     width: 100%;
     gap: var(--space-2);
-    align-items: stretch;
+    justify-content: stretch;
   }
-  
+
   .unit-item-actions .btn,
+  .practical-item-actions .btn,
   .pyq-item-actions .btn {
-    flex: 1;
-  }
-  
-  .practical-item {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .practical-item-actions .btn {
     flex: 1;
   }
 }

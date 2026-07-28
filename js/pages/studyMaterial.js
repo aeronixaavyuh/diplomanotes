@@ -4,14 +4,14 @@
    ============================================ */
 
 const StudyMaterialPage = {
-  
+
   branchId: null,
   semester: null,
   subjectId: null,
   branchData: null,
   subjectData: null,
   materialData: null,
-  
+
   /**
    * Initialize study material page
    */
@@ -21,39 +21,39 @@ const StudyMaterialPage = {
     this.branchId = params.branch;
     this.semester = params.semester;
     this.subjectId = params.subject;
-    
+
     if (!this.branchId || !this.semester || !this.subjectId) {
       window.location.href = CONFIG.ROUTES.home;
       return;
     }
-    
+
     // Get saved or URL tab
     const savedTab = StorageManager.getSelectedTab(this.subjectId);
     const currentTab = params.tab || savedTab;
-    
+
     // Load data
     await this.loadBranchData();
     await this.loadSubjectData();
     await this.loadMaterialData();
-    
+
     // Setup UI
     this.updateBreadcrumb();
     this.updatePageHeader();
     this.setupBackButton();
     StudyTabsComponent.init(currentTab);
-    
+
     // Listen for tab changes
     document.addEventListener('tabChanged', (e) => {
       this.onTabChanged(e.detail.tab);
     });
-    
+
     // Load initial tab content
     this.loadTabContent(currentTab);
-    
+
     // Save to recently viewed
     this.saveToRecentlyViewed();
   },
-  
+
   /**
    * Load branch data
    */
@@ -65,7 +65,7 @@ const StudyMaterialPage = {
       console.error('Error loading branch data:', error);
     }
   },
-  
+
   /**
    * Load subject data
    */
@@ -73,16 +73,16 @@ const StudyMaterialPage = {
     try {
       const dataPath = CONFIG.DATA_PATHS.subjects[this.branchId];
       const data = await Utils.fetchJSON(dataPath);
-      
+
       // Find subject in semester
       const semesterData = data.semesters.find(s => s.number === this.semester);
       this.subjectData = semesterData?.subjects.find(s => s.id === this.subjectId);
-      
+
     } catch (error) {
       console.error('Error loading subject data:', error);
     }
   },
-  
+
   /**
    * Load study material data
    */
@@ -90,48 +90,48 @@ const StudyMaterialPage = {
     try {
       const fileName = `${this.branchId}-sem${this.semester}-${this.subjectId}.json`;
       const dataPath = CONFIG.DATA_PATHS.studyMaterial + fileName;
-      
+
       this.materialData = await Utils.fetchJSON(dataPath);
-      
+
     } catch (error) {
       console.error('Error loading material data:', error);
       this.materialData = null;
     }
   },
-  
+
   /**
    * Update breadcrumb
    */
   updateBreadcrumb() {
     const branchLink = document.getElementById('breadcrumbBranch');
     const subjectSpan = document.getElementById('breadcrumbSubject');
-    
+
     if (branchLink && this.branchData) {
       branchLink.textContent = this.branchData.name;
       branchLink.href = `branch-subjects.html?branch=${this.branchId}&semester=${this.semester}`;
     }
-    
+
     if (subjectSpan && this.subjectData) {
       subjectSpan.textContent = this.subjectData.name;
     }
   },
-  
+
   /**
    * Update page header
    */
   updatePageHeader() {
     const titleElement = document.getElementById('studyMaterialTitle');
     const subtitleElement = document.getElementById('studyMaterialSubtitle');
-    
+
     if (titleElement && this.subjectData) {
       titleElement.textContent = this.subjectData.name;
     }
-    
+
     if (subtitleElement) {
       subtitleElement.textContent = 'Access Subject-wise learning material — simple, fast, and organized.';
     }
   },
-  
+
   /**
    * Setup back button
    */
@@ -141,7 +141,7 @@ const StudyMaterialPage = {
       backButton.href = `branch-subjects.html?branch=${this.branchId}&semester=${this.semester}`;
     }
   },
-  
+
   /**
    * Handle tab change
    * @param {string} tab - New tab name
@@ -149,11 +149,11 @@ const StudyMaterialPage = {
   onTabChanged(tab) {
     // Save preference
     StorageManager.saveSelectedTab(this.subjectId, tab);
-    
+
     // Load content
     this.loadTabContent(tab);
   },
-  
+
   /**
    * Load content for active tab
    * @param {string} tab - Tab name
@@ -174,93 +174,104 @@ const StudyMaterialPage = {
         break;
     }
   },
-  
+
   /**
    * Load and render notes
    */
   loadNotes() {
     const listContainer = document.getElementById('unitsList');
     const emptyState = document.getElementById('notesEmpty');
-    
+
     if (!this.materialData || !this.materialData.notes || this.materialData.notes.length === 0) {
       listContainer.innerHTML = '';
       emptyState.style.display = 'block';
       return;
     }
-    
+
     emptyState.style.display = 'none';
     this.renderUnits(this.materialData.notes, listContainer);
   },
-  
+
   /**
-   * Render units/notes
+   * Render units/notes.
+   *
+   * Layout (same pattern used for Practicals and PYQs): a
+   * "content" block (number + title + description) on the left,
+   * and an "actions" block (Open/Download buttons) on the right.
+   * On mobile these stack vertically in DOM order, so the
+   * description always appears above the buttons instead of
+   * between the title and the description.
    * @param {Array} units - Units data
    * @param {HTMLElement} container - Container element
    */
   renderUnits(units, container) {
     container.innerHTML = '';
-    
+
     units.forEach((unit, index) => {
       const unitElement = document.createElement('div');
       unitElement.className = 'unit-item';
-      
+
       unitElement.innerHTML = `
-        <div class="unit-item-header">
-          <div class="unit-item-title-wrapper">
-            <span class="unit-item-number">${index + 1}</span>
+        <div class="unit-item-content">
+          <span class="unit-item-number">${index + 1}</span>
+          <div>
             <h3 class="unit-item-title">${unit.title}</h3>
-          </div>
-          <div class="unit-item-actions">
-            <button class="btn btn-primary btn-sm" onclick="StudyMaterialPage.openPDF('${unit.pdfUrl || '#'}')">
-              Open
-            </button>
-            <button class="btn btn-outline btn-sm" onclick="StudyMaterialPage.downloadPDF('${unit.pdfUrl || '#'}', '${unit.title}')">
-              Download
-            </button>
+            ${unit.summary ? `
+              <p class="unit-item-summary">${unit.summary}</p>
+            ` : ''}
           </div>
         </div>
-        ${unit.summary ? `
-          <p class="unit-item-summary">${unit.summary}</p>
-        ` : ''}
+        <div class="unit-item-actions">
+          <button class="btn btn-primary btn-sm" onclick="StudyMaterialPage.openPDF('${unit.pdfUrl || '#'}')">
+            Open
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="StudyMaterialPage.downloadPDF('${unit.pdfUrl || '#'}', '${unit.title}')">
+            Download
+          </button>
+        </div>
       `;
-      
+
       container.appendChild(unitElement);
     });
   },
-  
+
   /**
    * Load and render practicals
    */
   loadPracticals() {
     const listContainer = document.getElementById('practicalsList');
     const emptyState = document.getElementById('practicalsEmpty');
-    
+
     if (!this.materialData || !this.materialData.practicals || this.materialData.practicals.length === 0) {
       listContainer.innerHTML = '';
       emptyState.style.display = 'block';
       return;
     }
-    
+
     emptyState.style.display = 'none';
     this.renderPracticals(this.materialData.practicals, listContainer);
   },
-  
+
   /**
-   * Render practicals
+   * Render practicals.
+   *
+   * Same content/actions layout pattern as renderUnits() - content
+   * (number + title + description, clickable through to the
+   * virtual lab) on the left, Open/Download on the right.
    * @param {Array} practicals - Practicals data
    * @param {HTMLElement} container - Container element
    */
   renderPracticals(practicals, container) {
     container.innerHTML = '';
-    
+
     practicals.forEach((practical, index) => {
       const practicalElement = document.createElement('div');
       practicalElement.className = 'practical-item';
-      
+
       // Virtual lab URL
-      const virtualLabUrl = practical.virtualLabUrl || 
+      const virtualLabUrl = practical.virtualLabUrl ||
                            `${CONFIG.EXTERNAL_LINKS.virtualLab}${this.branchId}/${this.subjectId}/${practical.id}`;
-      
+
       practicalElement.innerHTML = `
         <div class="practical-item-content" onclick="window.open('${virtualLabUrl}', '_blank')">
           <span class="practical-item-number">${index + 1}</span>
@@ -280,28 +291,28 @@ const StudyMaterialPage = {
           </button>
         </div>
       `;
-      
+
       container.appendChild(practicalElement);
     });
   },
-  
+
   /**
    * Load and render videos
    */
   loadVideos() {
     const listContainer = document.getElementById('videosList');
     const emptyState = document.getElementById('videosEmpty');
-    
+
     if (!this.materialData || !this.materialData.videos || this.materialData.videos.length === 0) {
       listContainer.innerHTML = '';
       emptyState.style.display = 'block';
       return;
     }
-    
+
     emptyState.style.display = 'none';
     this.renderVideos(this.materialData.videos, listContainer);
   },
-  
+
   /**
    * Render videos
    * @param {Array} videos - Videos data
@@ -309,20 +320,20 @@ const StudyMaterialPage = {
    */
   renderVideos(videos, container) {
     container.innerHTML = '';
-    
+
     videos.forEach(video => {
       const videoElement = document.createElement('a');
       videoElement.className = 'video-item';
       videoElement.href = video.url;
       videoElement.target = '_blank';
       videoElement.rel = 'noopener noreferrer';
-      
+
       // Extract YouTube video ID
       const videoId = this.extractYouTubeId(video.url);
-      const thumbnailUrl = videoId 
+      const thumbnailUrl = videoId
         ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
         : 'assets/images/video-placeholder.jpg';
-      
+
       videoElement.innerHTML = `
         <div class="video-thumbnail">
           <img src="${thumbnailUrl}" alt="${video.title}" loading="lazy">
@@ -347,84 +358,90 @@ const StudyMaterialPage = {
           </div>
         </div>
       `;
-      
+
       container.appendChild(videoElement);
     });
   },
-  
+
   /**
    * Load and render PYQs
    */
   loadPYQs() {
     const listContainer = document.getElementById('pyqsList');
     const emptyState = document.getElementById('pyqsEmpty');
-    
+
     if (!this.materialData || !this.materialData.pyqs || this.materialData.pyqs.length === 0) {
       listContainer.innerHTML = '';
       emptyState.style.display = 'block';
       return;
     }
-    
+
     emptyState.style.display = 'none';
     this.renderPYQs(this.materialData.pyqs, listContainer);
   },
-  
+
   /**
-   * Render PYQs
+   * Render PYQs.
+   *
+   * Same content/actions layout pattern as renderUnits() and
+   * renderPracticals() - content (year + exam type + meta info)
+   * on the left, Open/Download on the right, so all three tabs
+   * behave identically on both desktop and mobile.
    * @param {Array} pyqs - PYQs data
    * @param {HTMLElement} container - Container element
    */
   renderPYQs(pyqs, container) {
     container.innerHTML = '';
-    
+
     // Sort by year (newest first)
     const sortedPyqs = [...pyqs].sort((a, b) => b.year - a.year);
-    
+
     sortedPyqs.forEach(pyq => {
       const pyqElement = document.createElement('div');
       pyqElement.className = 'pyq-item';
-      
+
+      const metaItems = [];
+      if (pyq.pages) {
+        metaItems.push(`
+          <span class="pyq-item-meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            ${pyq.pages} pages
+          </span>
+        `);
+      }
+      if (pyq.fileSize) {
+        metaItems.push(`<span class="pyq-item-meta-item">${pyq.fileSize}</span>`);
+      }
+      if (pyq.downloads) {
+        metaItems.push(`<span class="pyq-item-meta-item">${pyq.downloads} downloads</span>`);
+      }
+
       pyqElement.innerHTML = `
-        <div class="pyq-item-header">
-          <div class="pyq-item-info">
+        <div class="pyq-item-content">
+          <div>
             <h3 class="pyq-item-year">${pyq.year}</h3>
             <p class="pyq-item-exam">${pyq.examType || 'Semester Exam'}</p>
-          </div>
-          <div class="pyq-item-actions">
-            <button class="btn btn-primary btn-sm" onclick="StudyMaterialPage.openPDF('${pyq.pdfUrl || '#'}')">
-              Open
-            </button>
-            <button class="btn btn-outline btn-sm" onclick="StudyMaterialPage.downloadPDF('${pyq.pdfUrl || '#'}', 'PYQ-${pyq.year}')">
-              Download
-            </button>
+            ${metaItems.length ? `
+              <div class="pyq-item-meta">${metaItems.join('')}</div>
+            ` : ''}
           </div>
         </div>
-        <div class="pyq-item-meta">
-          ${pyq.pages ? `
-            <span class="pyq-item-meta-item">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              ${pyq.pages} pages
-            </span>
-          ` : ''}
-          ${pyq.fileSize ? `
-            <span class="pyq-item-meta-item">
-              ${pyq.fileSize}
-            </span>
-          ` : ''}
-          ${pyq.downloads ? `
-            <span class="pyq-item-meta-item">
-              ${pyq.downloads} downloads
-            </span>
-          ` : ''}
+        <div class="pyq-item-actions">
+          <button class="btn btn-primary btn-sm" onclick="StudyMaterialPage.openPDF('${pyq.pdfUrl || '#'}')">
+            Open
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="StudyMaterialPage.downloadPDF('${pyq.pdfUrl || '#'}', 'PYQ-${pyq.year}')">
+            Download
+          </button>
         </div>
       `;
-      
+
       container.appendChild(pyqElement);
     });
   },
-  
+
   /**
    * Extract YouTube video ID from URL
    * @param {string} url - YouTube URL
@@ -435,7 +452,7 @@ const StudyMaterialPage = {
     const match = url.match(regex);
     return match ? match[1] : null;
   },
-  
+
   /**
    * Open PDF in new tab
    * @param {string} url - PDF URL
@@ -447,7 +464,7 @@ const StudyMaterialPage = {
       Utils.showToast('PDF not available yet', 'info');
     }
   },
-  
+
   /**
    * Download PDF
    * @param {string} url - PDF URL
@@ -463,7 +480,7 @@ const StudyMaterialPage = {
       Utils.showToast('PDF not available yet', 'info');
     }
   },
-  
+
   /**
    * Save to recently viewed
    */
