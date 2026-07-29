@@ -270,7 +270,7 @@ const StudyMaterialPage = {
 
       // Virtual lab URL
       const virtualLabUrl = practical.virtualLabUrl ||
-                           `${CONFIG.EXTERNAL_LINKS.virtualLab}${this.branchId}/${this.subjectId}/${practical.id}`;
+        `${CONFIG.EXTERNAL_LINKS.virtualLab}${this.branchId}/${this.subjectId}/${practical.id}`;
 
       practicalElement.innerHTML = `
         <div class="practical-item-content" onclick="window.open('${virtualLabUrl}', '_blank')">
@@ -470,15 +470,34 @@ const StudyMaterialPage = {
    * @param {string} url - PDF URL
    * @param {string} filename - File name
    */
-  downloadPDF(url, filename) {
-    if (url && url !== '#') {
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `${filename}.pdf`;
-      link.click();
-    } else {
-      Utils.showToast('PDF not available yet', 'info');
+  downloadPDF(url) {
+    if (!url || url === "#") return;
+
+    // Google Drive
+    if (url.includes("drive.google.com")) {
+
+      const match = url.match(/\/d\/([^\/]+)/);
+
+      if (match) {
+
+        const fileId = match[1];
+
+        window.open(
+          `https://drive.google.com/uc?export=download&id=${fileId}`,
+          "_blank"
+        );
+
+        return;
+      }
     }
+
+    // Other PDFs
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   },
 
   /**
