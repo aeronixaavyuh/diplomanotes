@@ -283,20 +283,6 @@
 .contributors-marquee {
   display: flex;
   gap: var(--space-6);
-  animation: marqueeScroll 30s linear infinite;
-}
-
-.contributors-marquee:hover {
-  animation-play-state: paused;
-}
-
-@keyframes marqueeScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 
 /* Contributor Card - FIXED WIDTH */
@@ -413,7 +399,7 @@
 
 .contributor-social-link svg {
   width: 18px;                 /* ← Fixed icon size */
-  height: 18px;                /* ← Fixed icon size */
+  height: 18px;                 /* ← Fixed icon size */
   flex-shrink: 0;
 }
 
@@ -435,10 +421,6 @@
     width: 280px;              /* ← Smaller fixed width on mobile */
     min-width: 280px;
     max-width: 280px;
-  }
-  
-  .contributors-marquee {
-    animation: marqueeScroll 20s linear infinite;
   }
   
   .contributor-avatar {
@@ -509,4 +491,36 @@
   .btn-lg {
     width: 100%;
   }
+}
+
+/* ============================================
+   CONTRIBUTORS MARQUEE - DRAG/SWIPE SUPPORT
+   The old CSS @keyframes animation (and its
+   hover-to-pause rule) that used to auto-scroll
+   this marquee were removed above - auto-scroll
+   and hover-to-pause now both happen in JS
+   (home.js), which also lets the marquee be
+   dragged with a mouse or swiped with a finger.
+   ============================================ */
+
+/* Turn the wrapper into a real scrollable area instead
+   of a hidden overflow box, and hide its scrollbar so
+   it still looks like a marquee, not a normal scrollbar. */
+.contributors-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* old Edge/IE */
+  cursor: grab;
+  user-select: none;
+}
+
+.contributors-wrapper::-webkit-scrollbar {
+  display: none;              /* Chrome/Safari/Edge */
+}
+
+.contributors-wrapper.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
 }

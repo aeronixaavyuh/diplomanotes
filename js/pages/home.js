@@ -132,6 +132,9 @@ async renderContributors() {
     
     // Duplicate cards for seamless loop
     marqueeContainer.innerHTML = cardsHTML + cardsHTML;
+
+    // Enable drag/swipe + auto-scroll on the marquee now that it has real content
+    this.setupContributorsMarqueeDrag();
     
   } catch (error) {
     console.error('Error loading contributors:', error);
@@ -203,6 +206,150 @@ createContributorCard(contributor) {
         Utils.scrollTo(href);
       });
     });
+  },
+
+  /**
+   * Enable drag-to-scroll (mouse) and swipe (touch) on the
+   * contributors marquee, plus a continuous JS-driven auto-scroll
+   * that replaces the old CSS @keyframes animation. Auto-scroll
+   * pauses the moment the user drags/swipes/wheels it, and resumes
+   * automatically a short while after they let go - in either
+   * direction, no need to wait for it to loop back around.
+   */
+  setupContributorsMarqueeDrag() {
+    const wrapper = document.querySelector('.contributors-wrapper');
+    const track = document.getElementById('contributorsMarquee');
+
+    if (!wrapper || !track) return;
+
+    // Start at the midpoint between the two duplicated copies -
+    // visually identical to starting at 0 (since the content
+    // repeats), but this gives equal room to drag/swipe BOTH
+    // left and right from the very first interaction, instead of
+    // starting pinned at the left edge with nowhere to go left.
+    wrapper.scrollLeft = track.scrollWidth / 2;
+
+    // Make it keyboard-accessible: focusable via Tab, and announced
+    // properly by screen readers, without needing to edit index.html.
+    if (!wrapper.hasAttribute('tabindex')) {
+      wrapper.setAttribute('tabindex', '0');
+    }
+    wrapper.setAttribute('role', 'region');
+    wrapper.setAttribute('aria-label', 'Contributors carousel - drag, swipe, or use arrow keys to scroll');
+
+    let isDown = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let autoScrollPaused = false;
+    let resumeTimeout = null;
+    const autoScrollSpeed = 0.6; // px per frame - tweak to speed up/slow down
+
+    const pauseAutoScroll = () => {
+      autoScrollPaused = true;
+      clearTimeout(resumeTimeout);
+    };
+
+    const resumeAutoScrollAfterDelay = (delay = 1500) => {
+      clearTimeout(resumeTimeout);
+      resumeTimeout = setTimeout(() => {
+        autoScrollPaused = false;
+      }, delay);
+    };
+
+    // Content is duplicated (cardsHTML + cardsHTML) so the halfway
+    // point is a perfect seamless loop point in either direction.
+    const normalizeLoop = () => {
+      if (isDown) return; // never snap/jump while the user is actively dragging
+      const halfWidth = track.scrollWidth / 2;
+      if (halfWidth <= 0) return;
+      if (wrapper.scrollLeft >= halfWidth) {
+        wrapper.scrollLeft -= halfWidth;
+      } else if (wrapper.scrollLeft <= 0) {
+        wrapper.scrollLeft += halfWidth;
+      }
+    };
+
+    // Mouse drag support (desktop) - native scroll containers don't
+    // scroll on click-drag by default, only on wheel/trackpad.
+    wrapper.addEventListener('mousedown', (e) => {
+      isDown = true;
+      wrapper.classList.add('is-dragging');
+      startX = e.pageX;
+      startScrollLeft = wrapper.scrollLeft;
+      pauseAutoScroll();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const walk = e.pageX - startX;
+      wrapper.scrollLeft = startScrollLeft - walk;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      wrapper.classList.remove('is-dragging');
+      normalizeLoop();
+      resumeAutoScrollAfterDelay();
+    });
+
+    // Hover-to-pause - this replaces the old CSS ":hover { animation-play-state: paused }"
+    // rule, which no longer does anything now that the CSS animation is gone.
+    // Same behaviour as before: pause the instant the cursor enters, resume
+    // the instant it leaves (unless the user is mid-drag, handled by mouseup above).
+    wrapper.addEventListener('mouseenter', () => {
+      pauseAutoScroll();
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      if (!isDown) {
+        clearTimeout(resumeTimeout);
+        autoScrollPaused = false;
+      }
+    });
+
+    // Touch swipe is native on a scrollable div - we only need to
+    // pause/resume auto-scroll around the interaction.
+    wrapper.addEventListener('touchstart', () => {
+      pauseAutoScroll();
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', () => {
+      normalizeLoop();
+      resumeAutoScrollAfterDelay();
+    });
+
+    // Mouse wheel / trackpad horizontal scroll should also pause briefly
+    wrapper.addEventListener('wheel', () => {
+      pauseAutoScroll();
+      resumeAutoScrollAfterDelay();
+    }, { passive: true });
+
+    // Keyboard support (desktop) - Left/Right arrow keys scroll the
+    // marquee in either direction, same as dragging with the mouse.
+    // Works once the carousel is focused (click it or Tab to it).
+    const keyboardScrollStep = 344; // roughly one card width + its gap
+    wrapper.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      pauseAutoScroll();
+      const direction = e.key === 'ArrowLeft' ? -1 : 1;
+      wrapper.scrollLeft += direction * keyboardScrollStep;
+      normalizeLoop();
+      resumeAutoScrollAfterDelay();
+    });
+
+    // Continuous auto-scroll loop (replaces the CSS keyframe animation)
+    const step = () => {
+      if (!autoScrollPaused) {
+        wrapper.scrollLeft += autoScrollSpeed;
+      }
+      normalizeLoop();
+      requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
   }
 };
 
