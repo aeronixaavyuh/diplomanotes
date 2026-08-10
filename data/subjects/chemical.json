@@ -179,37 +179,46 @@
       "number": 5,
       "subjects": [
         {
-          "id": "industrial-chemistry",
+          "id": "process-equipment",
           "code": "CHEM501",
-          "name": "Industrial Chemistry",
-          "description": "Manufacturing of chemicals, fertilizers, and polymers",
+          "name": "Process Equipment Design",
+          "description": "Design of heat exchangers, reactors, and columns",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "mass-transfer",
+          "code": "CHEM502",
+          "name": "Mass Transfer Operations-II",
+          "description": "Distillation, absorption, extraction, and drying",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
           "id": "process-control",
-          "code": "CHEM502",
-          "name": "Process Control & Instrumentation",
+          "code": "CHEM503",
+          "name": "Process Control & Industrial Safety",
           "description": "Control systems, sensors, and automation",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "petroleum-refining",
-          "code": "CHEM503",
-          "name": "Petroleum Refining",
-          "description": "Crude oil processing and petrochemicals",
+          "id": "fertilizer-technology",
+          "code": "CHEM504",
+          "name": "Fertilizer Technology",
+          "description": "Manufacturing and application of fertilizers",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "environmental-engg",
-          "code": "CHEM504",
-          "name": "Environmental Engineering",
-          "description": "Pollution control and waste treatment",
+          "id": "disaster-management",
+          "code": "CHEM505",
+          "name": "Disaster Management (Open ELective-II)",
+          "description": "Prevention, preparedness, and response to disasters",
           "units": 5,
           "credits": 4,
           "type": "theory"
