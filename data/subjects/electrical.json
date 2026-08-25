@@ -8,38 +8,56 @@
         {
           "id": "mathematics-1",
           "code": "MATH101",
-          "name": "Engineering Mathematics - I",
+          "name": "Mathematics - I",
           "description": "Calculus, differential equations, and mathematical foundations",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "physics",
+          "id": "physics-1",
           "code": "PHY101",
-          "name": "Engineering Physics",
+          "name": "Applied Physics - I",
           "description": "Mechanics, waves, optics, and modern physics",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "basic-electrical",
-          "code": "EE101",
-          "name": "Basic Electrical Engineering",
-          "description": "DC circuits, AC fundamentals, and electrical measurements",
+          "id": "chemistry",
+          "code": "CHEM101",
+          "name": "Applied Chemistry",
+          "description": "Chemical bonding, thermodynamics, and electrochemistry",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "engineering-drawing",
+          "id": "communication-skill",
+          "code": "CSE101",
+          "name": "Communication Skills in English",
+          "description": "Grammar, technical writing, and spoken communication",
+          "units": 5,
+          "credits": 3,
+          "type": "theory"
+        },
+        {
+          "id": "engineering-graphics",
           "code": "ME101",
-          "name": "Engineering Drawing",
+          "name": "Engineering Graphics",
           "description": "Technical drawing, projections, and CAD basics",
           "units": 5,
           "credits": 3,
           "type": "practical"
+        },
+        {
+          "id": "sports-and-yoga",
+          "code": "SY101",
+          "name": "Sports & Yoga",
+          "description": "Physical fitness, sports activities, and yoga practice",
+          "units": 5,
+          "credits": 1,
+          "type": "practicum"
         }
       ]
     },
@@ -49,53 +67,71 @@
         {
           "id": "mathematics-2",
           "code": "MATH102",
-          "name": "Engineering Mathematics - II",
+          "name": "Mathematics - II",
           "description": "Linear algebra, complex analysis, and Fourier series",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "chemistry",
-          "code": "CHEM101",
-          "name": "Engineering Chemistry",
-          "description": "Chemical bonding, thermodynamics, and electrochemistry",
+          "id": "physics-2",
+          "code": "PHY102",
+          "name": "Applied Physics - II",
+          "description": "Electricity, magnetism, and thermal physics",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "electrical-circuits",
+          "id": "it-systems",
+          "code": "IT102",
+          "name": "Introduction to IT Systems",
+          "description": "Computer fundamentals, operating systems, and office tools",
+          "units": 5,
+          "credits": 3,
+          "type": "theory"
+        },
+        {
+          "id": "fundamentals-electrical-electronics",
           "code": "EE102",
-          "name": "Electrical Circuits",
-          "description": "Network theorems, AC circuits, and resonance",
+          "name": "Fundamentals of Electrical & Electronics Engineering",
+          "description": "Basic electrical circuits, magnetism, and electronic devices",
           "units": 5,
           "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "engineering-mechanics",
+          "code": "ME102",
+          "name": "Engineering Mechanics",
+          "description": "Forces, equilibrium, friction, and simple machines",
+          "units": 5,
+          "credits": 3,
           "type": "theory"
         },
         {
           "id": "workshop-practice",
-          "code": "EE103",
-          "name": "Workshop Practice",
-          "description": "Fitting, welding, machining, and safety practices",
+          "code": "WP102",
+          "name": "Engineering Workshop Practice",
+          "description": "Fitting, carpentry, welding, and basic workshop trades",
           "units": 5,
           "credits": 3,
-          "type": "practical"
+          "type": "practicum"
         },
-         {
-          "id": "advance-skill",
-          "code": "EE104",
-          "name": "Advance Skill Certification",
-          "description": "Industry-oriented skill development program",
-          "units": 0,
-          "credits": 2,
-          "type": "open-elective"
+        {
+          "id": "environmental-science",
+          "code": "EVS102",
+          "name": "Environmental Sciences",
+          "description": "Ecosystems, pollution control, and sustainable development",
+          "units": 5,
+          "credits": 3,
+          "type": "theory"
         },
         {
           "id": "industry-training",
-          "code": "EE305",
+          "code": "EE201",
           "name": "Industry Training",
-          "description": "Mandatory summer training after semester completion",
+          "description": "Mandatory 4-week industrial training after second semester",
           "units": 2,
           "credits": 2,
           "type": "mandatory"
@@ -124,10 +160,10 @@
           "type": "theory"
         },
         {
-          "id": "electrical-circuits-2",
+          "id": "electrical-circuits",
           "code": "EE303",
           "name": "Electrical Circuits",
-          "description": "Three-phase circuits, transient analysis, and two-port networks",
+          "description": "Network theorems, AC circuits, and resonance",
           "units": 5,
           "credits": 4,
           "type": "theory"
@@ -135,11 +171,29 @@
         {
           "id": "electronics-measurements",
           "code": "EE304",
-          "name": "Electrical & Electronics Measurements",
+          "name": "Electrical and Electronic Measurements",
           "description": "Measuring instruments, bridges, and digital meters",
           "units": 5,
           "credits": 3,
           "type": "theory"
+        },
+        {
+          "id": "electric-machine-1-lab",
+          "code": "EE305",
+          "name": "Electric Machine - I (Lab)",
+          "description": "Practical testing of DC machines and transformers",
+          "units": 0,
+          "credits": 1,
+          "type": "practicum"
+        },
+        {
+          "id": "advance-skill-1",
+          "code": "EE306",
+          "name": "Advance Skill Development (Open Elective-1)",
+          "description": "Industry-oriented skill development program",
+          "units": 0,
+          "credits": 2,
+          "type": "open-elective"
         }
       ]
     },
@@ -147,40 +201,103 @@
       "number": 4,
       "subjects": [
         {
-          "id": "electric-machine-2",
+          "id": "power-transmission-distribution",
           "code": "EE401",
-          "name": "Electric Machine - II",
+          "name": "Electric Power Transmission and Distribution",
+          "description": "Overhead lines, cables, and distribution system design",
+          "units": 5,
+          "credits": 4,
+          "type": "theory"
+        },
+        {
+          "id": "electric-machine-2",
+          "code": "EE402",
+          "name": "Electric Machine - II (Theory)",
           "description": "Induction motors, synchronous machines, and special machines",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "power-systems",
-          "code": "EE402",
-          "name": "Power Systems",
-          "description": "Transmission, distribution, and protection of electrical power",
-          "units": 5,
-          "credits": 4,
-          "type": "theory"
-        },
-        {
-          "id": "control-systems",
+          "id": "power-electronics-fundamentals",
           "code": "EE403",
-          "name": "Control Systems",
-          "description": "Feedback control, stability analysis, and controllers",
+          "name": "Fundamentals of Power Electronics",
+          "description": "Diodes, thyristors, converters, and inverters",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "electronics",
+          "id": "program-elective-1",
           "code": "EE404",
-          "name": "Electronics Engineering",
-          "description": "Semiconductor devices, amplifiers, and oscillators",
+          "name": "Program Elective-1: Industrial Automation and Control",
+          "description": "Automation and control systems",
           "units": 5,
-          "credits": 4,
-          "type": "theory"
+          "credits": 3,
+          "type": "elective"
+        },
+        {
+          "id": "program-elective-1",
+          "code": "EE405",
+          "name": "Program Elective-1: Industrial Instrumentation and Condition Monitoring",
+          "description": "Instrumentation and condition monitoring in industry",
+          "units": 5,
+          "credits": 3,
+          "type": "elective"
+        },
+        {
+          "id": "program-elective-2",
+          "code": "EE406",
+          "name": "Program Elective-2: Renewable Energy Power Plants",
+          "description": "Renewable power plant technologies including biomass",
+          "units": 5,
+          "credits": 3,
+          "type": "elective"
+        },
+        {
+          "id": "program-elective-2",
+          "code": "EE407",
+          "name": "Program Elective-2: Biomass and Micro-Hydro Power Plants",
+          "description": "Micro-hydro systems",
+          "units": 5,
+          "credits": 3,
+          "type": "elective"
+        },
+        {
+          "id": "electric-machine-2-practical",
+          "code": "EE408",
+          "name": "Electric Machine - II (Practical)",
+          "description": "Practical testing of induction and synchronous machines",
+          "units": 0,
+          "credits": 1,
+          "type": "practicum"
+        },
+        {
+          "id": "advance-skill-2",
+          "code": "EE409",
+          "name": "Advance Skill Development (Open Elective-2)",
+          "description": "Industry-oriented skill development program, level 2",
+          "units": 0,
+          "credits": 2,
+          "type": "open-elective"
+        },
+        {
+          "id": "essence-indian-knowledge",
+          "code": "EE410",
+          "name": "Essence of Indian Knowledge and Tradition",
+          "description": "Indian knowledge systems and traditional wisdom",
+          "units": 5,
+          "credits": 2,
+          "type": "audit course"
+        },
+        {
+          "id": "industry-training",
+          "code": "EE411",
+          "name": "Industry Training",
+          "description": "Mandatory 6-week industrial training after fourth semester",
+          "units": 2,
+          "credits": 2,
+          "type": "mandatory"
         }
       ]
     },
@@ -190,83 +307,74 @@
         {
           "id": "switchgear",
           "code": "EE501",
-          "name": "SWITCH GEAR AND PROTECTION (Theory)",
-          "description": "8085, 8086 microprocessors and 8051 microcontroller",
-          "units": 6,
+          "name": "Switch Gear and Protection",
+          "description": "Circuit breakers, relays, and power system protection",
+          "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "energyconservation",
+          "id": "program-elective-3",
           "code": "EE502",
-          "name": "ENERGY CONSERVATION AND AUDIT (Practicum)",
-          "description": "Wiring, earthing, and electrical safety practices",
+          "name": "Program Elective-3: Solar Power Technologies",
+          "description": "Solar power technology systems",
+          "units": 5,
+          "credits": 4,
+          "type": "elective"
+        },
+        {
+          "id": "program-elective-3",
+          "code": "EE503",
+          "name": "Program Elective-3: Electric Traction",
+          "description": "Electric traction fundamentals",
+          "units": 5,
+          "credits": 4,
+          "type": "elective"
+        },
+        {
+          "id": "energyconservation",
+          "code": "EE504",
+          "name": "Energy Conservation and Audit",
+          "description": "Energy audit techniques and conservation practices",
           "units": 5,
           "credits": 4,
           "type": "practicum"
+        },
+        {
+          "id": "program-elective-4",
+          "code": "EE505",
+          "name": "Program Elective-4: Electrical Testing and Commissioning",
+          "description": "Testing and commissioning of electrical systems",
+          "units": 5,
+          "credits": 4,
+          "type": "elective"
+        },
+        {
+          "id": "program-elective-4",
+          "code": "EE506",
+          "name": "Program Elective-4: Illumination Practices",
+          "description": "Illumination engineering practices",
+          "units": 5,
+          "credits": 4,
+          "type": "elective"
+        },
+        {
+          "id": "indianconstitution",
+          "code": "EE505",
+          "name": "Indian Constitution",
+          "description": "Fundamental rights, duties, and constitutional structure of India",
+          "units": 5,
+          "credits": 2,
+          "type": "audit course"
         },
         {
           "id": "electricalestimation",
-          "code": "EE503",
-          "name": "ELECTRICAL ESTIMATION AND CONTRACTING (Practicum)",
-          "description": "Illumination, heating, welding, and traction",
+          "code": "EE506",
+          "name": "Electrical Estimation and Contracting",
+          "description": "Illumination, heating, welding, and traction estimation",
           "units": 5,
           "credits": 4,
           "type": "practicum"
-        },
-        {
-          "id": "qindianconstitution",
-          "code": "EE504",
-          "name": "INDIAN CONSTITUTION (Audit Course)",
-          "description": "Converters, inverters, and power control devices",
-          "units": 5,
-          "credits": 4,
-          "type": "audit course"
-        },
-        {
-          "id": "solarpower",
-          "code": "EE505",
-          "name": "1. SOLAR POWER TECHNOLOGIES (PE-3) (Theory)",
-          "description": "Converters, inverters, and power control devices",
-          "units": 5,
-          "credits": 4,
-          "type": "audit course"
-        },
-        {
-          "id": "electrictraction",
-          "code": "EE506",
-          "name": "2. ELECTRIC TRACTION (PE-3) (Theory)",
-          "description": "Converters, inverters, and power control devices",
-          "units": 5,
-          "credits": 4,
-          "type": "audit course"
-        },
-        {
-          "id": "electrictesting",
-          "code": "EE507",
-          "name": "1. ELECTRICAL TESTING AND COMMISSIONING (PE-3) (Practicum)",
-          "description": "Converters, inverters, and power control devices",
-          "units": 5,
-          "credits": 4,
-          "type": "audit course"
-        },
-        {
-          "id": "illumination",
-          "code": "EE508",
-          "name": "2. ILLUMINATION PRACTICES (PE-4) (Practicum)",
-          "description": "Converters, inverters, and power control devices",
-          "units": 5,
-          "credits": 4,
-          "type": "audit course"
-        },
-        {
-          "id": "industry-training",
-          "code": "EE509",
-          "name": "Industry Training",
-          "description": "Mandatory summer training after semester completion",
-          "units": 2,
-          "credits": 2,
-          "type": "mandatory"
         }
       ]
     },
@@ -274,40 +382,31 @@
       "number": 6,
       "subjects": [
         {
-          "id": "renewable-energy",
+          "id": "building-electrification",
           "code": "EE601",
-          "name": "Renewable Energy Sources",
-          "description": "Solar, wind, and other renewable energy technologies",
+          "name": "Building Electrification",
+          "description": "Residential and commercial building wiring design",
           "units": 5,
           "credits": 4,
           "type": "theory"
         },
         {
-          "id": "electrical-design",
+          "id": "entrepreneurship-startups",
           "code": "EE602",
-          "name": "Electrical Design & Drawing",
-          "description": "Circuit design, panel layout, and CAD applications",
+          "name": "Entrepreneurship and Start-ups",
+          "description": "Business planning, startup ecosystem, and entrepreneurship skills",
           "units": 5,
-          "credits": 4,
+          "credits": 3,
           "type": "theory"
         },
         {
-          "id": "plc-scada",
+          "id": "open-elective-3",
           "code": "EE603",
-          "name": "PLC & SCADA",
-          "description": "Programmable logic controllers and supervisory systems",
+          "name": "Open Elective-3",
+          "description": "Open elective subject as per institute offering",
           "units": 5,
-          "credits": 4,
-          "type": "theory"
-        },
-        {
-          "id": "project",
-          "code": "EE604",
-          "name": "Major Project",
-          "description": "Final year project with industry application",
-          "units": 0,
-          "credits": 6,
-          "type": "project"
+          "credits": 3,
+          "type": "open-elective"
         }
       ]
     }
